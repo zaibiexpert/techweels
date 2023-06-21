@@ -9,6 +9,15 @@
     .success-message {
         display: none;
     }
+
+    .spartan_item_wrapper {
+        width: 100%;
+        padding: 0px;
+    }
+
+    .file_upload {
+        height: 108px !important;
+    }
 </style>
 <!-- header End -->
 
@@ -1095,6 +1104,11 @@
                                                 <option value="Working">Working</option>
                                                 <option value="not Working">Not Working</option>
                                             </select>
+                                            <label class="fs-14 mb-0 mt-3">Trunk Lock Images</label>
+                                            <div class="card-body">
+                                                <div id="trunkLock_images_picker" class="row"></div>
+                                                <div id="preview-container"></div>
+                                            </div>
                                         </div>
 
                                         <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
@@ -1108,6 +1122,11 @@
                                                 <option value="E2">E2</option>
                                                 <option value="N/A">N/A</option>
                                             </select>
+                                            <label class="fs-14 mb-0 mt-3">Front Driver Fender Images</label>
+                                            <div class="card-body">
+                                                <div id="frontDriverfender_images_picker" class="row"></div>
+                                                <div id="preview-container"></div>
+                                            </div>
                                         </div>
                                         <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
                                             <label class="mb-4 pb-1">Bonnet</label> <br />
@@ -1120,6 +1139,11 @@
                                                 <option value="E2">E2</option>
                                                 <option value="N/A">N/A</option>
                                             </select>
+                                            <label class="fs-14 mb-0 mt-3">Bonnet Images</label>
+                                            <div class="card-body">
+                                                <div id="bonnet_images_picker" class="row"></div>
+                                                <div id="preview-container"></div>
+                                            </div>
                                         </div>
                                         <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
                                             <label class="mb-4 pb-1">Front Windshield</label> <br />
@@ -1132,6 +1156,11 @@
                                                 <option value="E2">E2</option>
                                                 <option value="N/A">N/A</option>
                                             </select>
+                                            <label class="fs-14 mb-0 mt-3">Front Windshield</label>
+                                            <div class="card-body">
+                                                <div id="frontWindshield_images_picker" class="row"></div>
+                                                <div id="preview-container"></div>
+                                            </div>
                                         </div>
                                         <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
                                             <label class="mb-4 pb-1">Front Passenger Fender</label> <br />
@@ -1144,6 +1173,11 @@
                                                 <option value="E2">E2</option>
                                                 <option value="N/A">N/A</option>
                                             </select>
+                                            <label class="fs-14 mb-0 mt-3">Front Passenger Fender Images</label>
+                                            <div class="card-body">
+                                                <div id="frontPassengerfender_images_picker" class="row"></div>
+                                                <div id="preview-container"></div>
+                                            </div>
                                         </div>
                                         <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
                                             <label class="mb-4 pb-1">Front Passenger Door</label> <br />
@@ -1156,6 +1190,11 @@
                                                 <option value="E2">E2</option>
                                                 <option value="N/A">N/A</option>
                                             </select>
+                                            <label class="fs-14 mb-0 mt-3">Front Passenger Door Images</label>
+                                            <div class="card-body">
+                                                <div id="frontPassengerdoor_images_picker" class="row"></div>
+                                                <div id="preview-container"></div>
+                                            </div>
                                         </div>
                                         <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
                                             <label class="mb-4 pb-1">Rear Passenger Door</label> <br />
@@ -1168,6 +1207,11 @@
                                                 <option value="E2">E2</option>
                                                 <option value="N/A">N/A</option>
                                             </select>
+                                            <label class="fs-14 mb-0 mt-3">Rear Passenger Door images</label>
+                                            <div class="card-body">
+                                                <div id="rearPassengerdoor_images_picker" class="row"></div>
+                                                <div id="preview-container"></div>
+                                            </div>
                                         </div>
                                         <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
                                             <label class="mb-4 pb-1">Rear Passenger Fender</label> <br />
@@ -1180,6 +1224,11 @@
                                                 <option value="E2">E2</option>
                                                 <option value="N/A">N/A</option>
                                             </select>
+                                            <label class="fs-14 mb-0 mt-3">Rear Passenger Fender images</label>
+                                            <div class="card-body">
+                                                <div id="rearPassengerfender_images_picker" class="row"></div>
+                                                <div id="preview-container"></div>
+                                            </div>
                                         </div>
                                         <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
                                             <label class="mb-4 pb-1">Trunk</label> <br />
@@ -1192,6 +1241,11 @@
                                                 <option value="E2">E2</option>
                                                 <option value="N/A">N/A</option>
                                             </select>
+                                            <label class="fs-14 mb-0 mt-3">Trunk images</label>
+                                            <div class="card-body">
+                                                <div id="trunk_images_picker" class="row"></div>
+                                                <div id="preview-container"></div>
+                                            </div>
                                         </div>
                                         <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
                                             <label class="mb-4 pb-1">Rear Windshield</label> <br />
@@ -1204,6 +1258,11 @@
                                                 <option value="E2">E2</option>
                                                 <option value="N/A">N/A</option>
                                             </select>
+                                            <label class="fs-14 mb-0 mt-3">Rear Windshield images</label>
+                                            <div class="card-body">
+                                                <div id="rearWinshield_images_picker" class="row"></div>
+                                                <div id="preview-container"></div>
+                                            </div>
                                         </div>
                                         <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
                                             <label class="mb-4 pb-1">Rear Driver Fender</label> <br />
@@ -1216,6 +1275,11 @@
                                                 <option value="E2">E2</option>
                                                 <option value="N/A">N/A</option>
                                             </select>
+                                            <label class="fs-14 mb-0 mt-3">Rear Driver Fender images</label>
+                                            <div class="card-body">
+                                                <div id="rearDriverfender_images_picker" class="row"></div>
+                                                <div id="preview-container"></div>
+                                            </div>
                                         </div>
                                         <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
                                             <label class="mb-4 pb-1">Rear Driver Door</label> <br />
@@ -1228,6 +1292,11 @@
                                                 <option value="E2">E2</option>
                                                 <option value="N/A">N/A</option>
                                             </select>
+                                            <label class="fs-14 mb-0 mt-3">Rear Driver Door images</label>
+                                            <div class="card-body">
+                                                <div id="rearDriverdoor_images_picker" class="row"></div>
+                                                <div id="preview-container"></div>
+                                            </div>
                                         </div>
                                         <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
                                             <label>Front Driver Door</label> <br />
@@ -1240,6 +1309,11 @@
                                                 <option value="E2">E2</option>
                                                 <option value="N/A">N/A</option>
                                             </select>
+                                            <label class="fs-14 mb-0 mt-3">Front Driver Door images</label>
+                                            <div class="card-body">
+                                                <div id="frontDriverdoor_images_picker" class="row"></div>
+                                                <div id="preview-container"></div>
+                                            </div>
                                         </div>
 
                                         <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
@@ -1253,6 +1327,11 @@
                                                 <option value="E2">E2</option>
                                                 <option value="N/A">N/A</option>
                                             </select>
+                                            <label class="fs-14 mb-0 mt-3">Roof images</label>
+                                            <div class="card-body">
+                                                <div id="roof_images_picker" class="row"></div>
+                                                <div id="preview-container"></div>
+                                            </div>
                                         </div>
                                         <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
                                             <label>Pannels</label> <br />
@@ -1265,6 +1344,11 @@
                                                 <option value="E2">E2</option>
                                                 <option value="N/A">N/A</option>
                                             </select>
+                                            <label class="fs-14 mb-0 mt-3">Pannels images</label>
+                                            <div class="card-body">
+                                                <div id="pabbels_images_picker" class="row"></div>
+                                                <div id="preview-container"></div>
+                                            </div>
                                         </div>
                                         <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
                                             <label>Driver A Pillar</label> <br />
@@ -1277,6 +1361,11 @@
                                                 <option value="E2">E2</option>
                                                 <option value="N/A">N/A</option>
                                             </select>
+                                            <label class="fs-14 mb-0 mt-3">Driver A Pillar images</label>
+                                            <div class="card-body">
+                                                <div id="driverApillar_images_picker" class="row"></div>
+                                                <div id="preview-container"></div>
+                                            </div>
                                         </div>
                                         <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
                                             <label>Driver B Pillar </label> <br />
@@ -1289,6 +1378,11 @@
                                                 <option value="E2">E2</option>
                                                 <option value="N/A">N/A</option>
                                             </select>
+                                            <label class="fs-14 mb-0 mt-3">Driver B Pillar images</label>
+                                            <div class="card-body">
+                                                <div id="driverBpillar_images_picker" class="row"></div>
+                                                <div id="preview-container"></div>
+                                            </div>
                                         </div>
                                         <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
                                             <label>Driver C Pillar</label> <br />
@@ -1301,6 +1395,11 @@
                                                 <option value="E2">E2</option>
                                                 <option value="N/A">N/A</option>
                                             </select>
+                                            <label class="fs-14 mb-0 mt-3">Driver C Pillar images</label>
+                                            <div class="card-body">
+                                                <div id="driverCpillar_images_picker" class="row"></div>
+                                                <div id="preview-container"></div>
+                                            </div>
                                         </div>
                                         <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
                                             <label>Driver D Pillar</label> <br />
@@ -1313,6 +1412,11 @@
                                                 <option value="E2">E2</option>
                                                 <option value="N/A">N/A</option>
                                             </select>
+                                            <label class="fs-14 mb-0 mt-3">Driver D Pillar images</label>
+                                            <div class="card-body">
+                                                <div id="driverDpillar_images_picker" class="row"></div>
+                                                <div id="preview-container"></div>
+                                            </div>
                                         </div>
                                         <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
                                             <label>Passenger A Pillar</label> <br />
@@ -1325,6 +1429,11 @@
                                                 <option value="E2">E2</option>
                                                 <option value="N/A">N/A</option>
                                             </select>
+                                            <label class="fs-14 mb-0 mt-3">Passenger A Pillar images</label>
+                                            <div class="card-body">
+                                                <div id="passengerApillar_images_picker" class="row"></div>
+                                                <div id="preview-container"></div>
+                                            </div>
                                         </div>
                                         <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
                                             <label>Passenger B Pillar</label> <br />
@@ -1337,6 +1446,11 @@
                                                 <option value="E2">E2</option>
                                                 <option value="N/A">N/A</option>
                                             </select>
+                                            <label class="fs-14 mb-0 mt-3">Passenger B Pillar images</label>
+                                            <div class="card-body">
+                                                <div id="passengerBpillar_images_picker" class="row"></div>
+                                                <div id="preview-container"></div>
+                                            </div>
                                         </div>
                                         <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
                                             <label>Passenger C Pillar</label> <br />
@@ -1349,6 +1463,11 @@
                                                 <option value="E2">E2</option>
                                                 <option value="N/A">N/A</option>
                                             </select>
+                                            <label class="fs-14 mb-0 mt-3">Passenger C Pillar images</label>
+                                            <div class="card-body">
+                                                <div id="passengerCpillar_images_picker" class="row"></div>
+                                                <div id="preview-container"></div>
+                                            </div>
                                         </div>
                                         <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
                                             <label>Passenger D Pillar</label> <br />
@@ -1361,13 +1480,9 @@
                                                 <option value="E2">E2</option>
                                                 <option value="N/A">N/A</option>
                                             </select>
-                                        </div>
-                                    </div>
-                                    <div class="row mt-3">
-                                        <div class="mb-3">
-                                            <label class="fs-14">Select Images</label>
+                                            <label class="fs-14 mb-0 mt-3">Passenger D Pillar images</label>
                                             <div class="card-body">
-                                                <div id="exterior_images_picker" class="row"></div>
+                                                <div id="passengerDpillar_images_picker" class="row"></div>
                                                 <div id="preview-container"></div>
                                             </div>
                                         </div>
@@ -1604,7 +1719,7 @@
                                     </div>
                                     <div class="row mt-3">
                                         <div class="mb-3">
-                                            <label class="fs-14">Select Images</label>
+                                            <label class="fs-14">Car Images</label>
                                             <div class="card-body">
                                                 <div id="car_images_picker" class="row"></div>
                                                 <div id="preview-container"></div>
@@ -1809,9 +1924,185 @@
 <!-- Exterior Body preview Images start-->
 <script type="text/javascript">
     $(function() {
-        $("#exterior_images_picker").spartanMultiImagePicker({
-            fieldName: 'exterior_images[]', 
-            maxCount: 10, // set the maximum image count here
+        $("#trunkLock_images_picker").spartanMultiImagePicker({
+            fieldName: 'trunkLock_images[]',
+            maxCount: 10, 
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(function() {
+        $("#frontDriverfender_images_picker").spartanMultiImagePicker({
+            fieldName: 'frontDriverfender_images[]',
+            maxCount: 10, 
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(function() {
+        $("#frontPassengerdoor_images_picker").spartanMultiImagePicker({
+            fieldName: 'frontPassengerdoor_images[]',
+            maxCount: 10, 
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(function() {
+        $("#frontWindshield_images_picker").spartanMultiImagePicker({
+            fieldName: 'frontWindshield_images[]',
+            maxCount: 10, 
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(function() {
+        $("#rearPassengerfender_images_picker").spartanMultiImagePicker({
+            fieldName: 'frontWindshield_images[]',
+            maxCount: 10, 
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(function() {
+        $("#trunk_images_picker").spartanMultiImagePicker({
+            fieldName: 'trunk_images[]',
+            maxCount: 10, 
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(function() {
+        $("#rearWinshield_images_picker").spartanMultiImagePicker({
+            fieldName: 'rearWinshield_images[]',
+            maxCount: 10, 
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(function() {
+        $("#rearDriverfender_images_picker").spartanMultiImagePicker({
+            fieldName: 'rearDriverfender_images[]',
+            maxCount: 10, 
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(function() {
+        $("#rearDriverdoor_images_picker").spartanMultiImagePicker({
+            fieldName: 'rearDriverdoor_images[]',
+            maxCount: 10, 
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(function() {
+        $("#roof_images_picker").spartanMultiImagePicker({
+            fieldName: 'roof_images[]',
+            maxCount: 10, 
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(function() {
+        $("#pabbels_images_picker").spartanMultiImagePicker({
+            fieldName: 'pabbels_images[]',
+            maxCount: 10, 
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(function() {
+        $("#driverApillar_images_picker").spartanMultiImagePicker({
+            fieldName: 'driverApillar_images[]',
+            maxCount: 10, 
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(function() {
+        $("#driverCpillar_images_picker").spartanMultiImagePicker({
+            fieldName: 'driverCpillar_images[]',
+            maxCount: 10, 
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(function() {
+        $("#driverBpillar_images_picker").spartanMultiImagePicker({
+            fieldName: 'driverBpillar_images[]',
+            maxCount: 10, 
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(function() {
+        $("#driverDpillar_images_picker").spartanMultiImagePicker({
+            fieldName: 'driverDpillar_images[]',
+            maxCount: 10, 
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(function() {
+        $("#passengerApillar_images_picker").spartanMultiImagePicker({
+            fieldName: 'passengerApillar_images[]',
+            maxCount: 10, 
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(function() {
+        $("#passengerCpillar_images_picker").spartanMultiImagePicker({
+            fieldName: 'passengerCpillar_images[]',
+            maxCount: 10, 
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(function() {
+        $("#passengerBpillar_images_picker").spartanMultiImagePicker({
+            fieldName: 'passengerBpillar_images[]',
+            maxCount: 10, 
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(function() {
+        $("#bonnet_images_picker").spartanMultiImagePicker({
+            fieldName: 'bonnet_images[]',
+            maxCount: 10, 
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(function() {
+        $("#frontPassengerfender_images_picker").spartanMultiImagePicker({
+            fieldName: 'frontPassengerfender_images[]',
+            maxCount: 10, 
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(function() {
+        $("#rearPassengerdoor_images_picker").spartanMultiImagePicker({
+            fieldName: 'rearPassengerdoor_images[]',
+            maxCount: 10, 
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(function() {
+        $("#passengerDpillar_images_picker").spartanMultiImagePicker({
+            fieldName: 'passengerDpillar_images[]',
+            maxCount: 10, 
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(function() {
+        $("#frontDriverdoor_images_picker").spartanMultiImagePicker({
+            fieldName: 'frontDriverdoor_images[]',
+            maxCount: 10, 
         });
     });
 </script>
