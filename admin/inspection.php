@@ -125,7 +125,7 @@
                                                             </a>
 
                                                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                                <!-- <li><a class="dropdown-item" href="update_inspection.php?update_inspection_id=<?php echo $inspection_id; ?>">Edit</a></li> -->
+                                                                <li><a class="dropdown-item" href="update.php?update_inspection_id=<?php echo $inspection_id; ?>">Continue</a></li>
                                                                 <li><a class="dropdown-item" href="inspection.php?delete_inspection_id=<?php echo $inspection_id; ?>">Delete</a></li>
                                                             </ul>
                                                         </div>
@@ -154,7 +154,7 @@
                                 </div>
                                 <div class="col-lg-4">
                                     <div class="col-sm-auto mt-4">
-                                        <a href="add_product.php" class="btn btn-success">
+                                        <a href="add_inspection.php" class="btn btn-success">
                                             <i class="ri-add-line align-bottom me-1"></i>
                                             Add Inspection
                                         </a>

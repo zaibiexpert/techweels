@@ -41,7 +41,10 @@ $message = mysqli_real_escape_string($conn, $_POST['message']);
 
 $insert_preliminary_information = "INSERT INTO `preliminary_information` (`id`, `username`, `vehicle_name`, `email`, `phone`, `city`, `date`, `vehicle_model`, `vehicle_variant`, `model_year`, `transmission`, `engine_capacity`, `fuel_type`, `body_color`, `mileage`, `registration_number`, `registered_city`, `chassis_number`, `engine_number`, `message`) VALUES (NULL, 'username', '$vehicle_name', '$email', '$phone', '$city', '$date', '$vehicle_model', '$vehicle_variant', '$model_year', '$transmission', '$engine_capacity', '$fuel_type', '$body_color', '$mileage', '$registration_number', '$registered_city', '$chassis_number', '$engine_number', '$message')";
 mysqli_query($conn, $insert_preliminary_information);
+
+$preliminary_information_id = mysqli_insert_id($conn);
 // preliminary_information end
+
 
 // Accidental Checklist start
 $rearUnderbody = $_POST['rearUnderbody'];
@@ -62,7 +65,7 @@ $leftStrutTower = $_POST['leftStrutTower'];
 $rightStrutTower = $_POST['rightStrutTower'];
 $engineRoom = $_POST['engineRoom'];
 
-$insert_accidental_checklist = "INSERT INTO `accidental_checklist` (`id`, `engineRoom`, `rightStrutTower`, `leftStrutTower`, `rightFrontRail`, `leftFrontRail`, `radiatorCoreSupport`, `rightApillar`, `leftApillar`, `leftBpillar`, `rightCpillar`, `leftCpillar`, `rightDpillar`, `leftDpillar`, `bootFloor`, `frontUnderbody`, `rearUnderbody`, `rightBpillar`) VALUES (NULL, '$engineRoom', '$rightStrutTower', '$leftStrutTower', '$rightFrontRail', '$leftFrontRail', '$radiatorCoreSupport', '$rightApillar', '$leftApillar', '$leftBpillar', '$rightCpillar', '$leftCpillar', '$rightDpillar', '$leftDpillar', '$bootFloor', '$frontUnderbody', '$rearUnderbody', '$rightBpillar')";
+$insert_accidental_checklist = "INSERT INTO `accidental_checklist` (`id`, `engineRoom`, `rightStrutTower`, `leftStrutTower`, `rightFrontRail`, `leftFrontRail`, `radiatorCoreSupport`, `rightApillar`, `leftApillar`, `leftBpillar`, `rightCpillar`, `leftCpillar`, `rightDpillar`, `leftDpillar`, `bootFloor`, `frontUnderbody`, `rearUnderbody`, `rightBpillar`, `preliminary_information_id`) VALUES (NULL, '$engineRoom', '$rightStrutTower', '$leftStrutTower', '$rightFrontRail', '$leftFrontRail', '$radiatorCoreSupport', '$rightApillar', '$leftApillar', '$leftBpillar', '$rightCpillar', '$leftCpillar', '$rightDpillar', '$leftDpillar', '$bootFloor', '$frontUnderbody', '$rearUnderbody', '$rightBpillar', '$preliminary_information_id')";
 mysqli_query($conn, $insert_accidental_checklist);
 
 $accidental_checklist_id = mysqli_insert_id($conn);
@@ -101,7 +104,7 @@ $engineSmoke = $_POST['engineSmoke'];
 $engineVibration = $_POST['engineVibration'];
 $engineNoisy = $_POST['engineNoisy'];
 
-$insert_mechanical_function = "INSERT INTO `mechanical_function` (`id`, `engineNoisy`, `engineVibration`, `engineSmoke`, `engineSmokeColor`, `engineBlow`, `coolantLeakage`, `brakeOilLeakage`, `transmissionOilLeakage`, `exhaustSound`, `radiator`, `suctionFan`, `gearTransmission`) VALUES (NULL, '$engineNoisy', '$engineVibration', '$engineSmoke', '$engineSmokeColor', '$engineBlow', '$coolantLeakage', '$brakeOilLeakage', '$transmissionOilLeakage', '$exhaustSound', '$radiator', '$suctionFan', '$gearTransmission')";
+$insert_mechanical_function = "INSERT INTO `mechanical_function` (`id`, `engineNoisy`, `engineVibration`, `engineSmoke`, `engineSmokeColor`, `engineBlow`, `coolantLeakage`, `brakeOilLeakage`, `transmissionOilLeakage`, `exhaustSound`, `radiator`, `suctionFan`, `gearTransmission`, `preliminary_information_id`) VALUES (NULL, '$engineNoisy', '$engineVibration', '$engineSmoke', '$engineSmokeColor', '$engineBlow', '$coolantLeakage', '$brakeOilLeakage', '$transmissionOilLeakage', '$exhaustSound', '$radiator', '$suctionFan', '$gearTransmission', '$preliminary_information_id')";
 mysqli_query($conn, $insert_mechanical_function);
 
 $mechanical_function_id = mysqli_insert_id($conn);
@@ -133,7 +136,7 @@ $blowerThrow = $_POST['blowerThrow'];
 $acFan = $_POST['acFan'];
 $acInstalled = $_POST['acInstalled'];
 
-$insert_ac_heater_operation = "INSERT INTO `ac_heater_operation` (`id`, `acInstalled`, `acFan`, `blowerThrow`, `acCooling`, `heater`) VALUES (NULL, '$acInstalled', '$acFan', '$blowerThrow', '$acCooling', '$heater');";
+$insert_ac_heater_operation = "INSERT INTO `ac_heater_operation` (`id`, `acInstalled`, `acFan`, `blowerThrow`, `acCooling`, `heater`, `preliminary_information_id`) VALUES (NULL, '$acInstalled', '$acFan', '$blowerThrow', '$acCooling', '$heater', '$preliminary_information_id');";
 mysqli_query($conn, $insert_ac_heater_operation);
 
 $ac_heater_operation_id = mysqli_insert_id($conn);
@@ -202,7 +205,7 @@ $lightLeverswitch = $_POST['lightLeverswitch'];
 $steeringWheelbutton = $_POST['steeringWheelbutton'];
 $steeringWheelwearTear = $_POST['steeringWheelwearTear'];
 
-$insert_interior = "INSERT INTO `interior` (`id`, `steeringWheelwearTear`, `steeringWheelbutton`, `lightLeverswitch`, `dashboard`, `dashControlbuttons`, `interiorLights`, `deFogger`, `hazardLights`, `multimedia`, `rearCamera`, `frontViewcamera`, `trunkReleaselever`, `fuelcapReleaseLever`, `bonnetReleaselever`, `sideViewmirrorAdjustment`, `leftSideviewMirror`, `rightSideviewMirror`, `retractingSideviewMirrors`, `acGrills`, `acceleratorPedal`, `breakPedal`, `clutchPedal`, `seatsType`, `seatsCondition`, `driverSeatbelt`, `passengerSeatbelt`, `windowsType`, `frontDriverwindow`, `frontPassengerwindow`, `rearDriversideWindow`, `rearPassengersideWindow`, `windowSafetylockButton`, `centralLocking`, `keyButtons`, `floorMats`, `frontDriverdoorSeal`, `frontPassengerDoorSeal`, `rearDriversideDoorSeal`, `rearPassengersideDoorSeal`, `bonnetSeal`, `trunkSeal`) VALUES (NULL, '$steeringWheelwearTear', '$steeringWheelbutton', '$lightLeverswitch', '$dashboard', '$dashControlbuttons', '$interiorLights', '$deFogger', '$hazardLights', '$multimedia', '$rearCamera', '$frontViewcamera', '$trunkReleaselever', '$fuelcapReleaseLever', '$bonnetReleaselever', '$sideViewmirrorAdjustment', '$leftSideviewMirror', '$rightSideviewMirror', '$retractingSideviewMirrors', '$acGrills', '$acceleratorPedal', '$breakPedal', '$clutchPedal', '$seatsType', '$seatsCondition', '$driverSeatbelt', '$passengerSeatbelt', '$windowsType', '$frontDriverwindow', '$frontPassengerwindow', '$rearDriversideWindow', '$rearPassengersideWindow', '$windowSafetylockButton', '$centralLocking', '$keyButtons', '$floorMats', '$frontDriverdoorSeal', '$frontPassengerDoorSeal', '$rearDriversideDoorSeal', '$rearPassengersideDoorSeal', '$bonnetSeal', '$bonnetSeal')";
+$insert_interior = "INSERT INTO `interior` (`id`, `steeringWheelwearTear`, `steeringWheelbutton`, `lightLeverswitch`, `dashboard`, `dashControlbuttons`, `interiorLights`, `deFogger`, `hazardLights`, `multimedia`, `rearCamera`, `frontViewcamera`, `trunkReleaselever`, `fuelcapReleaseLever`, `bonnetReleaselever`, `sideViewmirrorAdjustment`, `leftSideviewMirror`, `rightSideviewMirror`, `retractingSideviewMirrors`, `acGrills`, `acceleratorPedal`, `breakPedal`, `clutchPedal`, `seatsType`, `seatsCondition`, `driverSeatbelt`, `passengerSeatbelt`, `windowsType`, `frontDriverwindow`, `frontPassengerwindow`, `rearDriversideWindow`, `rearPassengersideWindow`, `windowSafetylockButton`, `centralLocking`, `keyButtons`, `floorMats`, `frontDriverdoorSeal`, `frontPassengerDoorSeal`, `rearDriversideDoorSeal`, `rearPassengersideDoorSeal`, `bonnetSeal`, `trunkSeal`, `preliminary_information_id`) VALUES (NULL, '$steeringWheelwearTear', '$steeringWheelbutton', '$lightLeverswitch', '$dashboard', '$dashControlbuttons', '$interiorLights', '$deFogger', '$hazardLights', '$multimedia', '$rearCamera', '$frontViewcamera', '$trunkReleaselever', '$fuelcapReleaseLever', '$bonnetReleaselever', '$sideViewmirrorAdjustment', '$leftSideviewMirror', '$rightSideviewMirror', '$retractingSideviewMirrors', '$acGrills', '$acceleratorPedal', '$breakPedal', '$clutchPedal', '$seatsType', '$seatsCondition', '$driverSeatbelt', '$passengerSeatbelt', '$windowsType', '$frontDriverwindow', '$frontPassengerwindow', '$rearDriversideWindow', '$rearPassengersideWindow', '$windowSafetylockButton', '$centralLocking', '$keyButtons', '$floorMats', '$frontDriverdoorSeal', '$frontPassengerDoorSeal', '$rearDriversideDoorSeal', '$rearPassengersideDoorSeal', '$bonnetSeal', '$trunkSeal', '$preliminary_information_id')";
 mysqli_query($conn, $insert_interior);
 
 $interior_id = mysqli_insert_id($conn);
@@ -248,7 +251,7 @@ $rightHeadlightOperation = $_POST['rightHeadlightOperation'];
 $horn = $_POST['horn'];
 $battery = $_POST['battery'];
 
-$insert_electronic_function = "INSERT INTO `electronic_function` (`id`, `horn`, `rightHeadlightOperation`, `rightHeadlightCondition`, `rightHeadlight`, `leftHeadlightOperation`, `leftHeadlightCondition`, `leftHeadlight`, `foglightsOperation`, `leftTaillightsOperation`, `leftTaillightsCondition`, `leftTaillights`, `rightTaillightsOperation`, `rightTaillightsCondition`, `rightTaillights`, `windshieldWipers`, `airbags`, `checkLights`, `battery`) VALUES (NULL, '$horn', '$rightHeadlightOperation', '$rightHeadlightCondition', '$rightHeadlight', '$leftHeadlightOperation', '$leftHeadlightCondition', '$leftHeadlight', '$foglightsOperation', '$leftTaillightsOperation', '$leftTaillightsCondition', '$leftTaillights', '$rightTaillightsOperation', '$rightTaillightsCondition', '$rightTaillights', '$windshieldWipers', '$airbags', '$checkLights', '$battery')";
+$insert_electronic_function = "INSERT INTO `electronic_function` (`id`, `horn`, `rightHeadlightOperation`, `rightHeadlightCondition`, `rightHeadlight`, `leftHeadlightOperation`, `leftHeadlightCondition`, `leftHeadlight`, `foglightsOperation`, `leftTaillightsOperation`, `leftTaillightsCondition`, `leftTaillights`, `rightTaillightsOperation`, `rightTaillightsCondition`, `rightTaillights`, `windshieldWipers`, `airbags`, `checkLights`, `battery`, `preliminary_information_id`) VALUES (NULL, '$horn', '$rightHeadlightOperation', '$rightHeadlightCondition', '$rightHeadlight', '$leftHeadlightOperation', '$leftHeadlightCondition', '$leftHeadlight', '$foglightsOperation', '$leftTaillightsOperation', '$leftTaillightsCondition', '$leftTaillights', '$rightTaillightsOperation', '$rightTaillightsCondition', '$rightTaillights', '$windshieldWipers', '$airbags', '$checkLights', '$battery', '$preliminary_information_id')";
 mysqli_query($conn, $insert_electronic_function);
 
 $electronic_function_id = mysqli_insert_id($conn);
@@ -289,7 +292,7 @@ $rightBalljoint = $_POST['rightBalljoint'];
 $axleBoots = $_POST['axleBoots'];
 $steeringAssemblyplay = $_POST['steeringAssemblyplay'];
 
-$insert_suspension_function = "INSERT INTO `suspension_function` (`id`, `steeringAssemblyplay`, `axleBoots`, `rightBalljoint`, `leftBalljoint`, `tieRodend`, `rightBoot`, `leftBoot`, `rightBush`, `leftBush`, `rearRightshockAbsorder`, `rearLeftshockAbsorder`, `frontRightshockAbsorder`, `frontLeftShockAbsorder`) VALUES (NULL, '$steeringAssemblyplay', '$axleBoots', '$rightBalljoint', '$leftBalljoint', '$tieRodend', '$rightBoot', '$leftBoot', '$rightBush', '$leftBush', '$rearRightshockAbsorder', '$rearLeftshockAbsorder', '$frontRightshockAbsorder', '$frontLeftShockAbsorder')";
+$insert_suspension_function = "INSERT INTO `suspension_function` (`id`, `steeringAssemblyplay`, `axleBoots`, `rightBalljoint`, `leftBalljoint`, `tieRodend`, `rightBoot`, `leftBoot`, `rightBush`, `leftBush`, `rearRightshockAbsorder`, `rearLeftshockAbsorder`, `frontRightshockAbsorder`, `frontLeftShockAbsorder`, `preliminary_information_id`) VALUES (NULL, '$steeringAssemblyplay', '$axleBoots', '$rightBalljoint', '$leftBalljoint', '$tieRodend', '$rightBoot', '$leftBoot', '$rightBush', '$leftBush', '$rearRightshockAbsorder', '$rearLeftshockAbsorder', '$frontRightshockAbsorder', '$frontLeftShockAbsorder', '$preliminary_information_id')";
 mysqli_query($conn, $insert_suspension_function);
 
 $suspension_function_id = mysqli_insert_id($conn);
@@ -339,7 +342,7 @@ $bonnet = $_POST['bonnet'];
 $frontDriverfender = $_POST['frontDriverfender'];
 $trunkLock = $_POST['trunkLock'];
 
-$insert_exterior_body = "INSERT INTO `exterior_body` (`id`, `trunkLock`, `bonnet`, `frontWindshield`, `frontPassengerfender`, `rearPassengerdoor`, `rearPassengerfender`, `trunk`, `rearWinshield`, `rearDriverfender`, `rearDriverdoor`, `frontDriverdoor`, `roof`, `pabbels`, `driverApillar`, `driverBpillar`, `driverCpillar`, `driverDpillar`, `passengerApillar`, `passengerBpillar`, `passengerCpillar`, `passengerDpillar`, `frontDriverfender`, `frontPassengerdoor`) VALUES (NULL, '$trunkLock', '$bonnet', '$frontWindshield', '$frontPassengerfender', '$rearPassengerdoor', '$rearPassengerfender', '$trunk', '$rearWinshield', '$rearDriverfender', '$rearDriverdoor', '$frontDriverdoor', '$roof', '$pabbels', '$driverApillar', '$driverBpillar', '$driverCpillar', '$driverDpillar', '$passengerApillar', '$passengerBpillar', '$passengerCpillar', '$passengerDpillar', '$frontDriverfender', '$frontPassengerdoor')";
+$insert_exterior_body = "INSERT INTO `exterior_body` (`id`, `trunkLock`, `bonnet`, `frontWindshield`, `frontPassengerfender`, `rearPassengerdoor`, `rearPassengerfender`, `trunk`, `rearWinshield`, `rearDriverfender`, `rearDriverdoor`, `frontDriverdoor`, `roof`, `pabbels`, `driverApillar`, `driverBpillar`, `driverCpillar`, `driverDpillar`, `passengerApillar`, `passengerBpillar`, `passengerCpillar`, `passengerDpillar`, `frontDriverfender`, `frontPassengerdoor`, `preliminary_information_id`) VALUES (NULL, '$trunkLock', '$bonnet', '$frontWindshield', '$frontPassengerfender', '$rearPassengerdoor', '$rearPassengerfender', '$trunk', '$rearWinshield', '$rearDriverfender', '$rearDriverdoor', '$frontDriverdoor', '$roof', '$pabbels', '$driverApillar', '$driverBpillar', '$driverCpillar', '$driverDpillar', '$passengerApillar', '$passengerBpillar', '$passengerCpillar', '$passengerDpillar', '$frontDriverfender', '$frontPassengerdoor', '$preliminary_information_id')";
 mysqli_query($conn, $insert_exterior_body);
 
 $exterior_body_id = mysqli_insert_id($conn);
@@ -380,7 +383,7 @@ $frontPassengertyreCondition = $_POST['frontPassengertyreCondition'];
 $frontPassengertyreSize = $_POST['frontPassengertyreSize'];
 $frontPassengertyreBrand = $_POST['frontPassengertyreBrand'];
 
-$insert_tyre = "INSERT INTO `tyres` (`id`, `frontPassengertyreBrand`, `frontPassengertyreSize`, `frontPassengertyreCondition`, `frontDrivertyreBrand`, `frontDrivertyreSize`, `frontDrivertyreCondition`, `rearPassengertyreBrand`, `rearPassengerTyresize`, `rearPassengertyreCondition`, `rearDriverTyrebrand`, `rearDrivertyreSize`, `rearDrivertyreCondition`, `alloyRims`) VALUES (NULL, '$frontPassengertyreBrand	', '$frontPassengertyreSize', '$frontPassengertyreCondition', '$frontDrivertyreBrand', '$frontDrivertyreSize', '$frontDrivertyreCondition', '$rearPassengertyreBrand', '$rearPassengerTyresize', '$rearPassengertyreCondition', '$rearDriverTyrebrand', '$rearDrivertyreSize', '$rearDrivertyreCondition', '$alloyRims')";
+$insert_tyre = "INSERT INTO `tyres` (`id`, `frontPassengertyreBrand`, `frontPassengertyreSize`, `frontPassengertyreCondition`, `frontDrivertyreBrand`, `frontDrivertyreSize`, `frontDrivertyreCondition`, `rearPassengertyreBrand`, `rearPassengerTyresize`, `rearPassengertyreCondition`, `rearDriverTyrebrand`, `rearDrivertyreSize`, `rearDrivertyreCondition`, `alloyRims`, `preliminary_information_id`) VALUES (NULL, '$frontPassengertyreBrand	', '$frontPassengertyreSize', '$frontPassengertyreCondition', '$frontDrivertyreBrand', '$frontDrivertyreSize', '$frontDrivertyreCondition', '$rearPassengertyreBrand', '$rearPassengerTyresize', '$rearPassengertyreCondition', '$rearDriverTyrebrand', '$rearDrivertyreSize', '$rearDrivertyreCondition', '$alloyRims', '$preliminary_information_id')";
 mysqli_query($conn, $insert_tyre);
 
 $tyres_id = mysqli_insert_id($conn);
@@ -412,7 +415,7 @@ $jack = $_POST['jack'];
 $toolKit = $_POST['toolKit'];
 $spareWheel = $_POST['spareWheel'];
 
-$insert_accessories = "INSERT INTO `accessories` (`id`, `spareWheel`, `toolKit`, `jack`, `punctureRepairkit`) VALUES (NULL, '$spareWheel', '$toolKit', '$jack', '$punctureRepairkit')";
+$insert_accessories = "INSERT INTO `accessories` (`id`, `spareWheel`, `toolKit`, `jack`, `punctureRepairkit`, `preliminary_information_id`) VALUES (NULL, '$spareWheel', '$toolKit', '$jack', '$punctureRepairkit', '$preliminary_information_id')";
 mysqli_query($conn, $insert_accessories);
 
 $accessories_id = mysqli_insert_id($conn);
@@ -453,7 +456,7 @@ $gearShifting = $_POST['gearShifting'];
 $enginePick = $_POST['enginePick'];
 $admin_message = mysqli_real_escape_string($conn, $_POST['admin_message']);
 
-$insert_test_drive = "INSERT INTO `test_drive` (`id`, `enginePick`, `gearShifting`, `differentialNoise`, `driveShaftnoise`, `absActuation`, `brakePedaloperation`, `frontSuspensionNoise`, `rearSuspensionNoise`, `steeringFunction`, `steeringWheelalignment`, `speedmeterInformation`, `testDrivedoneBy`, `adminMessage`) VALUES (NULL, '$enginePick', '$gearShifting', '$differentialNoise', '$driveShaftnoise', '$absActuation', '$brakePedaloperation', '$frontSuspensionNoise', '$rearSuspensionNoise', '$steeringFunction', '$steeringWheelalignment', '$speedmeterInformation', '$testDrivedoneBy', '$admin_message')";
+$insert_test_drive = "INSERT INTO `test_drive` (`id`, `enginePick`, `gearShifting`, `differentialNoise`, `driveShaftnoise`, `absActuation`, `brakePedaloperation`, `frontSuspensionNoise`, `rearSuspensionNoise`, `steeringFunction`, `steeringWheelalignment`, `speedmeterInformation`, `testDrivedoneBy`, `adminMessage`, `preliminary_information_id`) VALUES (NULL, '$enginePick', '$gearShifting', '$differentialNoise', '$driveShaftnoise', '$absActuation', '$brakePedaloperation', '$frontSuspensionNoise', '$rearSuspensionNoise', '$steeringFunction', '$steeringWheelalignment', '$speedmeterInformation', '$testDrivedoneBy', '$admin_message', '$preliminary_information_id')";
 mysqli_query($conn, $insert_test_drive);
 
 
@@ -477,9 +480,6 @@ for ($i = 0; $i < $car_images_length; $i++) {
 }
 
 // Test Drive start
-
-
-
 
 
 
