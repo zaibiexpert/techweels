@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Table Screenshot</title>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script>
+        function captureScreenshot() {
+            // Set the scale option
+            var options = {
+                scale: 4 // Increase the scale value for higher resolution
+            };
+
+            // Capture the table as an image with the specified options
+            html2canvas(document.querySelector("table"), options).then(function (canvas) {
+                // Convert the canvas to an image data URL
+                var imageData = canvas.toDataURL();
+
+                // Create a temporary link element
+                var link = document.createElement("a");
+                link.href = imageData;
+                link.download = "table_screenshot.png";
+                link.click();
+            });
+        }
+
+    </script>
+    <style>
+        table {
+            border-collapse: collapse;
+            border: 1px solid black;
+        }
+
+        td
+         {
+            padding: 8px;
+            text-align: center;
+            font-size: 6px;
+            font-weight: 400;
+            
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td>T</td>
+            <td>Total Genuine</td>
+        </tr>
+        <tr>
+            <td>F</td>
+            <td>Faded</td>
+        </tr>
+        <tr>
+            <td>P</td>
+            <td>Painted</td>
+        </tr>
+        <tr>
+            <td>A1</td>
+            <td>Minor Scratch</td>
+        </tr>
+        <tr>
+            <td>A2</td>
+            <td>Major Scratch</td>
+        </tr>
+        <tr>
+            <td>E1</td>
+            <td>Minor Dent</td>
+        </tr>
+        <tr>
+            <td>E2</td>
+            <td>Major Dent</td>
+        </tr>
+        <tr>
+            <td>LS</td>
+            <td>Lacquer Shower</td>
+        </tr>
+        <tr>
+            <td>W</td>
+            <td>Dry Dented</td>
+        </tr>
+        <tr>
+            <td>G1</td>
+            <td>Glass Scratched</td>
+        </tr>
+        <tr>
+            <td>G2</td>
+            <td>Glass Broken</td>
+        </tr>
+        <tr>
+            <td>G3</td>
+            <td>Glass Replaced</td>
+        </tr>
+        <tr>
+            <td>G4</td>
+            <td>Glass Chipped</td>
+        </tr>
+        <tr>
+            <td>B</td>
+            <td>Broken Holes</td>
+        </tr>
+        <tr>
+            <td>H</td>
+            <td>Partial Paint</td>
+        </tr>
+        <tr>
+            <td>PP</td>
+            <td>Corrosion</td>
+        </tr>
+        <tr>
+            <td>C</td>
+            <td>Replaced</td>
+        </tr>
+        <tr>
+            <td>XL</td>
+            <td>Polygate Repaired</td>
+        </tr>
+        <tr>
+            <td>PL</td>
+            <td>Plastic Pieces</td>
+        </tr>
+    </table>
+
+    <button onclick="captureScreenshot()">Capture Screenshot</button>
+</body>
+
+</html>

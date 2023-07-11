@@ -1,19 +1,4 @@
-<?php session_start();
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "websquad";
-
-
-// Create a connection
-$conn = mysqli_connect($servername, $username, $password, $database);
-
-// Check if the connection was successful
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-?>
-
+<?php include('conn.php') ?>
 
 
 <?php
@@ -39,7 +24,7 @@ $chassis_number = $_POST['chassis_number'];
 $engine_number = $_POST['engine_number'];
 $message = mysqli_real_escape_string($conn, $_POST['message']);
 
-$insert_preliminary_information = "INSERT INTO `preliminary_information` (`id`, `username`, `vehicle_name`, `email`, `phone`, `city`, `date`, `vehicle_model`, `vehicle_variant`, `model_year`, `transmission`, `engine_capacity`, `fuel_type`, `body_color`, `mileage`, `registration_number`, `registered_city`, `chassis_number`, `engine_number`, `message`) VALUES (NULL, 'username', '$vehicle_name', '$email', '$phone', '$city', '$date', '$vehicle_model', '$vehicle_variant', '$model_year', '$transmission', '$engine_capacity', '$fuel_type', '$body_color', '$mileage', '$registration_number', '$registered_city', '$chassis_number', '$engine_number', '$message')";
+$insert_preliminary_information = "INSERT INTO `preliminary_information` (`id`, `username`, `vehicle_name`, `email`, `phone`, `city`, `date`, `vehicle_model`, `vehicle_variant`, `model_year`, `transmission`, `engine_capacity`, `fuel_type`, `body_color`, `mileage`, `registration_number`, `registered_city`, `chassis_number`, `engine_number`, `message`) VALUES (NULL, '$username', '$vehicle_name', '$email', '$phone', '$city', '$date', '$vehicle_model', '$vehicle_variant', '$model_year', '$transmission', '$engine_capacity', '$fuel_type', '$body_color', '$mileage', '$registration_number', '$registered_city', '$chassis_number', '$engine_number', '$message')";
 mysqli_query($conn, $insert_preliminary_information);
 
 $preliminary_information_id = mysqli_insert_id($conn);
@@ -68,24 +53,33 @@ $engineRoom = $_POST['engineRoom'];
 $insert_accidental_checklist = "INSERT INTO `accidental_checklist` (`id`, `engineRoom`, `rightStrutTower`, `leftStrutTower`, `rightFrontRail`, `leftFrontRail`, `radiatorCoreSupport`, `rightApillar`, `leftApillar`, `leftBpillar`, `rightCpillar`, `leftCpillar`, `rightDpillar`, `leftDpillar`, `bootFloor`, `frontUnderbody`, `rearUnderbody`, `rightBpillar`, `preliminary_information_id`) VALUES (NULL, '$engineRoom', '$rightStrutTower', '$leftStrutTower', '$rightFrontRail', '$leftFrontRail', '$radiatorCoreSupport', '$rightApillar', '$leftApillar', '$leftBpillar', '$rightCpillar', '$leftCpillar', '$rightDpillar', '$leftDpillar', '$bootFloor', '$frontUnderbody', '$rearUnderbody', '$rightBpillar', '$preliminary_information_id')";
 mysqli_query($conn, $insert_accidental_checklist);
 
+
 $accidental_checklist_id = mysqli_insert_id($conn);
 
-$accidental_images = $_FILES['accidental_images']['name'];
-$accidental_images_length = count($accidental_images);
+if (isset($_FILES['accidental_images'])) {
+    
+    $accidentalImages = $_FILES['accidental_images']['name'];
+    $stmt = $conn->prepare("INSERT INTO `accidental_images` (`id`, `image`, `accidental_checklist_id`) VALUES (NULL, ?, ?)");
 
-for ($i = 0; $i < $accidental_images_length; $i++) {
-    $accidental_images = $_FILES['accidental_images']['name'][$i];
-    if (!empty($accidental_images)) {
-        $target_directory = 'assets/images/accidental-images/';
-        $target_file = $target_directory . basename($accidental_images);
-        if (!is_dir($target_directory)) {
-            mkdir($target_directory, 0777, true); // Create the target directory if it doesn't exist
+    // Loop through uploaded images and execute the prepared statement for each image
+    foreach ($_FILES['accidental_images']['tmp_name'] as $key => $tmp_name) {
+        // Check if the uploaded file has no errors and has a non-empty temporary name
+        if ($_FILES['accidental_images']['error'][$key] == UPLOAD_ERR_OK && !empty($tmp_name)) {
+            // Get uploaded image data
+            $image_name = $_FILES['accidental_images']['name'][$key];
+            $image_data = file_get_contents($_FILES['accidental_images']['tmp_name'][$key]);
+
+            // Bind the values to the prepared statement
+            $stmt->bind_param("si", $image_data, $accidental_checklist_id );
+
+            // Execute the prepared statement
+            $stmt->execute();
         }
-        move_uploaded_file($_FILES['accidental_images']['tmp_name'][$i], $target_file);
-         $insert_images = "INSERT INTO `accidental_images` (`id`, `image`, `accidental_checklist_id`) VALUES (NULL, '" . $accidental_images . "', '" . $accidental_checklist_id . "')";
-        mysqli_query($conn, $insert_images);
     }
 }
+
+
+
 
 // Accidental Checklist end
 
@@ -104,27 +98,34 @@ $engineSmoke = $_POST['engineSmoke'];
 $engineVibration = $_POST['engineVibration'];
 $engineNoisy = $_POST['engineNoisy'];
 
-$insert_mechanical_function = "INSERT INTO `mechanical_function` (`id`, `engineNoisy`, `engineVibration`, `engineSmoke`, `engineSmokeColor`, `engineBlow`, `coolantLeakage`, `brakeOilLeakage`, `transmissionOilLeakage`, `exhaustSound`, `radiator`, `suctionFan`, `gearTransmission`, `preliminary_information_id`) VALUES (NULL, '$engineNoisy', '$engineVibration', '$engineSmoke', '$engineSmokeColor', '$engineBlow', '$coolantLeakage', '$brakeOilLeakage', '$transmissionOilLeakage', '$exhaustSound', '$radiator', '$suctionFan', '$gearTransmission', '$preliminary_information_id')";
+$insert_mechanical_function = "INSERT INTO `mechanical_function` (`id`, `engine_oil_leakage`, `engineNoisy`, `engineVibration`, `engineSmoke`, `engineSmokeColor`, `engineBlow`, `coolantLeakage`, `brakeOilLeakage`, `transmissionOilLeakage`, `exhaustSound`, `radiator`, `suctionFan`, `gearTransmission`, `preliminary_information_id`) VALUES (NULL, '$engineNoisy', '$engine_oil_leakage', '$engineVibration', '$engineSmoke', '$engineSmokeColor', '$engineBlow', '$coolantLeakage', '$brakeOilLeakage', '$transmissionOilLeakage', '$exhaustSound', '$radiator', '$suctionFan', '$gearTransmission', '$preliminary_information_id')";
 mysqli_query($conn, $insert_mechanical_function);
+
 
 $mechanical_function_id = mysqli_insert_id($conn);
 
-$mechanical_images = $_FILES['mechanical_images']['name'];
-$mechanical_images_length = count($mechanical_images);
+if (isset($_FILES['mechanical_images'])) {
 
-for ($i = 0; $i < $mechanical_images_length; $i++) {
-    $mechanical_images = $_FILES['mechanical_images']['name'][$i];
-    if (!empty($mechanical_images)) {
-        $target_directory = 'assets/images/mechanical-images/';
-        $target_file = $target_directory . basename($mechanical_images);
-        if (!is_dir($target_directory)) {
-            mkdir($target_directory, 0777, true); // Create the target directory if it doesn't exist
+    $mechanicalImages = $_FILES['mechanical_images']['name'];
+    $stmt = $conn->prepare("INSERT INTO `mechanical_images` (`id`, `image`, `mechanical_function_id`) VALUES (NULL, ?, ?)");
+
+    // Loop through uploaded images and execute the prepared statement for each image
+    foreach ($_FILES['mechanical_images']['tmp_name'] as $key => $tmp_name) {
+        // Check if the uploaded file has no errors and has a non-empty temporary name
+        if ($_FILES['mechanical_images']['error'][$key] == UPLOAD_ERR_OK && !empty($tmp_name)) {
+            // Get uploaded image data
+            $image_name = $_FILES['mechanical_images']['name'][$key];
+            $image_data = file_get_contents($_FILES['mechanical_images']['tmp_name'][$key]);
+
+            // Bind the values to the prepared statement
+            $stmt->bind_param("si", $image_data, $mechanical_function_id);
+
+            // Execute the prepared statement
+            $stmt->execute();
         }
-        move_uploaded_file($_FILES['mechanical_images']['tmp_name'][$i], $target_file);
-         $insert_images = "INSERT INTO `mechanical_images` (`id`, `image`, `mechanical_function_id`) VALUES (NULL, '" . $mechanical_images . "', '" . $mechanical_function_id . "')";
-        mysqli_query($conn, $insert_images);
     }
-}
+} 
+
 
 //Mechanical Function end
 
@@ -141,22 +142,29 @@ mysqli_query($conn, $insert_ac_heater_operation);
 
 $ac_heater_operation_id = mysqli_insert_id($conn);
 
-$ac_heater_images = $_FILES['ac_heater_images']['name'];
-$ac_heater_images_length = count($ac_heater_images);
+if (isset($_FILES['ac_heater_images'])) {
+    $acHeaterImages = $_FILES['ac_heater_images']['name'];
 
-for ($i = 0; $i < $ac_heater_images_length; $i++) {
-    $ac_heater_images = $_FILES['ac_heater_images']['name'][$i];
-    if (!empty($ac_heater_images)) {
-        $target_directory = 'assets/images/ac-heater-images/';
-        $target_file = $target_directory . basename($ac_heater_images);
-        if (!is_dir($target_directory)) {
-            mkdir($target_directory, 0777, true); // Create the target directory if it doesn't exist
+    $stmt = $conn->prepare("INSERT INTO `ac_heater_images` (`id`, `image`, `ac_heater_operation_id`) VALUES (NULL, ?, ?)");
+
+    // Loop through uploaded images and execute the prepared statement for each image
+    foreach ($_FILES['ac_heater_images']['tmp_name'] as $key => $tmp_name) {
+        // Check if the uploaded file has no errors and has a non-empty temporary name
+        if ($_FILES['ac_heater_images']['error'][$key] == UPLOAD_ERR_OK && !empty($tmp_name)) {
+            // Get uploaded image data
+            $image_name = $_FILES['ac_heater_images']['name'][$key];
+            $image_data = file_get_contents($_FILES['ac_heater_images']['tmp_name'][$key]);
+
+            // Bind the values to the prepared statement
+            $stmt->bind_param("si", $image_data, $ac_heater_operation_id);
+
+            // Execute the prepared statement
+            $stmt->execute();
         }
-        move_uploaded_file($_FILES['ac_heater_images']['tmp_name'][$i], $target_file);
-         $insert_images = "INSERT INTO `ac_heater_images` (`id`, `image`, `ac_heater_operation_id`) VALUES (NULL, '" . $ac_heater_images . "', '" . $ac_heater_operation_id . "')";
-        mysqli_query($conn, $insert_images);
     }
-}
+
+} 
+
 
 // Ac/Heater operation end
 
@@ -176,6 +184,8 @@ $windowSafetylockButton = $_POST['windowSafetylockButton'];
 $rearPassengersideWindow = $_POST['rearPassengersideWindow'];
 $rearDriversideWindow = $_POST['rearDriversideWindow'];
 $frontPassengerwindow = $_POST['frontPassengerwindow'];
+$rear_right_seat_belt = $_POST['rear_right_seat_belt'];
+$front_right_seat_belt = $_POST['front_right_seat_belt'];
 $frontDriverwindow = $_POST['frontDriverwindow'];
 $windowsType = $_POST['windowsType'];
 $passengerSeatbelt = $_POST['passengerSeatbelt'];
@@ -205,27 +215,34 @@ $lightLeverswitch = $_POST['lightLeverswitch'];
 $steeringWheelbutton = $_POST['steeringWheelbutton'];
 $steeringWheelwearTear = $_POST['steeringWheelwearTear'];
 
-$insert_interior = "INSERT INTO `interior` (`id`, `steeringWheelwearTear`, `steeringWheelbutton`, `lightLeverswitch`, `dashboard`, `dashControlbuttons`, `interiorLights`, `deFogger`, `hazardLights`, `multimedia`, `rearCamera`, `frontViewcamera`, `trunkReleaselever`, `fuelcapReleaseLever`, `bonnetReleaselever`, `sideViewmirrorAdjustment`, `leftSideviewMirror`, `rightSideviewMirror`, `retractingSideviewMirrors`, `acGrills`, `acceleratorPedal`, `breakPedal`, `clutchPedal`, `seatsType`, `seatsCondition`, `driverSeatbelt`, `passengerSeatbelt`, `windowsType`, `frontDriverwindow`, `frontPassengerwindow`, `rearDriversideWindow`, `rearPassengersideWindow`, `windowSafetylockButton`, `centralLocking`, `keyButtons`, `floorMats`, `frontDriverdoorSeal`, `frontPassengerDoorSeal`, `rearDriversideDoorSeal`, `rearPassengersideDoorSeal`, `bonnetSeal`, `trunkSeal`, `preliminary_information_id`) VALUES (NULL, '$steeringWheelwearTear', '$steeringWheelbutton', '$lightLeverswitch', '$dashboard', '$dashControlbuttons', '$interiorLights', '$deFogger', '$hazardLights', '$multimedia', '$rearCamera', '$frontViewcamera', '$trunkReleaselever', '$fuelcapReleaseLever', '$bonnetReleaselever', '$sideViewmirrorAdjustment', '$leftSideviewMirror', '$rightSideviewMirror', '$retractingSideviewMirrors', '$acGrills', '$acceleratorPedal', '$breakPedal', '$clutchPedal', '$seatsType', '$seatsCondition', '$driverSeatbelt', '$passengerSeatbelt', '$windowsType', '$frontDriverwindow', '$frontPassengerwindow', '$rearDriversideWindow', '$rearPassengersideWindow', '$windowSafetylockButton', '$centralLocking', '$keyButtons', '$floorMats', '$frontDriverdoorSeal', '$frontPassengerDoorSeal', '$rearDriversideDoorSeal', '$rearPassengersideDoorSeal', '$bonnetSeal', '$trunkSeal', '$preliminary_information_id')";
+$insert_interior = "INSERT INTO `interior` (`id`, `steeringWheelwearTear`, `steeringWheelbutton`, `lightLeverswitch`, `dashboard`, `dashControlbuttons`, `interiorLights`, `deFogger`, `hazardLights`, `multimedia`, `rearCamera`, `frontViewcamera`, `trunkReleaselever`, `fuelcapReleaseLever`, `bonnetReleaselever`, `sideViewmirrorAdjustment`, `leftSideviewMirror`, `rightSideviewMirror`, `retractingSideviewMirrors`, `acGrills`, `acceleratorPedal`, `breakPedal`, `clutchPedal`, `seatsType`, `seatsCondition`, `driverSeatbelt`, `passengerSeatbelt`, `windowsType`, `frontDriverwindow`, `frontPassengerwindow`, `rearDriversideWindow`, `rearPassengersideWindow`, `front_right_seat_belt`, `rear_right_seat_belt`, `windowSafetylockButton`, `centralLocking`, `keyButtons`, `floorMats`, `frontDriverdoorSeal`, `frontPassengerDoorSeal`, `rearDriversideDoorSeal`, `rearPassengersideDoorSeal`, `bonnetSeal`, `trunkSeal`, `preliminary_information_id`) VALUES (NULL, '$steeringWheelwearTear', '$steeringWheelbutton', '$lightLeverswitch', '$dashboard', '$dashControlbuttons', '$interiorLights', '$deFogger', '$hazardLights', '$multimedia', '$rearCamera', '$frontViewcamera', '$trunkReleaselever', '$fuelcapReleaseLever', '$bonnetReleaselever', '$sideViewmirrorAdjustment', '$leftSideviewMirror', '$rightSideviewMirror', '$retractingSideviewMirrors', '$acGrills', '$acceleratorPedal', '$breakPedal', '$clutchPedal', '$seatsType', '$seatsCondition', '$driverSeatbelt', '$passengerSeatbelt', '$windowsType', '$frontDriverwindow', '$frontPassengerwindow', '$rearDriversideWindow', '$rearPassengersideWindow', '$front_right_seat_belt', '$rear_right_seat_belt', '$windowSafetylockButton', '$centralLocking', '$keyButtons', '$floorMats', '$frontDriverdoorSeal', '$frontPassengerDoorSeal', '$rearDriversideDoorSeal', '$rearPassengersideDoorSeal', '$bonnetSeal', '$trunkSeal', '$preliminary_information_id')";
 mysqli_query($conn, $insert_interior);
 
 $interior_id = mysqli_insert_id($conn);
 
-$interior_images = $_FILES['interior_images']['name'];
-$interior_images_length = count($interior_images);
+if (isset($_FILES['interior_images'])) {
+    $interiorImages = $_FILES['interior_images']['name'];
 
-for ($i = 0; $i < $interior_images_length; $i++) {
-    $interior_images = $_FILES['interior_images']['name'][$i];
-    if (!empty($interior_images)) {
-        $target_directory = 'assets/images/interior-images/';
-        $target_file = $target_directory . basename($interior_images);
-        if (!is_dir($target_directory)) {
-            mkdir($target_directory, 0777, true); // Create the target directory if it doesn't exist
+    $stmt = $conn->prepare("INSERT INTO `interior_images` (`id`, `image`, `interior_id`) VALUES (NULL, ?, ?)");
+
+    // Loop through uploaded images and execute the prepared statement for each image
+    foreach ($_FILES['interior_images']['tmp_name'] as $key => $tmp_name) {
+        // Check if the uploaded file has no errors and has a non-empty temporary name
+        if ($_FILES['interior_images']['error'][$key] == UPLOAD_ERR_OK && !empty($tmp_name)) {
+            // Get uploaded image data
+            $image_name = $_FILES['interior_images']['name'][$key];
+            $image_data = file_get_contents($_FILES['interior_images']['tmp_name'][$key]);
+
+            // Bind the values to the prepared statement
+            $stmt->bind_param("si", $image_data, $interior_id);
+
+            // Execute the prepared statement
+            $stmt->execute();
         }
-        move_uploaded_file($_FILES['interior_images']['tmp_name'][$i], $target_file);
-         $insert_images = "INSERT INTO `interior_images` (`id`, `image`, `interior_id`) VALUES (NULL, '" . $interior_images . "', '" . $interior_id . "')";
-        mysqli_query($conn, $insert_images);
     }
+
 }
+
 
 // Interior end
 
@@ -256,22 +273,28 @@ mysqli_query($conn, $insert_electronic_function);
 
 $electronic_function_id = mysqli_insert_id($conn);
 
-$electronic_images = $_FILES['electronic_images']['name'];
-$electronic_images_length = count($electronic_images);
+if (isset($_FILES['electronic_images'])) {
+    $electronicImages = $_FILES['electronic_images']['name'];
 
-for ($i = 0; $i < $electronic_images_length; $i++) {
-    $electronic_images = $_FILES['electronic_images']['name'][$i];
-    if (!empty($electronic_images)) {
-        $target_directory = 'assets/images/electronic-images/';
-        $target_file = $target_directory . basename($electronic_images);
-        if (!is_dir($target_directory)) {
-            mkdir($target_directory, 0777, true); // Create the target directory if it doesn't exist
+    $stmt = $conn->prepare("INSERT INTO `electronic_images` (`id`, `image`, `electronic_function_id`) VALUES (NULL, ?, ?)");
+
+    // Loop through uploaded images and execute the prepared statement for each image
+    foreach ($_FILES['electronic_images']['tmp_name'] as $key => $tmp_name) {
+        // Check if the uploaded file has no errors and has a non-empty temporary name
+        if ($_FILES['electronic_images']['error'][$key] == UPLOAD_ERR_OK && !empty($tmp_name)) {
+            // Get uploaded image data
+            $image_name = $_FILES['electronic_images']['name'][$key];
+            $image_data = file_get_contents($_FILES['electronic_images']['tmp_name'][$key]);
+
+            // Bind the values to the prepared statement
+            $stmt->bind_param("si", $image_data, $electronic_function_id);
+
+            // Execute the prepared statement
+            $stmt->execute();
         }
-        move_uploaded_file($_FILES['electronic_images']['tmp_name'][$i], $target_file);
-         $insert_images = "INSERT INTO `electronic_images` (`id`, `image`, `electronic_function_id`) VALUES (NULL, '" . $electronic_images . "', '" . $electronic_function_id . "')";
-        mysqli_query($conn, $insert_images);
     }
-}
+} 
+
 
 // Electronic Function end
 
@@ -297,23 +320,28 @@ mysqli_query($conn, $insert_suspension_function);
 
 $suspension_function_id = mysqli_insert_id($conn);
 
-$suspension_images = $_FILES['suspension_images']['name'];
-$suspension_images_length = count($suspension_images);
+if (isset($_FILES['suspension_images'])) {
+    $suspensionImages = $_FILES['suspension_images']['name'];
 
-for ($i = 0; $i < $suspension_images_length; $i++) {
-    $suspension_images = $_FILES['suspension_images']['name'][$i];
-    if (!empty($suspension_images)) {
-        $target_directory = 'assets/images/suspension-images/';
-        $target_file = $target_directory . basename($suspension_images);
-        if (!is_dir($target_directory)) {
-            mkdir($target_directory, 0777, true); // Create the target directory if it doesn't exist
+    $stmt = $conn->prepare("INSERT INTO `suspension_images` (`id`, `image`, `suspension_function_id`) VALUES (NULL, ?, ?)");
+
+    // Loop through uploaded images and execute the prepared statement for each image
+    foreach ($_FILES['suspension_images']['tmp_name'] as $key => $tmp_name) {
+        // Check if the uploaded file has no errors and has a non-empty temporary name
+        if ($_FILES['suspension_images']['error'][$key] == UPLOAD_ERR_OK && !empty($tmp_name)) {
+            // Get uploaded image data
+            $image_name = $_FILES['suspension_images']['name'][$key];
+            $image_data = file_get_contents($_FILES['suspension_images']['tmp_name'][$key]);
+
+            // Bind the values to the prepared statement
+            $stmt->bind_param("si", $image_data, $suspension_function_id);
+
+            // Execute the prepared statement
+            $stmt->execute();
         }
-        move_uploaded_file($_FILES['suspension_images']['tmp_name'][$i], $target_file);
-         $insert_images = "INSERT INTO `suspension_images` (`id`, `image`, `suspension_function_id`) VALUES (NULL, '" . $suspension_images . "', '" . $suspension_function_id . "')";
-        mysqli_query($conn, $insert_images);
     }
-}
-
+    
+} 
 // Suspension Function end 
 
 // Exterior Body start
@@ -326,7 +354,7 @@ $driverDpillar = $_POST['driverDpillar'];
 $driverCpillar = $_POST['driverCpillar'];
 $driverBpillar = $_POST['driverBpillar'];
 $driverApillar = $_POST['driverApillar'];
-$pabbels = $_POST['pabbels'];
+$panels = $_POST['panels'];
 $roof = $_POST['roof'];
 $frontDriverdoor = $_POST['frontDriverdoor'];
 $rearDriverdoor = $_POST['rearDriverdoor'];
@@ -342,27 +370,67 @@ $bonnet = $_POST['bonnet'];
 $frontDriverfender = $_POST['frontDriverfender'];
 $trunkLock = $_POST['trunkLock'];
 
-$insert_exterior_body = "INSERT INTO `exterior_body` (`id`, `trunkLock`, `bonnet`, `frontWindshield`, `frontPassengerfender`, `rearPassengerdoor`, `rearPassengerfender`, `trunk`, `rearWinshield`, `rearDriverfender`, `rearDriverdoor`, `frontDriverdoor`, `roof`, `pabbels`, `driverApillar`, `driverBpillar`, `driverCpillar`, `driverDpillar`, `passengerApillar`, `passengerBpillar`, `passengerCpillar`, `passengerDpillar`, `frontDriverfender`, `frontPassengerdoor`, `preliminary_information_id`) VALUES (NULL, '$trunkLock', '$bonnet', '$frontWindshield', '$frontPassengerfender', '$rearPassengerdoor', '$rearPassengerfender', '$trunk', '$rearWinshield', '$rearDriverfender', '$rearDriverdoor', '$frontDriverdoor', '$roof', '$pabbels', '$driverApillar', '$driverBpillar', '$driverCpillar', '$driverDpillar', '$passengerApillar', '$passengerBpillar', '$passengerCpillar', '$passengerDpillar', '$frontDriverfender', '$frontPassengerdoor', '$preliminary_information_id')";
+$insert_exterior_body = "INSERT INTO `exterior_body` (`id`, `trunkLock`, `bonnet`, `frontWindshield`, `frontPassengerfender`, `rearPassengerdoor`, `rearPassengerfender`, `trunk`, `rearWinshield`, `rearDriverfender`, `rearDriverdoor`, `frontDriverdoor`, `roof`, `panels`, `driverApillar`, `driverBpillar`, `driverCpillar`, `driverDpillar`, `passengerApillar`, `passengerBpillar`, `passengerCpillar`, `passengerDpillar`, `frontDriverfender`, `frontPassengerdoor`, `preliminary_information_id`) VALUES (NULL, '$trunkLock', '$bonnet', '$frontWindshield', '$frontPassengerfender', '$rearPassengerdoor', '$rearPassengerfender', '$trunk', '$rearWinshield', '$rearDriverfender', '$rearDriverdoor', '$frontDriverdoor', '$roof', '$panels', '$driverApillar', '$driverBpillar', '$driverCpillar', '$driverDpillar', '$passengerApillar', '$passengerBpillar', '$passengerCpillar', '$passengerDpillar', '$frontDriverfender', '$frontPassengerdoor', '$preliminary_information_id')";
 mysqli_query($conn, $insert_exterior_body);
 
 $exterior_body_id = mysqli_insert_id($conn);
 
-$exterior_images = $_FILES['exterior_images']['name'];
-$exterior_images_length = count($exterior_images);
 
-for ($i = 0; $i < $exterior_images_length; $i++) {
-    $exterior_images = $_FILES['exterior_images']['name'][$i];
-    if (!empty($exterior_images)) {
-        $target_directory = 'assets/images/exterior-images/';
-        $target_file = $target_directory . basename($exterior_images);
-        if (!is_dir($target_directory)) {
-            mkdir($target_directory, 0777, true); // Create the target directory if it doesn't exist
+function storeExteriorToDB($img_name, $conn, $exterior_body_id) {
+    $stmt = $conn->prepare("INSERT INTO `exterior_images` (`id`, `image`, `exterior_body_id`) VALUES (NULL, ?, ?)");
+
+    // Loop through uploaded images and execute the prepared statement for each image
+    foreach ($_FILES[$img_name]['tmp_name'] as $key => $tmp_name) {
+        // Check if the uploaded file has no errors and has a non-empty temporary name
+        if ($_FILES[$img_name]['error'][$key] == UPLOAD_ERR_OK && !empty($tmp_name)) {
+            // Get uploaded image data
+            $image_name = $_FILES[$img_name]['name'][$key];
+            $image_data = file_get_contents($_FILES[$image_name]['tmp_name'][$key]);
+
+            // Bind the values to the prepared statement
+            $stmt->bind_param("si", $image_data, $exterior_body_id);
+
+            // Execute the prepared statement
+            $stmt->execute();
         }
-        move_uploaded_file($_FILES['exterior_images']['tmp_name'][$i], $target_file);
-         $insert_images = "INSERT INTO `exterior_images` (`id`, `image`, `exterior_body_id`) VALUES (NULL, '" . $exterior_images . "', '" . $exterior_body_id . "')";
-        mysqli_query($conn, $insert_images);
+    }
+
+    // Close the prepared statement
+    $stmt->close();
+}
+$inputs = array(
+    'frontDriverfender_images',
+    'frontPassengerdoor_images',
+    'frontWindshield_images',
+    'rearPassengerfender_images',
+    'rearWinshield_images',
+    'rearDriverfender_images',
+    'rearDriverdoor_images',
+    'roof_images',
+    'panels_images',
+    'driverApillar_images',
+    'driverCpillar_images',
+    'driverBpillar_images',
+    'driverDpillar_images',
+    'passengerApillar_images',
+    'passengerCpillar_images',
+    'passengerBpillar_images',
+    'bonnet_images',
+    'frontPassengerfender_images',
+    'rearPassengerdoor_images',
+    'passengerDpillar_images',
+    'frontDriverdoor_images',
+    'trunkLock_images'
+);
+
+// Loop through the image inputs and call the storeExteriorToDB() function for each input
+foreach ($inputs as $input) {
+    if (isset($_FILES[$input])) {
+        storeExteriorToDB($input, $conn, $exterior_body_id);
     }
 }
+
+
 
 // Exterior Body end
 
@@ -386,24 +454,34 @@ $frontPassengertyreBrand = $_POST['frontPassengertyreBrand'];
 $insert_tyre = "INSERT INTO `tyres` (`id`, `frontPassengertyreBrand`, `frontPassengertyreSize`, `frontPassengertyreCondition`, `frontDrivertyreBrand`, `frontDrivertyreSize`, `frontDrivertyreCondition`, `rearPassengertyreBrand`, `rearPassengerTyresize`, `rearPassengertyreCondition`, `rearDriverTyrebrand`, `rearDrivertyreSize`, `rearDrivertyreCondition`, `alloyRims`, `preliminary_information_id`) VALUES (NULL, '$frontPassengertyreBrand	', '$frontPassengertyreSize', '$frontPassengertyreCondition', '$frontDrivertyreBrand', '$frontDrivertyreSize', '$frontDrivertyreCondition', '$rearPassengertyreBrand', '$rearPassengerTyresize', '$rearPassengertyreCondition', '$rearDriverTyrebrand', '$rearDrivertyreSize', '$rearDrivertyreCondition', '$alloyRims', '$preliminary_information_id')";
 mysqli_query($conn, $insert_tyre);
 
-$tyres_id = mysqli_insert_id($conn);
 
-$tyre_images = $_FILES['tyre_images']['name'];
-$tyre_images_length = count($tyre_images);
 
-for ($i = 0; $i < $tyre_images_length; $i++) {
-    $tyre_images = $_FILES['tyre_images']['name'][$i];
-    if (!empty($tyre_images)) {
-        $target_directory = 'assets/images/tyre-images/';
-        $target_file = $target_directory . basename($tyre_images);
-        if (!is_dir($target_directory)) {
-            mkdir($target_directory, 0777, true); // Create the target directory if it doesn't exist
+if (isset($_FILES['tyre_images'])) {
+    
+    $tyres_id = mysqli_insert_id($conn);
+    $img_name = $_FILES['tyre_images']['name'];
+    $stmt = $conn->prepare("INSERT INTO `tyre_images` (`id`, `image`, `tyres_id`) VALUES (NULL, ?, ?)");
+
+    // Loop through uploaded images and execute the prepared statement for each image
+    foreach ($_FILES['tyre_images']['tmp_name'] as $key => $tmp_name) {
+        // Check if the uploaded file has no errors and has a non-empty temporary name
+        if ($_FILES['tyre_images']['error'][$key] == UPLOAD_ERR_OK && !empty($tmp_name)) {
+            // Get uploaded image data
+            $image_name = $_FILES['tyre_images']['name'][$key];
+            $image_data = file_get_contents($_FILES['tyre_images']['tmp_name'][$key]);
+
+            // Bind the values to the prepared statement
+            $stmt->bind_param("si", $image_data, $tyres_id);
+
+            // Execute the prepared statement
+            $stmt->execute();
         }
-        move_uploaded_file($_FILES['tyre_images']['tmp_name'][$i], $target_file);
-         $insert_images = "INSERT INTO `tyre_images` (`id`, `image`, `tyres_id`) VALUES (NULL, '" . $tyre_images . "', '" . $tyres_id . "')";
-        mysqli_query($conn, $insert_images);
     }
+
+    // Close the prepared statement
+    $stmt->close();
 }
+
 
 // Tyres start 
 
@@ -419,23 +497,38 @@ $insert_accessories = "INSERT INTO `accessories` (`id`, `spareWheel`, `toolKit`,
 mysqli_query($conn, $insert_accessories);
 
 $accessories_id = mysqli_insert_id($conn);
+if (isset($_FILES['accessories_images'])) {
+    $accessoriesImages = $_FILES['accessories_images']['name'];
+    $accessoriesImagesCount = count($accessoriesImages);
 
-$accessories_images = $_FILES['accessories_images']['name'];
-$accessories_images_length = count($accessories_images);
+    for ($i = 0; $i < $accessoriesImagesCount; $i++) {
+        $accessoriesImage = $_FILES['accessories_images']['name'][$i];
+        if (!empty($accessoriesImage)) {
+            $targetDirectory = 'assets/images/car-images/';
+            $targetFile = $targetDirectory . basename($accessoriesImage);
+            if (!is_dir($targetDirectory)) {
+                mkdir($targetDirectory, 0777, true); // Create the target directory if it doesn't exist
+            }
+            move_uploaded_file($_FILES['accessories_images']['tmp_name'][$i], $targetFile);
+            $insertImages = "INSERT INTO `accessories_images` (`id`, `image`, `accessories_id`) VALUES (NULL, '$accessoriesImage', '$accessories_id')";
+            mysqli_query($conn, $insertImages);
 
-for ($i = 0; $i < $accessories_images_length; $i++) {
-    $accessories_images = $_FILES['accessories_images']['name'][$i];
-    if (!empty($accessories_images)) {
-        $target_directory = 'assets/images/accessories-images/';
-        $target_file = $target_directory . basename($accessories_images);
-        if (!is_dir($target_directory)) {
-            mkdir($target_directory, 0777, true); // Create the target directory if it doesn't exist
+            // Define the folder path for accessories images
+            $accessoriesImagesFolder = 'assets/images/car-images/';
+
+            // Create the folder if it doesn't exist
+            if (!is_dir($accessoriesImagesFolder)) {
+                mkdir($accessoriesImagesFolder, 0755, true);
+            }
+
+            // Move uploaded image to the folder
+            $tempPath = $targetDirectory . $accessoriesImage;
+            $newPath = $accessoriesImagesFolder . $accessoriesImage;
+            rename($tempPath, $newPath);
         }
-        move_uploaded_file($_FILES['accessories_images']['tmp_name'][$i], $target_file);
-         $insert_images = "INSERT INTO `accessories_images` (`id`, `image`, `accessories_id`) VALUES (NULL, '" . $accessories_images . "', '" . $accessories_id . "')";
-        mysqli_query($conn, $insert_images);
     }
 }
+
 
 // Accessories end
 
@@ -462,29 +555,117 @@ mysqli_query($conn, $insert_test_drive);
 
 $test_drive_id = mysqli_insert_id($conn);
 
-$car_images = $_FILES['car_images']['name'];
-$car_images_length = count($car_images);
 
-for ($i = 0; $i < $car_images_length; $i++) {
-    $car_images = $_FILES['car_images']['name'][$i];
-    if (!empty($car_images)) {
-        $target_directory = 'assets/images/car-images/';
-        $target_file = $target_directory . basename($car_images);
-        if (!is_dir($target_directory)) {
-            mkdir($target_directory, 0777, true); // Create the target directory if it doesn't exist
+function storeToDB($img_name, $conn, $test_drive_id) {
+    $stmt = $conn->prepare("INSERT INTO `car_images` (`id`, `image`, `test_drive_id`) VALUES (NULL, ?, ?)");
+
+    // Loop through uploaded images and execute the prepared statement for each image
+    foreach ($_FILES[$img_name]['tmp_name'] as $key => $tmp_name) {
+        // Check if the uploaded file has no errors and has a non-empty temporary name
+        if ($_FILES[$img_name]['error'][$key] == UPLOAD_ERR_OK && !empty($tmp_name)) {
+            // Get uploaded image data
+            $image_name = $_FILES[$img_name]['name'][$key];
+            $image_data = file_get_contents($_FILES[$img_name]['tmp_name'][$key]);
+
+            // Bind the values to the prepared statement
+            $stmt->bind_param("si", $image_data, $test_drive_id);
+
+            // Execute the prepared statement
+            $stmt->execute();
         }
-        move_uploaded_file($_FILES['car_images']['tmp_name'][$i], $target_file);
-         $insert_images = "INSERT INTO `car_images` (`id`, `image`, `test_drive_id`) VALUES (NULL, '" . $car_images . "', '" . $test_drive_id . "')";
-        mysqli_query($conn, $insert_images);
     }
+
+    // Close the prepared statement
+    $stmt->close();
 }
 
-// Test Drive start
+if (isset($_FILES['car_front_images'])) {
+    storeToDB('car_front_images', $conn, $test_drive_id);
+}
 
 
+// // Car Front Headlight Image //
+if (isset($_FILES['front_headlights_images'])) {
+    storeToDB('front_headlights_images', $conn, $test_drive_id);
+}
+
+// // back light Image //
+if (isset($_FILES['back_lights_images'])) {
+    storeToDB('back_lights_images', $conn, $test_drive_id);
+}
+
+
+// Engine Room Image
+if (isset($_FILES['engine_room_images'])) {
+    storeToDB('engine_room_images', $conn, $test_drive_id);
+}
+
+// Stud Tower Right Image
+if (isset($_FILES['stud_tower_right_images'])) {
+    storeToDB('stud_tower_right_images', $conn, $test_drive_id);
+}
+
+// Stud Tower Left Image
+if (isset($_FILES['stud_tower_left_images'])) {
+    storeToDB('stud_tower_left_images', $conn, $test_drive_id);
+}
+
+// Front Right Image
+if (isset($_FILES['front_right_images'])) {
+    storeToDB('front_right_images', $conn, $test_drive_id);
+}
+
+// Front Left Image
+if (isset($_FILES['front_left_images'])) {
+    storeToDB('front_left_images', $conn, $test_drive_id);
+}
+
+// Right Image
+if (isset($_FILES['right_images'])) {
+    storeToDB('right_images', $conn, $test_drive_id);
+}
+
+// Left Image
+if (isset($_FILES['left_images'])) {
+    storeToDB('left_images', $conn, $test_drive_id);
+}
+
+// Back Right Image
+if (isset($_FILES['back_right_images'])) {
+    storeToDB('back_right_images', $conn, $test_drive_id);
+}
+
+// Back Image
+if (isset($_FILES['back_images'])) {
+    storeToDB('back_images', $conn, $test_drive_id);
+}
+
+// Back Left Image
+if (isset($_FILES['back_left_images'])) {
+    storeToDB('back_left_images', $conn, $test_drive_id);
+}
+
+// Interior Back Image
+if (isset($_FILES['interior_back_images'])) {
+    storeToDB('interior_back_images', $conn, $test_drive_id);
+}
+
+// UnderCarriage Back Image
+if (isset($_FILES['back_undercarriage_images'])) {
+    storeToDB('back_undercarriage_images', $conn, $test_drive_id);
+}
+
+// UnderCarriage Front Image
+if (isset($_FILES['front_undercarriage_images'])) {
+    storeToDB('front_undercarriage_images', $conn, $test_drive_id);
+}
+
+
+// Test Drive end
 
 // Return success response
 $response = array('success' => true, 'message' => 'Inspection registered successfully.');
+
 echo json_encode($response);
 
 ?>

@@ -141,7 +141,7 @@
                                                         New Inspection</a>
                                                 </div>
                                             </div>
-                                            
+
                                         </div>
                                     </div><!-- end card body -->
                                 </div><!-- Add USERS end card -->
@@ -152,7 +152,87 @@
 
             </div> <!-- end col -->
 
-          
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <h3 class="p-3 pb-0">Recent Inspection Request</h3>
+
+                        <div class="card-body">
+                            <!--  Table Start -->
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-responsive table-nowrap">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th scope="col">No</th>
+                                            <th scope="col">First Name</th>
+                                            <th scope="col">Last Name</th>
+                                            <th scope="col">Phone</th>
+                                            <th scope="col" class="text-center">Email</th>
+                                            <th scope="col">City</th>
+                                            <th scope="col">Date</th>
+                                            <th scope="col">Message</th>
+                                            <th scope="col">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="ProductTableBody">
+                                        <!-- Get All Inspection -->
+                                        <?php
+                                        $select_products = "select * from preliminary_information ORDER BY id ASC LIMIT 3";
+                                        $run_select_products = mysqli_query($conn, $select_products);
+                                        $i = 0;
+                                        while ($get_product = mysqli_fetch_array($run_select_products)) {
+                                            $inspection_id = $get_product['id'];
+                                            $username = $get_product['username'];
+                                            $vehicle_name = $get_product['vehicle_name'];
+                                            $phone = $get_product['phone'];
+                                            $email = $get_product['email'];
+                                            $city = $get_product['city'];
+                                            $date = $get_product['date'];
+                                            $message = $get_product['message'];
+
+                                        ?>
+                                            <tr>
+                                                <th scope="row"><?php echo $i++; ?></th>
+                                                <td><?php echo $username; ?></td>
+                                                <td><?php echo $vehicle_name; ?></td>
+                                                <td class="text-center"><?php echo $phone; ?></td>
+                                                <td class="text-center"><?php echo $email; ?></td>
+                                                <td class="text-center"><?php echo $city; ?></td>
+                                                <td class="text-center"><?php echo $date; ?></td>
+                                                <td class="text-center"><?php echo $message; ?></td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <a href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                                            <i class="ri-more-2-fill"></i>
+                                                        </a>
+
+                                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                            <li><a class="dropdown-item" href="update_inspection.php?update_inspection_id=<?php echo $inspection_id; ?>">Continue</a></li>
+                                                            <li><a class="dropdown-item" href="inspection.php?delete_inspection_id=<?php echo $inspection_id; ?>">Delete</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </td>
+
+
+                                            </tr>
+                                        <?php } ?>
+                                    </tbody>
+                                </table>
+                                <!-- "No results found" message with image start -->
+                                <div id="noResults" style="display: none;" class="no-record-section mx-auto text-center">
+                                    <img src="assets/images/flags/error.svg" alt="No results found" width="250" height="250">
+                                    <p class="fw-bold fs-4 text-black-50">No Record Found..</p>
+                                </div>
+                                <!-- "No results found" message with image end -->
+                            </div>
+                            <!--  Table End -->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
         </div>
 
     </div>

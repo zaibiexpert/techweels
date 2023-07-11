@@ -26,9 +26,6 @@
     text-align: center;
     padding: 10px;
 }
-
-
-
 .error-msg {
     color: red;
     font-size: 14px;
@@ -147,7 +144,7 @@
     content: "\f0009";
     color: blueviolet;
 }
-.inspect-logo{
-    height: 180px;
+
+.inspect-logo {
     width: 100%;
 }

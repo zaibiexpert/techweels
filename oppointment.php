@@ -1,5 +1,10 @@
 <?php include('header.php') ?>
-
+<style>
+    .spartan_item_wrapper {
+        width: 100%;
+        padding: 0px;
+    }
+</style>
 <div class="container-fluid ">
     <div class="row ">
         <div class="col-lg-12">
@@ -26,6 +31,7 @@
                         </div>
                         <h3 class="mb-4 pb-2 pb-md-0 mb-md-4 px-md-2">Schelude Inspection</h3>
                         <form id="inspection_form" class="px-md-2">
+                            <input type="hidden" name="create_pdf" value="0" id="create_pdf">
                             <div class="form-outline mb-4">
                                 <input type="text" id="form3Example1q" name="username" class="form-control" required />
                                 <label class="form-label" for="form3Example1q">User Name</label>
@@ -57,7 +63,7 @@
                                 <input type="date" id="form3Example1q" name="date" class="form-control" required />
                                 <label class="form-label" for="form3Example1q">Date *</label>
                             </div>
-
+                           
                             <div class="form-outline mb-4">
                                 <input type="text" id="form3Example1q" name="message" class="form-control" required />
                                 <label class="form-label" for="form3Example1q">Additional Notes *</label>
@@ -71,6 +77,7 @@
     </div>
 </section>
 <!-- Footer start-->
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -113,6 +120,8 @@
     });
 </script>
 <!-- inspection code end-->
+
+
 
 <!-- message hide code start-->
 <script>

@@ -92,7 +92,7 @@
                                             </tr>
                                         </thead>
                                         <tbody id="ProductTableBody">
-                                            <!-- Get All Products -->
+                                            <!-- Get All Inspection -->
                                             <?php
 
                                             $select_products = "select * from preliminary_information";
@@ -125,7 +125,7 @@
                                                             </a>
 
                                                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                                <li><a class="dropdown-item" href="update.php?update_inspection_id=<?php echo $inspection_id; ?>">Continue</a></li>
+                                                                <li><a class="dropdown-item" href="update_inspection.php?update_inspection_id=<?php echo $inspection_id; ?>">Continue</a></li>
                                                                 <li><a class="dropdown-item" href="inspection.php?delete_inspection_id=<?php echo $inspection_id; ?>">Delete</a></li>
                                                             </ul>
                                                         </div>

@@ -1,1915 +1,835 @@
-<!-- header start -->
-<style>
-    .navbar-brand-box {
-        padding: 2rem 1.3rem !important;
+<?php include('conn.php') ?>
+
+
+<?php
+
+// preliminary_information start
+$update_inspection_id = $_POST['update_inspection_id'];
+$username = $_POST['username'];
+$vehicle_name = $_POST['vehicle_name'];
+$email = $_POST['email'];
+$phone = $_POST['phone'];
+$city = $_POST['city'];
+$date = $_POST['date'];
+$vehicle_model = $_POST['vehicle_model'];
+$vehicle_variant = $_POST['vehicle_variant'];
+$model_year = $_POST['model_year'];
+$transmission = $_POST['transmission'];
+$engine_capacity = $_POST['engine_capacity'];
+$fuel_type = $_POST['fuel_type'];
+$body_color = $_POST['body_color'];
+$mileage = $_POST['mileage'];
+$registration_number = $_POST['registration_number'];
+$registered_city = $_POST['registered_city'];
+$chassis_number = $_POST['chassis_number'];
+$engine_number = $_POST['engine_number'];
+$message = mysqli_real_escape_string($conn, $_POST['message']);
+
+$update_preliminary_information = "UPDATE `preliminary_information` SET 
+    `username` = '$username',
+    `vehicle_name` = '$vehicle_name',
+    `email` = '$email',
+    `phone` = '$phone',
+    `city` = '$city',
+    `date` = '$date',
+    `vehicle_model` = '$vehicle_model',
+    `vehicle_variant` = '$vehicle_variant',
+    `model_year` = '$model_year',
+    `transmission` = '$transmission',
+    `engine_capacity` = '$engine_capacity',
+    `fuel_type` = '$fuel_type',
+    `body_color` = '$body_color',
+    `mileage` = '$mileage',
+    `registration_number` = '$registration_number',
+    `registered_city` = '$registered_city',
+    `chassis_number` = '$chassis_number',
+    `engine_number` = '$engine_number',
+    `message` = '$message'
+WHERE `id` = $update_inspection_id";
+
+mysqli_query($conn, $update_preliminary_information);
+
+$preliminary_information_id = mysqli_insert_id($conn);
+// preliminary_information end
+
+
+// Accidental Checklist start
+$rearUnderbody = $_POST['rearUnderbody'];
+$frontUnderbody = $_POST['frontUnderbody'];
+$bootFloor = $_POST['bootFloor'];
+$leftDpillar = $_POST['leftDpillar'];
+$rightDpillar = $_POST['rightDpillar'];
+$leftCpillar = $_POST['leftCpillar'];
+$rightCpillar = $_POST['rightCpillar'];
+$leftBpillar = $_POST['leftBpillar'];
+$rightBpillar = $_POST['rightBpillar'];
+$leftApillar = $_POST['leftApillar'];
+$rightApillar = $_POST['rightApillar'];
+$radiatorCoreSupport = $_POST['radiatorCoreSupport'];
+$leftFrontRail = $_POST['leftFrontRail'];
+$rightFrontRail = $_POST['rightFrontRail'];
+$leftStrutTower = $_POST['leftStrutTower'];
+$rightStrutTower = $_POST['rightStrutTower'];
+$engineRoom = $_POST['engineRoom'];
+
+$update_accidental_checklist = "UPDATE `accidental_checklist` SET 
+    `engineRoom` = '$engineRoom',
+    `rightStrutTower` = '$rightStrutTower',
+    `leftStrutTower` = '$leftStrutTower',
+    `rightFrontRail` = '$rightFrontRail',
+    `leftFrontRail` = '$leftFrontRail',
+    `radiatorCoreSupport` = '$radiatorCoreSupport',
+    `rightApillar` = '$rightApillar',
+    `leftApillar` = '$leftApillar',
+    `leftBpillar` = '$leftBpillar',
+    `rightCpillar` = '$rightCpillar',
+    `leftCpillar` = '$leftCpillar',
+    `rightDpillar` = '$rightDpillar',
+    `leftDpillar` = '$leftDpillar',
+    `bootFloor` = '$bootFloor',
+    `frontUnderbody` = '$frontUnderbody',
+    `rearUnderbody` = '$rearUnderbody',
+    `rightBpillar` = '$rightBpillar'
+WHERE `preliminary_information_id` = $update_inspection_id";
+
+mysqli_query($conn, $update_accidental_checklist);
+
+
+$accidental_checklist_id = mysqli_insert_id($conn);
+
+if (isset($_FILES['accidental_images'])) {
+    $accidentalImages = $_FILES['accidental_images']['name'];
+
+    // Loop through uploaded images and update the corresponding records
+    foreach ($_FILES['accidental_images']['tmp_name'] as $key => $tmp_name) {
+        // Check if the uploaded file has no errors and has a non-empty temporary name
+        if ($_FILES['accidental_images']['error'][$key] == UPLOAD_ERR_OK && !empty($tmp_name)) {
+            // Get uploaded image data
+            $image_name = $_FILES['accidental_images']['name'][$key];
+            $image_data = file_get_contents($_FILES['accidental_images']['tmp_name'][$key]);
+
+            // Perform the update query
+            $stmt = $conn->prepare("UPDATE `accidental_images` SET `image` = ? WHERE `id` = ? AND `accidental_checklist_id` = ?");
+            $checklist_id = $accidental_checklist_id; // Create a separate variable for passing by reference
+            $image_id = $key + 1; // Assign the expression $key + 1 to a separate variable
+            $stmt->bind_param("sii", $image_data, $image_id, $checklist_id);
+            $stmt->execute();
+        }
     }
-</style>
-<?php include('header.php'); ?>
-<style>
-    .success-message {
-        display: none;
+}
+
+
+
+
+// Accidental Checklist end
+
+//Mechanical Function start
+
+$gearTransmission = $_POST['gearTransmission'];
+$suctionFan = $_POST['suctionFan'];
+$radiator = $_POST['radiator'];
+$exhaustSound = $_POST['exhaustSound'];
+$transmissionOilLeakage = $_POST['transmissionOilLeakage'];
+$brakeOilLeakage = $_POST['brakeOilLeakage'];
+$coolantLeakage = $_POST['coolantLeakage'];
+$engineBlow = $_POST['engineBlow'];
+$engineSmokeColor = $_POST['engineSmokeColor'];
+$engineSmoke = $_POST['engineSmoke'];
+$engineVibration = $_POST['engineVibration'];
+$engineNoisy = $_POST['engineNoisy'];
+$engine_oil_leakage = $_POST['engine_oil_leakage'];
+
+$update_mechanical_function = "UPDATE `mechanical_function` SET `engine_oil_leakage` = '$engine_oil_leakage', `engineNoisy` = '$engineNoisy', `engineVibration` = '$engineVibration', `engineSmoke` = '$engineSmoke', `engineSmokeColor` = '$engineSmokeColor', `engineBlow` = '$engineBlow', `coolantLeakage` = '$coolantLeakage', `brakeOilLeakage` = '$brakeOilLeakage', `transmissionOilLeakage` = '$transmissionOilLeakage', `exhaustSound` = '$exhaustSound', `radiator` = '$radiator', `suctionFan` = '$suctionFan', `gearTransmission` = '$gearTransmission' WHERE `preliminary_information_id` = '$update_inspection_id'";
+mysqli_query($conn, $update_mechanical_function);
+
+$mechanical_function_id = mysqli_insert_id($conn);
+
+if (isset($_FILES['mechanical_images'])) {
+    $mechanicalImages = $_FILES['mechanical_images']['name'];
+
+    // Loop through uploaded images and update the corresponding records
+    foreach ($_FILES['mechanical_images']['tmp_name'] as $key => $tmp_name) {
+        // Check if the uploaded file has no errors and has a non-empty temporary name
+        if ($_FILES['mechanical_images']['error'][$key] == UPLOAD_ERR_OK && !empty($tmp_name)) {
+            // Get uploaded image data
+            $image_name = $_FILES['mechanical_images']['name'][$key];
+            $image_data = file_get_contents($_FILES['mechanical_images']['tmp_name'][$key]);
+
+            // Perform the update query
+            $stmt = $conn->prepare("UPDATE `mechanical_images` SET `image` = ? WHERE `id` = ? AND `mechanical_function_id` = ?");
+            $stmt->bind_param("sii", $image_data, $key + 1, $mechanical_function_id);
+            $stmt->execute();
+        }
     }
-</style>
-<!-- header End -->
+}
 
-<!-- Left Sidebar start -->
-<?php include('sidebar.php'); ?>
-<!-- Left Sidebar End -->
 
-<!-- Vertical Overlay-->
-<div class="vertical-overlay"></div>
 
-<!-- ============================================================== -->
-<!-- Start right Content here -->
-<!-- ============================================================== -->
-<div class="main-content">
-    <div class="page-content">
-        <div class="container-fluid">
-            <!-- start page title -->
-            <div class="row">
-                <div class="col-12">
-                    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                        <h4 class="mb-sm-0">Dashboard</h4>
+//Mechanical Function end
 
-                        <div class="page-title-right">
-                            <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboards</a></li>
-                                <li class="breadcrumb-item active">Add Inspection</li>
-                            </ol>
-                        </div>
+//Ac/Heater operation start
 
-                    </div>
-                </div>
-            </div>
-            <!-- end page title -->
+$heater = $_POST['heater'];
+$acCooling = $_POST['acCooling'];
+$blowerThrow = $_POST['blowerThrow'];
+$acFan = $_POST['acFan'];
+$acInstalled = $_POST['acInstalled'];
 
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <div class="row g-4 align-items-center">
-                                <div class="col-sm">
-                                    <div>
-                                        <h4 class="card-title mb-0">Add Inspection</h4>
-                                    </div>
-                                </div>
-                                <div class="col-sm-auto">
-                                    <div class="d-flex flex-wrap align-items-start gap-2">
-                                        <a href="inspection.php" class="btn btn-success">
-                                            <i class="fas fa-eye align-center me-1"></i> Show Inspection
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-body mt-3">
-                            <div class="row justify-center">
-                                <div class="col-lg-6">
-                                    <div id="hide_div" class="mt-0 success-message"> </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
+$update_ac_heater_operation = "UPDATE `ac_heater_operation` SET `acInstalled` = '$acInstalled', `acFan` = '$acFan', `blowerThrow` = '$blowerThrow', `acCooling` = '$acCooling', `heater` = '$heater' WHERE `preliminary_information_id` = '$preliminary_information_id'";
+mysqli_query($conn, $update_ac_heater_operation);
 
-                            <!-- Get Previous inspection data start -->
-                                <?php
-                                if (isset($_REQUEST['update_inspection_id'])) {
-                                    $update_inspection_id = $_REQUEST['update_inspection_id'];
-                                    // Get Previous preliminary_information data 
-                                    $select_appoinment = "select * from preliminary_information where id='$update_inspection_id'";
-                                    $run_select_appoinment = mysqli_query($conn, $select_appoinment);
-                                    while ($get_inspection = mysqli_fetch_array($run_select_appoinment)) {
-                                        $previous_username = $get_inspection['username'];
-                                        $previous_vehicle_name = $get_inspection['vehicle_name'];
-                                        $previous_email = $get_inspection['email'];
-                                        $previous_phone = $get_inspection['phone'];
-                                        $previous_city = $get_inspection['city'];
-                                        $previous_date = $get_inspection['date'];
-                                        $previous_message = $get_inspection['message'];
-                                        $previous_vehicle_model = $get_inspection['vehicle_model'];
-                                        $previous_vehicle_variant = $get_inspection['vehicle_variant'];
-                                        $previous_model_year = $get_inspection['model_year'];
-                                        $previous_transmission = $get_inspection['transmission'];
-                                        $previous_engine_capacity = $get_inspection['engine_capacity'];
-                                        $previous_fuel_type = $get_inspection['fuel_type'];
-                                        $previous_body_color = $get_inspection['body_color'];
-                                        $previous_mileage = $get_inspection['mileage'];
-                                        $previous_registration_number = $get_inspection['registration_number'];
-                                        $previous_registered_city = $get_inspection['registered_city'];
-                                        $previous_chassis_number = $get_inspection['chassis_number'];
-                                        $previous_engine_number = $get_inspection['engine_number'];
-                                    }
+$ac_heater_operation_id = $preliminary_information_id; // Assuming the ID is already set
 
-                                     // Get Previous accessories data 
-                                     $select_accessories = "select * from accessories where preliminary_information_id='$update_inspection_id'";
-                                     $run_select_accessories = mysqli_query($conn, $select_accessories);
-                                     while ($get_accessories = mysqli_fetch_array($run_select_accessories)) {
-                                         $previous_username = $get_accessories['username'];
-                                         $previous_vehicle_name = $get_accessories['vehicle_name'];
-                                         $previous_email = $get_accessories['email'];
-                                         $previous_phone = $get_accessories['phone'];
-                                         $previous_city = $get_accessories['city'];
-                                         $previous_date = $get_accessories['date'];
-                                         $previous_message = $get_accessories['message'];
-                                         $previous_vehicle_model = $get_accessories['vehicle_model'];
-                                         $previous_vehicle_variant = $get_accessories['vehicle_variant'];
-                                         $previous_model_year = $get_accessories['model_year'];
-                                         $previous_transmission = $get_accessories['transmission'];
-                                         $previous_engine_capacity = $get_accessories['engine_capacity'];
-                                         $previous_fuel_type = $get_accessories['fuel_type'];
-                                         $previous_body_color = $get_accessories['body_color'];
-                                         $previous_mileage = $get_accessories['mileage'];
-                                         $previous_registration_number = $get_accessories['registration_number'];
-                                         $previous_registered_city = $get_accessories['registered_city'];
-                                         $previous_chassis_number = $get_accessories['chassis_number'];
-                                         $previous_engine_number = $get_accessories['engine_number'];
-                                     }
-                                }
-                                ?>
-                                <!-- Get Previous inspection data end -->
-                                <form method="post" action="update.php">
-                                    <input type="hidden" name="get_inspection_id" value="<?php echo $update_inspection_id; ?>" />
-                                    <div class="mb-4 row">
-                                        <h3 class="mb-5">PRELIMINARY INFORMATION</h3>
-                                        <div class="col-lg-2 md-6">
-                                            <div class="">
-                                                <label class="form-label" for="form3Example1q">Client Name</label>
-                                                <input type="text" id="" name="username" class="form-control" placeholder="Enter Fisrt Name" required />
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-2 md-6">
-                                            <div class="">
-                                                <label class="form-label" for="form3Example1q">Vehicle Make</label>
-                                                <input type="text" id="" name="vehicle_name" placeholder="Enter Last Name" class="form-control" required />
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-2 md-6">
-                                            <div class="">
-                                                <label class="form-label" for="form3Example1q">Email</label>
-                                                <input type="text" id="" placeholder="Enter Email" name="email" class="form-control" required />
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-2 md-6">
-                                            <div class="">
-                                                <label class="form-label" for="form3Example1q">Phone</label>
-                                                <input type="text" id="" placeholder="Enter Phone" name="phone" class="form-control" required />
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-2 md-6">
-                                            <div class="">
-                                                <label class="form-label" for="form3Example1q">Inspection Location</label>
-                                                <input type="text" id="" placeholder="Enter City" name="city" class="form-control" required />
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-2 md-6">
-                                            <div class="">
-                                                <label class="form-label" for="form3Example1q">Inspection Date</label>
-                                                <input type="date" id="form3Example1q" name="date" class="form-control" required />
-                                            </div>
-                                        </div>
-                                    </div>
+if (isset($_FILES['ac_heater_images'])) {
+    $acHeaterImages = $_FILES['ac_heater_images']['name'];
 
+    $stmt = $conn->prepare("UPDATE `ac_heater_images` SET `image` = ? WHERE `ac_heater_operation_id` = ?");
 
+    // Loop through uploaded images and execute the prepared statement for each image
+    foreach ($_FILES['ac_heater_images']['tmp_name'] as $key => $tmp_name) {
+        // Check if the uploaded file has no errors and has a non-empty temporary name
+        if ($_FILES['ac_heater_images']['error'][$key] == UPLOAD_ERR_OK && !empty($tmp_name)) {
+            // Get uploaded image data
+            $image_data = file_get_contents($_FILES['ac_heater_images']['tmp_name'][$key]);
 
-                                    <div class="mb-4 row">
-                                        <div class="col-lg-2 md-6">
-                                            <div class="">
-                                                <label class="form-label" for="form3Example1q">Vehicle Model</label>
-                                                <input type="text" id="" placeholder="Enter Vehicle Model" name="vehicle_model" class="form-control" required />
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-2 md-6">
-                                            <div class="">
-                                                <label class="form-label" for="form3Example1q">Vehicle Variant</label>
-                                                <input type="text" id="" placeholder="Enter Vehicle Variant" name="vehicle_variant" class="form-control" required />
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-2 md-6">
-                                            <div class="">
-                                                <label class="form-label" for="form3Example1q"> Model Year</label>
-                                                <input type="text" id="" placeholder="Enter Model Year" name="model_year" class="form-control" required />
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-2 md-6">
-                                            <div class="">
-                                                <label class="form-label" for="form3Example1q">Transmission</label>
-                                                <input type="text" id="" placeholder="Enter Transmission" name="transmission" class="form-control" required />
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-2 md-6">
-                                            <div class="">
-                                                <label class="form-label" for="form3Example1q"> Engine Capacity</label>
-                                                <input type="text" id="" placeholder="Enter Engine Capacity" name="engine_capacity" class="form-control" required />
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-2 md-6">
-                                            <div class="">
-                                                <label class="form-label" for="form3Example1q">Fuel Type</label>
-                                                <input type="text" id="" placeholder="Enter Fuel Type" name="fuel_type" class="form-control" required />
-                                            </div>
-                                        </div>
-                                    </div>
+            // Bind the values to the prepared statement
+            $stmt->bind_param("si", $image_data, $ac_heater_operation_id);
 
-
-
-                                    <div class="mb-4 row">
-                                        <div class="col-lg-2 md-6">
-                                            <div class="">
-                                                <label class="form-label" for="form3Example1q"> Body Color</label>
-                                                <input type="text" id="" placeholder="Enter Body Color" name="body_color" class="form-control" required />
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-2 md-6">
-                                            <div class="">
-                                                <label class="form-label" for="form3Example1q">Mileage</label>
-                                                <input type="text" id="" placeholder="Enter Mileage" name="mileage" class="form-control" required />
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-2 md-6">
-                                            <div class="">
-                                                <label class="form-label" for="form3Example1q"> Registration Number</label>
-                                                <input type="text" id="" placeholder="Enter Registration Number" name="registration_number" class="form-control" required />
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-2 md-6">
-                                            <div class="">
-                                                <label class="form-label" for="form3Example1q">Registered City</label>
-                                                <input type="text" id="" placeholder="Enter Registered City" name="registered_city" class="form-control" required />
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-2 md-6">
-                                            <div class="">
-                                                <label class="form-label" for="form3Example1q"> Chassis Number</label>
-                                                <input type="text" id="" placeholder="Enter Chassis Number" name="chassis_number" class="form-control" required />
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-2 md-6">
-                                            <div class="">
-                                                <label class="form-label" for="form3Example1q">Engine Number</label>
-                                                <input type="text" id="" placeholder="Enter Engine Number" name="engine_number" class="form-control" required />
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class='row mb-4 mt-5'>
-                                        <div class='col-lg-12 col-sm-12'>
-                                            <h3 class='text-uppercase'>Accidental Checklist</h3>
-                                        </div>
-                                    </div>
-                                    <div class='row'>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Engine Room Firewall</label> <br />
-                                            <select class="form-control" name="engineRoom">
-                                                <option value="Non Accidented">Non Accidented</option>
-                                                <option value="Accidented">Accidented</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Right Strut Tower</label> <br />
-                                            <select class="form-control" name="rightStrutTower">
-                                                <option value="Non Accidented">Non Accidented</option>
-                                                <option value="Accidented">Accidented</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Left Strut Tower</label> <br />
-                                            <select class="form-control" name="leftStrutTower">
-                                                <option value="Non Accidented">Non Accidented</option>
-                                                <option value="Accidented">Accidented</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Right Front Rail</label> <br />
-                                            <select class="form-control" name="rightFrontRail">
-                                                <option value="Non Accidented">Non Accidented</option>
-                                                <option value="Accidented">Accidented</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Left Front Rail</label> <br />
-                                            <select class="form-control" name="leftFrontRail">
-                                                <option value="Non Accidented">Non Accidented</option>
-                                                <option value="Accidented">Accidented</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Radiator Core Support</label> <br />
-                                            <select class="form-control" name="radiatorCoreSupport">
-                                                <option value="Non Accidented">Non Accidented</option>
-                                                <option value="Accidented">Accidented</option>
-                                            </select>
-                                        </div>
-
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Right A Pillar</label> <br />
-                                            <select class="form-control" name="rightApillar">
-                                                <option value="Non Accidented">Non Accidented</option>
-                                                <option value="Accidented">Accidented</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Left A Pillar</label> <br />
-                                            <select class="form-control" name="leftApillar">
-                                                <option value="Non Accidented">Non Accidented</option>
-                                                <option value="Accidented">Accidented</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Right B Pillar</label> <br />
-                                            <select class="form-control" name="rightBpillar">
-                                                <option value="Non Accidented">Non Accidented</option>
-                                                <option value="Accidented">Accidented</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Left B Pillar</label> <br />
-                                            <select class="form-control" name="leftBpillar">
-                                                <option value="Non Accidented">Non Accidented</option>
-                                                <option value="Accidented">Accidented</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Right C Pillar</label> <br />
-                                            <select class="form-control" name="rightCpillar">
-                                                <option value="Non Accidented">Non Accidented</option>
-                                                <option value="Accidented">Accidented</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Left C Pillar</label> <br />
-                                            <select class="form-control" name="leftCpillar">
-                                                <option value="Non Accidented">Non Accidented</option>
-                                                <option value="Accidented">Accidented</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Right D Pillar</label> <br />
-                                            <select class="form-control" name="rightDpillar">
-                                                <option value="Non Accidented">Non Accidented</option>
-                                                <option value="Accidented">Accidented</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Left D Pillar</label> <br />
-                                            <select class="form-control" name="leftDpillar">
-                                                <option value="Non Accidented">Non Accidented</option>
-                                                <option value="Accidented">Accidented</option>
-                                            </select>
-                                        </div>
-
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Boot Floor</label> <br />
-                                            <select class="form-control" name="bootFloor">
-                                                <option value="Non Accidented">Non Accidented</option>
-                                                <option value="Accidented">Accidented</option>
-                                            </select>
-                                        </div>
-
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Front Underbody</label> <br />
-                                            <select class="form-control" name="frontUnderbody">
-                                                <option value="Non Accidented">Non Accidented</option>
-                                                <option value="Accidented">Accidented</option>
-                                            </select>
-                                        </div>
-
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Rear Underbody</label> <br />
-                                            <select class="form-control" name="rearUnderbody">
-                                                <option value="Non Accidented">Non Accidented</option>
-                                                <option value="Accidented">Accidented</option>
-                                            </select>
-                                        </div>
-                                        <div class="row mt-3">
-                                            <div class="mb-3">
-                                                <label class="fs-14">Select Images</label>
-                                                <div class="card-body">
-                                                    <div id="accidental_images_picker" class="row"></div>
-                                                    <div id="preview-container"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-
-
-
-                                    <div class='row'>
-                                        <div class='col-lg-12 col-sm-12 my-4'>
-                                            <h3 class='text-uppercase'>Mechanical Functions</h3>
-                                        </div>
-                                    </div>
-                                    <div class='row'>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Engine Noisy</label> <br />
-                                            <select class="form-control" name="engineNoisy">
-                                                <option value="No">No</option>
-                                                <option value="Yes">Yes</option>
-                                                <option value="Not Present">Not Present</option>
-                                                <option value="Normal Sound">Normal Sound</option>
-                                            </select>
-                                        </div>
-
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Engine Vibrations</label> <br />
-                                            <select class="form-control" name="engineVibration">
-                                                <option value="No">No</option>
-                                                <option value="Yes">Yes</option>
-                                                <option value="Normal Sound">Normal Sound</option>
-                                            </select>
-                                        </div>
-
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Engine Smoke</label> <br />
-                                            <select class="form-control" name="engineSmoke">
-                                                <option value="No">No</option>
-                                                <option value="Yes">Yes</option>
-                                            </select>
-                                        </div>
-
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Engine Smoke Color</label> <br />
-                                            <select class="form-control" name="engineSmokeColor">
-                                                <option value="N/A">N/A</option>
-                                                <option value="No">No</option>
-                                                <option value="Yes">Yes</option>
-                                            </select>
-                                        </div>
-
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Engine Blow</label> <br />
-                                            <select class="form-control" name="engineBlow">
-                                                <option value="Not Present">Not Present</option>
-                                                <option value="No">No</option>
-                                                <option value="Yes">Yes</option>
-                                            </select>
-                                        </div>
-
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Coolant Leakage</label> <br />
-                                            <select class="form-control" name="coolantLeakage">
-                                                <option value="No">No</option>
-                                                <option value="Yes">Yes</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Brake Oil Leakage</label> <br />
-                                            <select class="form-control" name="brakeOilLeakage">
-                                                <option value="No">No</option>
-                                                <option value="Yes">Yes</option>
-                                            </select>
-                                        </div>
-
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Transmission Oil Leakage</label> <br />
-                                            <select class="form-control" name="transmissionOilLeakage">
-                                                <option value="No">No</option>
-                                                <option value="Yes">Yes</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Exhaust Sound</label> <br />
-                                            <select class="form-control" name="exhaustSound">
-                                                <option value="Normal">Normal</option>
-                                                <option value="Not Good">Not Good</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Radiator</label> <br />
-                                            <select class="form-control" name="radiator">
-                                                <option value="Normal">Normal</option>
-                                                <option value="Not Good">Not Good</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Suction Fan</label> <br />
-                                            <select class="form-control" name="suctionFan">
-                                                <option value="Normal">Normal</option>
-                                                <option value="Not Good">Not Good</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Gear Transmission</label> <br />
-                                            <select class="form-control" name="gearTransmission">
-                                                <option value="Smooth">Smooth</option>
-                                                <option value="Not Good">Not Good</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="row mt-3">
-                                        <div class="mb-3">
-                                            <label class="fs-14">Select Images</label>
-                                            <div class="card-body">
-                                                <div id="mechanical_img_picker" class="row"></div>
-                                                <div id="preview-container"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-
-
-                                    <div class='row'>
-                                        <div class='col-lg-12 col-sm-12 my-4'>
-                                            <h3 class='text-uppercase'>A/C & Heater Operation</h3>
-                                        </div>
-                                    </div>
-                                    <div class='row'>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>A/C Installed</label> <br />
-                                            <select class="form-control" name="acInstalled">
-                                                <option value="Yes">Yes</option>
-                                                <option value="No">No</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>A/C Fan</label> <br />
-                                            <select class="form-control" name="acFan">
-                                                <option value="Working">Working</option>
-                                                <option value="Not Working">Not Working</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Blower Throw</label> <br />
-                                            <select class="form-control" name="blowerThrow">
-                                                <option value="Normal">Normal</option>
-                                                <option value="Not Working">Not Working</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>A/C Cooling</label> <br />
-                                            <select class="form-control" name="acCooling">
-                                                <option value="Normal">Normal</option>
-                                                <option value="Not Working">Not Working</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Heater</label> <br />
-                                            <select class="form-control" name="heater">
-                                                <option value="Working">Working</option>
-                                                <option value="Not Working">Not Working</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="row mt-3">
-                                        <div class="mb-3">
-                                            <label class="fs-14">Select Images</label>
-                                            <div class="card-body">
-                                                <div id="ac_heater_images_picker" class="row"></div>
-                                                <div id="preview-container"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                    <div class='row'>
-                                        <div class='col-lg-12 col-sm-12 my-4'>
-                                            <h3 class='text-uppercase'>Interior</h3>
-                                        </div>
-                                    </div>
-                                    <div class='row'>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Steering Wheel Wear And Tear</label> <br />
-                                            <select class="form-control" name="steeringWheelwearTear">
-                                                <option value="Normal">Normal</option>
-                                                <option value="Not Working">Not Working</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Steering Wheel Buttons</label> <br />
-                                            <select class="form-control" name="steeringWheelbutton">
-                                                <option value="Working">Working</option>
-                                                <option value="Not Working">Not Working</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Lights Lever/ Switch</label> <br />
-                                            <select class="form-control" name="lightLeverswitch">
-                                                <option value="Working">Working</option>
-                                                <option value="Not Working">Not Working</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Dashboard</label> <br />
-                                            <select class="form-control" name="dashboard">
-                                                <option value="Normal">Normal</option>
-                                                <option value="Not Working">Not Working</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Dash Control Buttons</label> <br />
-                                            <select class="form-control" name="dashControlbuttons">
-                                                <option value="Working">Working</option>
-                                                <option value="Not Working">Not Working</option>
-                                            </select>
-                                        </div>
-
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Interior Lights</label> <br />
-                                            <select class="form-control" name="interiorLights">
-                                                <option value="Working">Working</option>
-                                                <option value="Not Working">Not Working</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>De-fogger</label> <br />
-                                            <select class="form-control" name="deFogger">
-                                                <option value="Working">Working</option>
-                                                <option value="Not Working">Not Working</option>
-                                            </select>
-                                        </div>
-
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Hazard Lights</label> <br />
-                                            <select class="form-control" name="hazardLights">
-                                                <option value="Working">Working</option>
-                                                <option value="Not Working">Not Working</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Multimedia</label> <br />
-                                            <select class="form-control" name="multimedia">
-                                                <option value="Working">Working</option>
-                                                <option value="Not Working">Not Working</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Rear Camera</label> <br />
-                                            <select class="form-control" name="rearCamera">
-                                                <option value="Working">Working</option>
-                                                <option value="Not Working">Not Working</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Front View Camera</label> <br />
-                                            <select class="form-control" name="frontViewcamera">
-                                                <option value="Working">Working</option>
-                                                <option value="Not Working">Not Working</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Trunk Release Lever</label> <br />
-                                            <select class="form-control" name="trunkReleaselever">
-                                                <option value="Working">Working</option>
-                                                <option value="Not Working">Not Working</option>
-                                            </select>
-                                        </div>
-
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Fuel Cap Release Lever</label> <br />
-                                            <select class="form-control" name="fuelcapReleaseLever">
-                                                <option value="Working">Working</option>
-                                                <option value="Not Working">Not Working</option>
-                                            </select>
-                                        </div>
-
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Bonnet Release Lever</label> <br />
-                                            <select class="form-control" name="bonnetReleaselever">
-                                                <option value="Working">Working</option>
-                                                <option value="Not Working">Not Working</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Side-view Mirror Adjustment</label> <br />
-                                            <select class="form-control" name="sideViewmirrorAdjustment">
-                                                <option value="Working">Working</option>
-                                                <option value="Not Working">Not Working</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Left Side-view Mirror</label> <br />
-                                            <select class="form-control" name="leftSideviewMirror">
-                                                <option value="Normal">Normal</option>
-                                                <option value="Not Working">Not Working</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Right Side-view Mirror</label> <br />
-                                            <select class="form-control" name="rightSideviewMirror">
-                                                <option value="Normal">Normal</option>
-                                                <option value="Not Working">Not Working</option>
-                                            </select>
-                                        </div>
-
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Retracting Side-view Mirrors</label> <br />
-                                            <select class="form-control" name="retractingSideviewMirrors">
-                                                <option value="Normal">Normal</option>
-                                                <option value="Not Working">Not Working</option>
-                                            </select>
-                                        </div>
-
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>A/C Grills</label> <br />
-                                            <select class="form-control" name="acGrills">
-                                                <option value="Normal">Normal</option>
-                                                <option value="Not Working">Not Working</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Accelerator Pedal</label> <br />
-                                            <select class="form-control" name="acceleratorPedal">
-                                                <option value="Normal">Normal</option>
-                                                <option value="Not Working">Not Working</option>
-                                            </select>
-                                        </div>
-
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Brake Pedal</label> <br />
-                                            <select class="form-control" name="breakPedal">
-                                                <option value="Normal">Normal</option>
-                                                <option value="Not Working">Not Working</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Clutch Pedal</label> <br />
-                                            <select class="form-control" name="clutchPedal">
-                                                <option value="Normal">Normal</option>
-                                                <option value="Not Working">Not Working</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Seats Type</label> <br />
-                                            <select class="form-control" name="seatsType">
-                                                <option value="Fabric">Fabric</option>
-                                                <option value="Other">Other</option>
-                                            </select>
-                                        </div>
-
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Seats Condition</label> <br />
-                                            <select class="form-control" name="seatsCondition">
-                                                <option value="Clean">Clean</option>
-                                                <option value="Bad">Bad</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Driver Seatbelt</label> <br />
-                                            <select class="form-control" name="driverSeatbelt">
-                                                <option value="Working">Working</option>
-                                                <option value="not Working">Not Working</option>
-                                            </select>
-                                        </div>
-
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Passenger Seatbelt</label> <br />
-                                            <select class="form-control" name="passengerSeatbelt">
-                                                <option value="Working">Working</option>
-                                                <option value="not Working">Not Working</option>
-                                            </select>
-                                        </div>
-
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Windows Type</label> <br />
-                                            <select class="form-control" name="windowsType">
-                                                <option value="Manual">Manual</option>
-                                                <option value="Automatic">Automatic</option>
-                                            </select>
-                                        </div>
-
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Front Driver Window</label> <br />
-                                            <select class="form-control" name="frontDriverwindow">
-                                                <option value="Working">Working</option>
-                                                <option value="not Working">not Working</option>
-                                            </select>
-                                        </div>
-
-
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Front Passenger Window</label> <br />
-                                            <select class="form-control" name="frontPassengerwindow">
-                                                <option value="Working">Working</option>
-                                                <option value="not Working">not Working</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Rear Driver Side Window</label> <br />
-                                            <select class="form-control" name="rearDriversideWindow">
-                                                <option value="Working">Working</option>
-                                                <option value="not Working">not Working</option>
-                                            </select>
-                                        </div>
-
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Rear Passenger Side Window</label> <br />
-                                            <select class="form-control" name="rearPassengersideWindow">
-                                                <option value="Working">Working</option>
-                                                <option value="not Working">not Working</option>
-                                            </select>
-                                        </div>
-
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Window Safety Lock Button</label> <br />
-                                            <select class="form-control" name="windowSafetylockButton">
-                                                <option value="Working">Working</option>
-                                                <option value="not Working">not Working</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Central Locking</label> <br />
-                                            <select class="form-control" name="centralLocking">
-                                                <option value="Working">Working</option>
-                                                <option value="not Working">not Working</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Key Buttons</label> <br />
-                                            <select class="form-control" name="keyButtons">
-                                                <option value="Working">Working</option>
-                                                <option value="not Working">not Working</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Floor Mats</label> <br />
-                                            <select class="form-control" name="floorMats">
-                                                <option value="Working">Working</option>
-                                                <option value="not Working">not Working</option>
-                                            </select>
-                                        </div>
-
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Front Driver Door Seal</label> <br />
-                                            <select class="form-control" name="frontDriverdoorSeal">
-                                                <option value="Original">Original</option>
-                                                <option value="not Original">Not Original</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Front Passenger Door Seal</label> <br />
-                                            <select class="form-control" name="frontPassengerDoorSeal">
-                                                <option value="Original">Original</option>
-                                                <option value="not Original">Not Original</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Rear Driver Side Door Seal</label> <br />
-                                            <select class="form-control" name="rearDriversideDoorSeal">
-                                                <option value="Original">Original</option>
-                                                <option value="not Original">Not Original</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Rear Passenger Side Door Seal</label> <br />
-                                            <select class="form-control" name="rearPassengersideDoorSeal">
-                                                <option value="Original">Original</option>
-                                                <option value="not Original">Not Original</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Bonnet Seal</label> <br />
-                                            <select class="form-control" name="bonnetSeal">
-                                                <option value="Original">Original</option>
-                                                <option value="not Original">Not Original</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Trunk Seal Original</label> <br />
-                                            <select class="form-control" name="trunkSeal">
-                                                <option value="Original">Original</option>
-                                                <option value="not Original">Not Original</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="row mt-3">
-                                        <div class="mb-3">
-                                            <label class="fs-14">Select Images</label>
-                                            <div class="card-body">
-                                                <div id="interior_images_picker" class="row"></div>
-                                                <div id="preview-container"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-
-                                    <div class='row'>
-                                        <div class='col-lg-12 col-sm-12 my-4'>
-                                            <h3 class='text-uppercase'>Electronic Function</h3>
-                                        </div>
-                                    </div>
-                                    <div class='row'>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Battery</label> <br />
-                                            <select class="form-control" name="battery">
-                                                <option value="Strong">Strong</option>
-                                                <option value="Weak">Weak</option>
-                                            </select>
-                                        </div>
-
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Horn</label> <br />
-                                            <select class="form-control" name="horn">
-                                                <option value="Working">Working</option>
-                                                <option value="Not Working">Not Working</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Right Headlight Operation</label> <br />
-                                            <select class="form-control" name="rightHeadlightOperation">
-                                                <option value="Working">Working</option>
-                                                <option value="Not Working">Not Working</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Right Headlight Condition</label> <br />
-                                            <select class="form-control" name="rightHeadlightCondition">
-                                                <option value="Normal">Normal</option>
-                                                <option value="Fadded & Scratched">Fadded & Scratched</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Right Headlight</label> <br />
-                                            <select class="form-control" name="rightHeadlight">
-                                                <option value="Original">Original</option>
-                                                <option value="Not Original">Not Original</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Left Headlight Operation</label> <br />
-                                            <select class="form-control" name="leftHeadlightOperation">
-                                                <option value="Working">Working</option>
-                                                <option value="Not Working">Not Working</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Left Headlight Condition</label> <br />
-                                            <select class="form-control" name="leftHeadlightCondition">
-                                                <option value="Normal">Normal</option>
-                                                <option value="Fadded & Scratched">Fadded & Scratched</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Left Headlight</label> <br />
-                                            <select class="form-control" name="leftHeadlight">
-                                                <option value="Original">Original</option>
-                                                <option value="Not Original">Not Original</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Foglights Operation</label> <br />
-                                            <select class="form-control" name="foglightsOperation">
-                                                <option value="Normal">Normal</option>
-                                                <option value="Fadded & Scratched">Fadded & Scratched</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Left Tail Lights Operation</label> <br />
-                                            <select class="form-control" name="leftTaillightsOperation">
-                                                <option value="Working">Working</option>
-                                                <option value="Not Working">Not Working</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Left Tail Lights Condition</label> <br />
-                                            <select class="form-control" name="leftTaillightsCondition">
-                                                <option value="Normal">Normal</option>
-                                                <option value="Fadded & Scratched">Fadded & Scratched</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Left Tail Lights</label> <br />
-                                            <select class="form-control" name="leftTaillights">
-                                                <option value="Original">Original</option>
-                                                <option value="Not Original">Not Original</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Right Tail Lights Operation</label> <br />
-                                            <select class="form-control" name="rightTaillightsOperation">
-                                                <option value="Working">Working</option>
-                                                <option value="Not Working">Not Working</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Right Tail Lights Condition</label> <br />
-                                            <select class="form-control" name="rightTaillightsCondition">
-                                                <option value="Normal">Normal</option>
-                                                <option value="Fadded & Scratched">Fadded & Scratched</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Right Tail Lights</label> <br />
-                                            <select class="form-control" name="rightTaillights">
-                                                <option value="Original">Original</option>
-                                                <option value="Not Original">Not Original</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Windshield Wipers</label> <br />
-                                            <select class="form-control" name="windshieldWipers">
-                                                <option value="Working">Working</option>
-                                                <option value="Not Working">Not Working</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Airbags</label> <br />
-                                            <select class="form-control" name="airbags">
-                                                <option value="Not Present">Not Present</option>
-                                                <option value="Present">Present</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Check Lights</label> <br />
-                                            <select class="form-control" name="checkLights">
-                                                <option value="Off">Off</option>
-                                                <option value="On">On</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="row mt-3">
-                                        <div class="mb-3">
-                                            <label class="fs-14">Select Images</label>
-                                            <div class="card-body">
-                                                <div id="electronic_images_picker" class="row"></div>
-                                                <div id="preview-container"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                    <div class='row'>
-                                        <div class='col-lg-12 col-sm-12 my-4'>
-                                            <h3 class='text-uppercase'>Suspension Function</h3>
-                                        </div>
-                                    </div>
-                                    <div class='row'>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Steering Assembly Play</label> <br />
-                                            <select class="form-control" name="steeringAssemblyplay">
-                                                <option value="yes">Yes</option>
-                                                <option value="no">No</option>
-                                            </select>
-                                        </div>
-
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Axle Boots</label> <br />
-                                            <select class="form-control" name="axleBoots">
-                                                <option value="Normal">Normal</option>
-                                                <option value="Damaged">Damaged</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Right Ball Joint</label> <br />
-                                            <select class="form-control" name="rightBalljoint">
-                                                <option value="Normal">Normal</option>
-                                                <option value="Service Require">Service Require</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Left Ball Joint</label> <br />
-                                            <select class="form-control" name="leftBalljoint">
-                                                <option value="Normal">Normal</option>
-                                                <option value="Service Require">Service Require</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Tie Rod End</label> <br />
-                                            <select class="form-control" name="tieRodend">
-                                                <option value="Normal">Normal</option>
-                                                <option value="Service Require">Service Require</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Right Boot</label> <br />
-                                            <select class="form-control" name="rightBoot">
-                                                <option value="Normal">Normal</option>
-                                                <option value="Service Require">Service Require</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Left Boot</label> <br />
-                                            <select class="form-control" name="leftBoot">
-                                                <option value="Normal">Normal</option>
-                                                <option value="Service Require">Service Require</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Right Bush</label> <br />
-                                            <select class="form-control" name="rightBush">
-                                                <option value="Normal">Normal</option>
-                                                <option value="Service Require">Service Require</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Left Bush</label> <br />
-                                            <select class="form-control" name="leftBush">
-                                                <option value="Normal">Normal</option>
-                                                <option value="Service Require">Service Require</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Rear Right Shock Absorber</label> <br />
-                                            <select class="form-control" name="rearRightshockAbsorder">
-                                                <option value="Normal">Normal</option>
-                                                <option value="Service Require">Service Require</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Rear Left Shock Absorber </label> <br />
-                                            <select class="form-control" name="rearLeftshockAbsorder">
-                                                <option value="Normal">Normal</option>
-                                                <option value="Service Require">Service Require</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Front Right Shock Absorber</label> <br />
-                                            <select class="form-control" name="frontRightshockAbsorder">
-                                                <option value="Normal">Normal</option>
-                                                <option value="Service Require">Service Require</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Front Left Shock Absorber</label> <br />
-                                            <select class="form-control" name="frontLeftShockAbsorder">
-                                                <option value="Normal">Normal</option>
-                                                <option value="Service Require">Service Require</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="row mt-3">
-                                        <div class="mb-3">
-                                            <label class="fs-14">Select Images</label>
-                                            <div class="card-body">
-                                                <div id="suspension_images_picker" class="row"></div>
-                                                <div id="preview-container"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                    <div class='row'>
-                                        <div class='col-lg-12 col-sm-12 my-4'>
-                                            <h3 class='text-uppercase'>Exterior Body</h3>
-                                        </div>
-                                    </div>
-                                    <div class='row'>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Trunk Lock</label> <br />
-                                            <select class="form-control" name="trunkLock">
-                                                <option value="Working">Working</option>
-                                                <option value="not Working">Not Working</option>
-                                            </select>
-                                        </div>
-
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Front Driver Fender</label> <br />
-                                            <select class="form-control" name="frontDriverfender">
-                                                <option value="T">T</option>
-                                                <option value="P">P</option>
-                                                <option value="A1">A1</option>
-                                                <option value="A2">A2</option>
-                                                <option value="E1">E1</option>
-                                                <option value="E2">E2</option>
-                                                <option value="N/A">N/A</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Bonnet</label> <br />
-                                            <select class="form-control" name="bonnet">
-                                                <option value="T">T</option>
-                                                <option value="P">P</option>
-                                                <option value="A1">A1</option>
-                                                <option value="A2">A2</option>
-                                                <option value="E1">E1</option>
-                                                <option value="E2">E2</option>
-                                                <option value="N/A">N/A</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Front Windshield</label> <br />
-                                            <select class="form-control" name="frontWindshield">
-                                                <option value="T">T</option>
-                                                <option value="P">P</option>
-                                                <option value="A1">A1</option>
-                                                <option value="A2">A2</option>
-                                                <option value="E1">E1</option>
-                                                <option value="E2">E2</option>
-                                                <option value="N/A">N/A</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Front Passenger Fender</label> <br />
-                                            <select class="form-control" name="frontPassengerfender">
-                                                <option value="T">T</option>
-                                                <option value="P">P</option>
-                                                <option value="A1">A1</option>
-                                                <option value="A2">A2</option>
-                                                <option value="E1">E1</option>
-                                                <option value="E2">E2</option>
-                                                <option value="N/A">N/A</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Front Passenger Door</label> <br />
-                                            <select class="form-control" name="frontPassengerdoor">
-                                                <option value="T">T</option>
-                                                <option value="P">P</option>
-                                                <option value="A1">A1</option>
-                                                <option value="A2">A2</option>
-                                                <option value="E1">E1</option>
-                                                <option value="E2">E2</option>
-                                                <option value="N/A">N/A</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Rear Passenger Door</label> <br />
-                                            <select class="form-control" name="rearPassengerdoor">
-                                                <option value="T">T</option>
-                                                <option value="P">P</option>
-                                                <option value="A1">A1</option>
-                                                <option value="A2">A2</option>
-                                                <option value="E1">E1</option>
-                                                <option value="E2">E2</option>
-                                                <option value="N/A">N/A</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Rear Passenger Fender</label> <br />
-                                            <select class="form-control" name="rearPassengerfender">
-                                                <option value="T">T</option>
-                                                <option value="P">P</option>
-                                                <option value="A1">A1</option>
-                                                <option value="A2">A2</option>
-                                                <option value="E1">E1</option>
-                                                <option value="E2">E2</option>
-                                                <option value="N/A">N/A</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Trunk</label> <br />
-                                            <select class="form-control" name="trunk">
-                                                <option value="T">T</option>
-                                                <option value="P">P</option>
-                                                <option value="A1">A1</option>
-                                                <option value="A2">A2</option>
-                                                <option value="E1">E1</option>
-                                                <option value="E2">E2</option>
-                                                <option value="N/A">N/A</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Rear Windshield</label> <br />
-                                            <select class="form-control" name="rearWinshield">
-                                                <option value="T">T</option>
-                                                <option value="P">P</option>
-                                                <option value="A1">A1</option>
-                                                <option value="A2">A2</option>
-                                                <option value="E1">E1</option>
-                                                <option value="E2">E2</option>
-                                                <option value="N/A">N/A</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Rear Driver Fender</label> <br />
-                                            <select class="form-control" name="rearDriverfender">
-                                                <option value="T">T</option>
-                                                <option value="P">P</option>
-                                                <option value="A1">A1</option>
-                                                <option value="A2">A2</option>
-                                                <option value="E1">E1</option>
-                                                <option value="E2">E2</option>
-                                                <option value="N/A">N/A</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Rear Driver Door</label> <br />
-                                            <select class="form-control" name="rearDriverdoor">
-                                                <option value="T">T</option>
-                                                <option value="P">P</option>
-                                                <option value="A1">A1</option>
-                                                <option value="A2">A2</option>
-                                                <option value="E1">E1</option>
-                                                <option value="E2">E2</option>
-                                                <option value="N/A">N/A</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Front Driver Door</label> <br />
-                                            <select class="form-control" name="frontDriverdoor">
-                                                <option value="T">T</option>
-                                                <option value="P">P</option>
-                                                <option value="A1">A1</option>
-                                                <option value="A2">A2</option>
-                                                <option value="E1">E1</option>
-                                                <option value="E2">E2</option>
-                                                <option value="N/A">N/A</option>
-                                            </select>
-                                        </div>
-
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Roof</label> <br />
-                                            <select class="form-control" name="roof">
-                                                <option value="T">T</option>
-                                                <option value="P">P</option>
-                                                <option value="A1">A1</option>
-                                                <option value="A2">A2</option>
-                                                <option value="E1">E1</option>
-                                                <option value="E2">E2</option>
-                                                <option value="N/A">N/A</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Pannels</label> <br />
-                                            <select class="form-control" name="pabbels">
-                                                <option value="T">T</option>
-                                                <option value="P">P</option>
-                                                <option value="A1">A1</option>
-                                                <option value="A2">A2</option>
-                                                <option value="E1">E1</option>
-                                                <option value="E2">E2</option>
-                                                <option value="N/A">N/A</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Driver A Pillar</label> <br />
-                                            <select class="form-control" name="driverApillar">
-                                                <option value="T">T</option>
-                                                <option value="P">P</option>
-                                                <option value="A1">A1</option>
-                                                <option value="A2">A2</option>
-                                                <option value="E1">E1</option>
-                                                <option value="E2">E2</option>
-                                                <option value="N/A">N/A</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Driver B Pillar </label> <br />
-                                            <select class="form-control" name="driverBpillar">
-                                                <option value="T">T</option>
-                                                <option value="P">P</option>
-                                                <option value="A1">A1</option>
-                                                <option value="A2">A2</option>
-                                                <option value="E1">E1</option>
-                                                <option value="E2">E2</option>
-                                                <option value="N/A">N/A</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Driver C Pillar</label> <br />
-                                            <select class="form-control" name="driverCpillar">
-                                                <option value="T">T</option>
-                                                <option value="P">P</option>
-                                                <option value="A1">A1</option>
-                                                <option value="A2">A2</option>
-                                                <option value="E1">E1</option>
-                                                <option value="E2">E2</option>
-                                                <option value="N/A">N/A</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Driver D Pillar</label> <br />
-                                            <select class="form-control" name="driverDpillar">
-                                                <option value="T">T</option>
-                                                <option value="P">P</option>
-                                                <option value="A1">A1</option>
-                                                <option value="A2">A2</option>
-                                                <option value="E1">E1</option>
-                                                <option value="E2">E2</option>
-                                                <option value="N/A">N/A</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Passenger A Pillar</label> <br />
-                                            <select class="form-control" name="passengerApillar">
-                                                <option value="T">T</option>
-                                                <option value="P">P</option>
-                                                <option value="A1">A1</option>
-                                                <option value="A2">A2</option>
-                                                <option value="E1">E1</option>
-                                                <option value="E2">E2</option>
-                                                <option value="N/A">N/A</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Passenger B Pillar</label> <br />
-                                            <select class="form-control" name="passengerBpillar">
-                                                <option value="T">T</option>
-                                                <option value="P">P</option>
-                                                <option value="A1">A1</option>
-                                                <option value="A2">A2</option>
-                                                <option value="E1">E1</option>
-                                                <option value="E2">E2</option>
-                                                <option value="N/A">N/A</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Passenger C Pillar</label> <br />
-                                            <select class="form-control" name="passengerCpillar">
-                                                <option value="T">T</option>
-                                                <option value="P">P</option>
-                                                <option value="A1">A1</option>
-                                                <option value="A2">A2</option>
-                                                <option value="E1">E1</option>
-                                                <option value="E2">E2</option>
-                                                <option value="N/A">N/A</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Passenger D Pillar</label> <br />
-                                            <select class="form-control" name="passengerDpillar">
-                                                <option value="T">T</option>
-                                                <option value="P">P</option>
-                                                <option value="A1">A1</option>
-                                                <option value="A2">A2</option>
-                                                <option value="E1">E1</option>
-                                                <option value="E2">E2</option>
-                                                <option value="N/A">N/A</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="row mt-3">
-                                        <div class="mb-3">
-                                            <label class="fs-14">Select Images</label>
-                                            <div class="card-body">
-                                                <div id="exterior_images_picker" class="row"></div>
-                                                <div id="preview-container"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class='row'>
-                                        <div class='col-lg-12 col-sm-12 my-4'>
-                                            <h3 class='text-uppercase'>Tyres</h3>
-                                        </div>
-                                    </div>
-                                    <div class='row'>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Front Passenger Tyre Brand </label> <br />
-                                            <input type="text" class="form-control" name="frontPassengertyreBrand" required />
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Front Passenger Tyre Size</label> <br />
-                                            <input type="text" class="form-control" name="frontPassengertyreSize" required />
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Front Passenger Tyre Condition</label> <br />
-                                            <select class="form-control" name="frontPassengertyreCondition">
-                                                <option value="Good">Good</option>
-                                                <option value="Normal">Normal</option>
-                                                <option value="not Good">Not Good</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Front Driver Tyre Brand</label> <br />
-                                            <input type="text" class="form-control" name="frontDrivertyreBrand" required />
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Front Driver Tyre Size</label> <br />
-                                            <input type="text" class="form-control" name="frontDrivertyreSize" required />
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Front Driver Tyre Condition</label> <br />
-                                            <select class="form-control" name="frontDrivertyreCondition">
-                                                <option value="Good">Good</option>
-                                                <option value="Normal">Normal</option>
-                                                <option value="not Good">Not Good</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Rear Passenger Tyre Brand</label> <br />
-                                            <input type="text" name="rearPassengertyreBrand" class="form-control" />
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Rear Passenger Tyre Size</label> <br />
-                                            <input type="text" class="form-control" name="rearPassengerTyresize" required />
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Rear Passenger Tyre Condition</label> <br />
-                                            <select name="rearPassengertyreCondition" class="form-control">
-                                                <option value="Good">Good</option>
-                                                <option value="Normal">Normal</option>
-                                                <option value="not Good">Not Good</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Rear Driver Tyre Brand</label> <br />
-                                            <input type="text" class="form-control" name="rearDriverTyrebrand" required />
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Rear Driver Tyre Size</label> <br />
-                                            <input type="text" class="form-control" name="rearDrivertyreSize" required />
-                                        </div>
-
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Rear Driver Tyre Condition</label> <br />
-                                            <select class="form-control" name="rearDrivertyreCondition">
-                                                <option value="Good">Good</option>
-                                                <option value="Normal">Normal</option>
-                                                <option value="not Good">Not Good</option>
-                                            </select>
-                                        </div>
-
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Alloy Rims</label> <br />
-                                            <select class="form-control" name="alloyRims">
-                                                <option value="yes">Yes</option>
-                                                <option value="no">No</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="row mt-3">
-                                        <div class="mb-3">
-                                            <label class="fs-14">Select Images</label>
-                                            <div class="card-body">
-                                                <div id="tyre_images_picker" class="row"></div>
-                                                <div id="preview-container"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                    <div class='row'>
-                                        <div class='col-lg-12 col-sm-12 my-4'>
-                                            <h3 class='text-uppercase'>Accessories</h3>
-                                        </div>
-                                    </div>
-                                    <div class='row'>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Spare Wheel</label> <br />
-                                            <select class="form-control" name="spareWheel">
-                                                <option value="Present">Present</option>
-                                                <option value="Not Present">Not Present</option>
-                                                <option value="N/A">N/A</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Tool Kit</label> <br />
-                                            <select class="form-control" name="toolKit">
-                                                <option value="Present">Present</option>
-                                                <option value="Not Present">Not Present</option>
-                                                <option value="N/A">N/A</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Jack</label> <br />
-                                            <select class="form-control" name="jack">
-                                                <option value="Present">Present</option>
-                                                <option value="Not Present">Not Present</option>
-                                                <option value="N/A">N/A</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Puncture Repair Kit</label> <br />
-                                            <select class="form-control" name="punctureRepairkit">
-                                                <option value="Present">Present</option>
-                                                <option value="Not Present">Not Present</option>
-                                                <option value="N/A">N/A</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="row mt-3">
-                                        <div class="mb-3">
-                                            <label class="fs-14">Select Images</label>
-                                            <div class="card-body">
-                                                <div id="accessories_images_picker" class="row"></div>
-                                                <div id="preview-container"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class='row'>
-                                        <div class='col-lg-12 col-sm-12 my-4'>
-                                            <h3 class='text-uppercase'>Test Drive</h3>
-                                        </div>
-                                    </div>
-                                    <div class='row'>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Engine Pick</label> <br />
-                                            <select class="form-control" name="enginePick">
-                                                <option value="Normal">Normal</option>
-                                                <option value="Service Required">Service Required</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Gear Shifting</label> <br />
-                                            <select class="form-control" name="gearShifting">
-                                                <option value="Smooth">Smooth</option>
-                                                <option value="Normal">Normal</option>
-                                                <option value="Service Required">Service Required</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Differential Noise</label> <br />
-                                            <select class="form-control" name="differentialNoise">
-                                                <option value="No">No</option>
-                                                <option value="Yes">Yes</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Drive Shaft Noise</label> <br />
-                                            <select class="form-control" name="driveShaftnoise">
-                                                <option value="no">No</option>
-                                                <option value="yes">Yes</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>ABS Actuation</label> <br />
-                                            <select class="form-control" name="absActuation">
-                                                <option value="Timely Response">Timely Response</option>
-                                                <option value="Service Required">Service Required</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Brake Pedal Operation</label> <br />
-                                            <select class="form-control" name="brakePedaloperation">
-                                                <option value="Timely Response">Timely Response</option>
-                                                <option value="Service Required">Service Required</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Front Suspension Noise</label> <br />
-                                            <select class="form-control" name="frontSuspensionNoise">
-                                                <option value="No">No</option>
-                                                <option value="Yes">Yes</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Rear Suspension Noise </label> <br />
-                                            <select class="form-control" name="rearSuspensionNoise">
-                                                <option value="No">No</option>
-                                                <option value="Yes">Yes</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Steering Function</label> <br />
-                                            <select class="form-control" name="steeringFunction">
-                                                <option value="No">No</option>
-                                                <option value="Yes">Yes</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Steering Wheel Alignment</label> <br />
-                                            <select name="steeringWheelalignment" class="form-control">
-                                                <option value="Center">Center</option>
-                                                <option value="not Center">Not Center</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label>Speedometer/ Information Cluster </label> <br />
-                                            <select class="form-control" name="speedmeterInformation">
-                                                <option value="Working">Working</option>
-                                                <option value="not Working">Not Working</option>
-                                            </select>
-                                        </div>
-                                        <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
-                                            <label class="mb-4 pb-1">Test Drive Done By</label> <br />
-                                            <input type="text" class="form-control" name="testDrivedoneBy" />
-                                        </div>
-                                    </div>
-                                    <div class="row mt-3">
-                                        <div class="mb-3">
-                                            <label class="fs-14">Select Images</label>
-                                            <div class="card-body">
-                                                <div id="car_images_picker" class="row"></div>
-                                                <div id="preview-container"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="mb-4 mt-4 row">
-                                        <div class="col-lg-6 md-12">
-                                            <div class="">
-                                                <label class="form-label" for="form3Example1q">Additional Notes from Client*</label>
-                                                <textarea id="editor" placeholder="Enter description" name="message">
-                                    </textarea>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 md-12">
-                                            <div class="">
-                                                <label class="form-label" for="form3Example1q">Additional Notes from Admin*</label>
-                                                <textarea id="editorAdmin" placeholder="Enter description" name="admin_message">
-                                    </textarea>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="mb-4 row">
-                                        <div class="col-lg-12 md-12">
-                                            <div class="text-center">
-                                                <input type="submit" name="" class="btn btn-primary" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- container-fluid -->
-</div>
-<!-- End Page-content -->
-
-<!-- Footer Start -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-<!-- inspection code start-->
-<script>
-    $(document).ready(function() {
-        $("#inspection_form").on('submit', function(e) {
-            e.preventDefault();
-            var form = $(this)[0];
-            var formData = new FormData(form);
-            $.ajax({
-                type: "POST",
-                url: "inspection_form.php",
-                dataType: "json",
-                data: formData,
-                contentType: false,
-                cache: false,
-                processData: false,
-                success: function(result) {
-                    // Handle success response
-                    if (result.success) {
-                        // Show success message
-                        $(".success-message").text(result.message);
-                        $(".success-message").show();
-                        $("html, body").animate({
-                            scrollTop: 0
-                        }, "slow"); // Scroll to the top
-
-                    } else {
-                        // Show error message
-                        $(".error-message").text(result.message);
-                        $(".error-message").show();
-                    }
-                },
-                error: function(xhr, status, error) {
-                    // Handle error response
-                }
-            });
-        });
-    });
-</script>
-<!-- inspection code end-->
-
-<!-- ckeditor start -->
-<script src="assets/libs/@ckeditor/ckeditor5-build-classic/build/ckeditor.js"></script>
-<script>
-    ClassicEditor
-        .create(document.querySelector('#editor'))
-        .then(editor => {
-            console.log('');
-        })
-        .catch(error => {
-            console.error(error);
-        });
-</script>
-<script>
-    ClassicEditor
-        .create(document.querySelector('#editorAdmin'))
-        .then(editorAdmin => {
-            console.log('');
-        })
-        .catch(error => {
-            console.error(error);
-        });
-</script>
-<!-- ckeditor end -->
-
-<!-- Check if the URL has parameters start -->
-<script>
-    if (window.location.search) {
-        // Get the current URL without parameters
-        var urlWithoutParams = window.location.href.split('?')[0];
-
-        // Replace the current URL with the URL without parameters
-        window.history.replaceState({}, document.title, urlWithoutParams);
+            // Execute the prepared statement
+            $stmt->execute();
+        }
     }
-</script>
-<!-- Check if the URL has parameters end -->
-
-<!-- message hide and url clear code start-->
-<script>
-    setTimeout(function() {
-        var hideDiv = document.getElementById('hide_div');
-        hideDiv.style.display = 'none';
-    }, 4000);
-</script>
-<!-- message hide and url clear code end-->
-
-<!-- Accidental Checklist preview Images start-->
-<script src="assets/js/multi_image.js"></script>
-<script type="text/javascript" src="assets/js/multi-image-picker.js"></script>
-
-<script type="text/javascript">
-    $(function() {
-        $("#accidental_images_picker").spartanMultiImagePicker({
-            fieldName: 'accidental_images[]', // this configuration will send your images named "multiple_images[]" to the server
-            maxCount: 10, // set the maximum image count here
-        });
-    });
-</script>
-<!-- Accidental Checklist preview Images end-->
-
-<!-- Mechanical Function preview Images start-->
-<script type="text/javascript">
-    $(function() {
-        $("#mechanical_img_picker").spartanMultiImagePicker({
-            fieldName: 'mechanical_images[]', // this configuration will send your images named "multiple_images[]" to the server
-            maxCount: 10, // set the maximum image count here
-        });
-    });
-</script>
-<!-- Mechanical Function preview Images end-->
-
-<!-- Ac/Heater Operation preview Images start-->
-<script type="text/javascript">
-    $(function() {
-        $("#ac_heater_images_picker").spartanMultiImagePicker({
-            fieldName: 'ac_heater_images[]', // this configuration will send your images named "multiple_images[]" to the server
-            maxCount: 10, // set the maximum image count here
-        });
-    });
-</script>
-<!-- Ac/Heater Operation preview Images end-->
-
-<!-- Interior preview Images start-->
-<script type="text/javascript">
-    $(function() {
-        $("#interior_images_picker").spartanMultiImagePicker({
-            fieldName: 'interior_images[]', // this configuration will send your images named "multiple_images[]" to the server
-            maxCount: 10, // set the maximum image count here
-        });
-    });
-</script>
-<!-- Interior preview Images end-->
-
-
-<!-- Electronic Function preview Images start-->
-<script type="text/javascript">
-    $(function() {
-        $("#electronic_images_picker").spartanMultiImagePicker({
-            fieldName: 'electronic_images[]', // this configuration will send your images named "multiple_images[]" to the server
-            maxCount: 10, // set the maximum image count here
-        });
-    });
-</script>
-<!-- Electronic Function preview Images end-->
-
-<!-- Suspension Function preview Images start-->
-<script type="text/javascript">
-    $(function() {
-        $("#suspension_images_picker").spartanMultiImagePicker({
-            fieldName: 'suspension_images[]', // this configuration will send your images named "multiple_images[]" to the server
-            maxCount: 10, // set the maximum image count here
-        });
-    });
-</script>
-<!-- Suspension Function preview Images end-->
-
-<!-- Exterior Body preview Images start-->
-<script type="text/javascript">
-    $(function() {
-        $("#exterior_images_picker").spartanMultiImagePicker({
-            fieldName: 'exterior_images[]',
-            maxCount: 10, // set the maximum image count here
-        });
-    });
-</script>
-<!-- Exterior Body preview Images end-->
-
-<!-- Tyres preview Images start-->
-<script type="text/javascript">
-    $(function() {
-        $("#tyre_images_picker").spartanMultiImagePicker({
-            fieldName: 'tyre_images[]', // this configuration will send your images named "multiple_images[]" to the server
-            maxCount: 10, // set the maximum image count here
-        });
-    });
-</script>
-<!-- Tyres preview Images end-->
-
-<!-- Accessories preview Images start-->
-<script type="text/javascript">
-    $(function() {
-        $("#accessories_images_picker").spartanMultiImagePicker({
-            fieldName: 'accessories_images[]', // this configuration will send your images named "multiple_images[]" to the server
-            maxCount: 10, // set the maximum image count here
-        });
-    });
-</script>
-<!-- Accessories preview Images end-->
-
-
-<!-- Car Pictures preview Images start-->
-<script type="text/javascript">
-    $(function() {
-        $("#car_images_picker").spartanMultiImagePicker({
-            fieldName: 'car_images[]', // this configuration will send your images named "multiple_images[]" to the server
-            maxCount: 10, // set the maximum image count here
-        });
-    });
-</script>
-<!-- Car Pictures preview Images end-->
+}
 
 
 
-<?php include('footer.php'); ?>
-<!-- Footer end -->
+// Ac/Heater operation end
+
+
+// Interior start
+
+$trunkSeal = $_POST['trunkSeal'];
+$bonnetSeal = $_POST['bonnetSeal'];
+$rearPassengersideDoorSeal = $_POST['rearPassengersideDoorSeal'];
+$rearDriversideDoorSeal = $_POST['rearDriversideDoorSeal'];
+$frontPassengerDoorSeal = $_POST['frontPassengerDoorSeal'];
+$frontDriverdoorSeal = $_POST['frontDriverdoorSeal'];
+$floorMats = $_POST['floorMats'];
+$keyButtons = $_POST['keyButtons'];
+$centralLocking = $_POST['centralLocking'];
+$windowSafetylockButton = $_POST['windowSafetylockButton'];
+$rearPassengersideWindow = $_POST['rearPassengersideWindow'];
+$front_right_seat_belt = $_POST['front_right_seat_belt'];
+$rear_right_seat_belt = $_POST['rear_right_seat_belt'];
+$rearDriversideWindow = $_POST['rearDriversideWindow'];
+$frontPassengerwindow = $_POST['frontPassengerwindow'];
+$frontDriverwindow = $_POST['frontDriverwindow'];
+$windowsType = $_POST['windowsType'];
+$passengerSeatbelt = $_POST['passengerSeatbelt'];
+$driverSeatbelt = $_POST['driverSeatbelt'];
+$seatsCondition = $_POST['seatsCondition'];
+$seatsType = $_POST['seatsType'];
+$clutchPedal = $_POST['clutchPedal'];
+$breakPedal = $_POST['breakPedal'];
+$acceleratorPedal = $_POST['acceleratorPedal'];
+$acGrills = $_POST['acGrills'];
+$retractingSideviewMirrors = $_POST['retractingSideviewMirrors'];
+$rightSideviewMirror = $_POST['rightSideviewMirror'];
+$leftSideviewMirror = $_POST['leftSideviewMirror'];
+$sideViewmirrorAdjustment = $_POST['sideViewmirrorAdjustment'];
+$bonnetReleaselever = $_POST['bonnetReleaselever'];
+$fuelcapReleaseLever = $_POST['fuelcapReleaseLever'];
+$trunkReleaselever = $_POST['trunkReleaselever'];
+$frontViewcamera = $_POST['frontViewcamera'];
+$rearCamera = $_POST['rearCamera'];
+$multimedia = $_POST['multimedia'];
+$hazardLights = $_POST['hazardLights'];
+$deFogger = $_POST['deFogger'];
+$interiorLights = $_POST['interiorLights'];
+$dashControlbuttons = $_POST['dashControlbuttons'];
+$dashboard = $_POST['dashboard'];
+$lightLeverswitch = $_POST['lightLeverswitch'];
+$steeringWheelbutton = $_POST['steeringWheelbutton'];
+$steeringWheelwearTear = $_POST['steeringWheelwearTear'];
+
+$update_interior = "UPDATE `interior` SET
+    `steeringWheelwearTear` = '$steeringWheelwearTear',
+    `steeringWheelbutton` = '$steeringWheelbutton',
+    `lightLeverswitch` = '$lightLeverswitch',
+    `dashboard` = '$dashboard',
+    `dashControlbuttons` = '$dashControlbuttons',
+    `interiorLights` = '$interiorLights',
+    `deFogger` = '$deFogger',
+    `hazardLights` = '$hazardLights',
+    `multimedia` = '$multimedia',
+    `rearCamera` = '$rearCamera',
+    `frontViewcamera` = '$frontViewcamera',
+    `trunkReleaselever` = '$trunkReleaselever',
+    `fuelcapReleaseLever` = '$fuelcapReleaseLever',
+    `bonnetReleaselever` = '$bonnetReleaselever',
+    `sideViewmirrorAdjustment` = '$sideViewmirrorAdjustment',
+    `leftSideviewMirror` = '$leftSideviewMirror',
+    `rightSideviewMirror` = '$rightSideviewMirror',
+    `retractingSideviewMirrors` = '$retractingSideviewMirrors',
+    `acGrills` = '$acGrills',
+    `acceleratorPedal` = '$acceleratorPedal',
+    `breakPedal` = '$breakPedal',
+    `clutchPedal` = '$clutchPedal',
+    `seatsType` = '$seatsType',
+    `seatsCondition` = '$seatsCondition',
+    `driverSeatbelt` = '$driverSeatbelt',
+    `passengerSeatbelt` = '$passengerSeatbelt',
+    `windowsType` = '$windowsType',
+    `frontDriverwindow` = '$frontDriverwindow',
+    `frontPassengerwindow` = '$frontPassengerwindow',
+    `rearDriversideWindow` = '$rearDriversideWindow',
+    `rearPassengersideWindow` = '$rearPassengersideWindow',
+    `windowSafetylockButton` = '$windowSafetylockButton',
+    `centralLocking` = '$centralLocking',
+    `keyButtons` = '$keyButtons',
+    `floorMats` = '$floorMats',
+    `frontDriverdoorSeal` = '$frontDriverdoorSeal',
+    `frontPassengerDoorSeal` = '$frontPassengerDoorSeal',
+    `rearDriversideDoorSeal` = '$rearDriversideDoorSeal',
+    `rearPassengersideDoorSeal` = '$rearPassengersideDoorSeal',
+    `bonnetSeal` = '$bonnetSeal',
+    `trunkSeal` = '$trunkSeal'
+WHERE `preliminary_information_id` = '$update_inspection_id'";
+
+mysqli_query($conn, $update_interior);
+
+if (isset($_FILES['interior_images'])) {
+    $interiorImages = $_FILES['interior_images']['name'];
+
+    $stmt = $conn->prepare("UPDATE `interior_images` SET `image` = ? WHERE `interior_id` = ?");
+
+    // Loop through uploaded images and execute the prepared statement for each image
+    foreach ($_FILES['interior_images']['tmp_name'] as $key => $tmp_name) {
+        // Check if the uploaded file has no errors and has a non-empty temporary name
+        if ($_FILES['interior_images']['error'][$key] == UPLOAD_ERR_OK && !empty($tmp_name)) {
+            // Get uploaded image data
+            $image_name = $_FILES['interior_images']['name'][$key];
+            $image_data = file_get_contents($_FILES['interior_images']['tmp_name'][$key]);
+
+            // Get the interior_id for the current image
+            $interior_id = $_POST['interior_id'][$key];
+
+            // Bind the values to the prepared statement
+            $stmt->bind_param("si", $image_data, $interior_id);
+
+            // Execute the prepared statement
+            $stmt->execute();
+        }
+    }
+}
+
+
+
+// Interior end
+
+
+// Electronic Function start
+
+$checkLights = $_POST['checkLights'];
+$airbags = $_POST['airbags'];
+$windshieldWipers = $_POST['windshieldWipers'];
+$rightTaillights = $_POST['rightTaillights'];
+$rightTaillightsCondition = $_POST['rightTaillightsCondition'];
+$rightTaillightsOperation = $_POST['rightTaillightsOperation'];
+$leftTaillights = $_POST['leftTaillights'];
+$leftTaillightsCondition = $_POST['leftTaillightsCondition'];
+$leftTaillightsOperation = $_POST['leftTaillightsOperation'];
+$foglightsOperation = $_POST['foglightsOperation'];
+$leftHeadlight = $_POST['leftHeadlight'];
+$leftHeadlightCondition = $_POST['leftHeadlightCondition'];
+$leftHeadlightOperation = $_POST['leftHeadlightOperation'];
+$rightHeadlight = $_POST['rightHeadlight'];
+$rightHeadlightCondition = $_POST['rightHeadlightCondition'];
+$rightHeadlightOperation = $_POST['rightHeadlightOperation'];
+$horn = $_POST['horn'];
+$battery = $_POST['battery'];
+
+
+$update_electronic_function = "UPDATE `electronic_function` SET 
+    `horn` = '$horn',
+    `rightHeadlightOperation` = '$rightHeadlightOperation',
+    `rightHeadlightCondition` = '$rightHeadlightCondition',
+    `rightHeadlight` = '$rightHeadlight',
+    `leftHeadlightOperation` = '$leftHeadlightOperation',
+    `leftHeadlightCondition` = '$leftHeadlightCondition',
+    `leftHeadlight` = '$leftHeadlight',
+    `foglightsOperation` = '$foglightsOperation',
+    `leftTaillightsOperation` = '$leftTaillightsOperation',
+    `leftTaillightsCondition` = '$leftTaillightsCondition',
+    `leftTaillights` = '$leftTaillights',
+    `rightTaillightsOperation` = '$rightTaillightsOperation',
+    `rightTaillightsCondition` = '$rightTaillightsCondition',
+    `rightTaillights` = '$rightTaillights',
+    `windshieldWipers` = '$windshieldWipers',
+    `airbags` = '$airbags',
+    `checkLights` = '$checkLights',
+    `battery` = '$battery'
+WHERE `preliminary_information_id` = $update_inspection_id";
+
+mysqli_query($conn, $update_electronic_function);
+
+$electronic_function_id = mysqli_insert_id($conn);
+
+if (isset($_FILES['electronic_images'])) {
+    $electronicImages = $_FILES['electronic_images']['name'];
+
+    $stmt = $conn->prepare("UPDATE `electronic_images` SET `image` = ? WHERE `id` = ?");
+
+    // Loop through uploaded images and execute the prepared statement for each image
+    foreach ($_FILES['electronic_images']['tmp_name'] as $key => $tmp_name) {
+        // Check if the uploaded file has no errors and has a non-empty temporary name
+        if ($_FILES['electronic_images']['error'][$key] == UPLOAD_ERR_OK && !empty($tmp_name)) {
+            // Get uploaded image data
+            $image_name = $_FILES['electronic_images']['name'][$key];
+            $image_data = file_get_contents($_FILES['electronic_images']['tmp_name'][$key]);
+
+            // Bind the values to the prepared statement
+            $stmt->bind_param("si", $image_data, $electronic_function_id);
+
+            // Execute the prepared statement
+            $stmt->execute();
+        }
+    }
+}
+
+
+
+// Electronic Function end
+
+
+//Suspension Function start 
+
+$frontLeftShockAbsorder = $_POST['frontLeftShockAbsorder'];
+$frontRightshockAbsorder = $_POST['frontRightshockAbsorder'];
+$rearLeftshockAbsorder = $_POST['rearLeftshockAbsorder'];
+$rearRightshockAbsorder = $_POST['rearRightshockAbsorder'];
+$leftBush = $_POST['leftBush'];
+$rightBush = $_POST['rightBush'];
+$leftBoot = $_POST['leftBoot'];
+$rightBoot = $_POST['rightBoot'];
+$tieRodend = $_POST['tieRodend'];
+$leftBalljoint = $_POST['leftBalljoint'];
+$rightBalljoint = $_POST['rightBalljoint'];
+$axleBoots = $_POST['axleBoots'];
+$steeringAssemblyplay = $_POST['steeringAssemblyplay'];
+
+
+$update_suspension_function = "UPDATE `suspension_function` SET
+    `steeringAssemblyplay` = '$steeringAssemblyplay',
+    `axleBoots` = '$axleBoots',
+    `rightBalljoint` = '$rightBalljoint',
+    `leftBalljoint` = '$leftBalljoint',
+    `tieRodend` = '$tieRodend',
+    `rightBoot` = '$rightBoot',
+    `leftBoot` = '$leftBoot',
+    `rightBush` = '$rightBush',
+    `leftBush` = '$leftBush',
+    `rearRightshockAbsorder` = '$rearRightshockAbsorder',
+    `rearLeftshockAbsorder` = '$rearLeftshockAbsorder',
+    `frontRightshockAbsorder` = '$frontRightshockAbsorder',
+    `frontLeftShockAbsorder` = '$frontLeftShockAbsorder'
+    WHERE `preliminary_information_id` = '$update_inspection_id'";
+
+mysqli_query($conn, $update_suspension_function);
+
+$suspension_function_id = mysqli_insert_id($conn);
+
+if (isset($_FILES['suspension_images'])) {
+    $suspensionImages = $_FILES['suspension_images']['name'];
+
+    $stmt = $conn->prepare("UPDATE `suspension_images` SET `image` = ? WHERE `id` = ?");
+
+    // Loop through uploaded images and execute the prepared statement for each image
+    foreach ($_FILES['suspension_images']['tmp_name'] as $key => $tmp_name) {
+        // Check if the uploaded file has no errors and has a non-empty temporary name
+        if ($_FILES['suspension_images']['error'][$key] == UPLOAD_ERR_OK && !empty($tmp_name)) {
+            // Get uploaded image data
+            $image_name = $_FILES['suspension_images']['name'][$key];
+            $image_data = file_get_contents($_FILES['suspension_images']['tmp_name'][$key]);
+
+            // Bind the values to the prepared statement
+            $stmt->bind_param("si", $image_data, $suspension_function_id);
+
+            // Execute the prepared statement
+            $stmt->execute();
+        }
+    }
+}
+// Suspension Function end 
+
+// Exterior Body start
+
+$passengerDpillar = $_POST['passengerDpillar'];
+$passengerCpillar = $_POST['passengerCpillar'];
+$passengerBpillar = $_POST['passengerBpillar'];
+$passengerApillar = $_POST['passengerApillar'];
+$driverDpillar = $_POST['driverDpillar'];
+$driverCpillar = $_POST['driverCpillar'];
+$driverBpillar = $_POST['driverBpillar'];
+$driverApillar = $_POST['driverApillar'];
+$panels = $_POST['panels'];
+$roof = $_POST['roof'];
+$frontDriverdoor = $_POST['frontDriverdoor'];
+$rearDriverdoor = $_POST['rearDriverdoor'];
+$rearDriverfender = $_POST['rearDriverfender'];
+$rearWinshield = $_POST['rearWinshield'];
+$trunk = $_POST['trunk'];
+$rearPassengerfender = $_POST['rearPassengerfender'];
+$rearPassengerdoor = $_POST['rearPassengerdoor'];
+$frontPassengerdoor = $_POST['frontPassengerdoor'];
+$frontPassengerfender = $_POST['frontPassengerfender'];
+$frontWindshield = $_POST['frontWindshield'];
+$bonnet = $_POST['bonnet'];
+$frontDriverfender = $_POST['frontDriverfender'];
+$trunkLock = $_POST['trunkLock'];
+
+$update_exterior_body = "UPDATE `exterior_body` SET
+    `trunkLock` = '$trunkLock',
+    `bonnet` = '$bonnet',
+    `frontWindshield` = '$frontWindshield',
+    `frontPassengerfender` = '$frontPassengerfender',
+    `rearPassengerdoor` = '$rearPassengerdoor',
+    `rearPassengerfender` = '$rearPassengerfender',
+    `trunk` = '$trunk',
+    `rearWinshield` = '$rearWinshield',
+    `rearDriverfender` = '$rearDriverfender',
+    `rearDriverdoor` = '$rearDriverdoor',
+    `frontDriverdoor` = '$frontDriverdoor',
+    `roof` = '$roof',
+    `panels` = '$panels',
+    `driverApillar` = '$driverApillar',
+    `driverBpillar` = '$driverBpillar',
+    `driverCpillar` = '$driverCpillar',
+    `driverDpillar` = '$driverDpillar',
+    `passengerApillar` = '$passengerApillar',
+    `passengerBpillar` = '$passengerBpillar',
+    `passengerCpillar` = '$passengerCpillar',
+    `passengerDpillar` = '$passengerDpillar',
+    `frontDriverfender` = '$frontDriverfender',
+    `frontPassengerdoor` = '$frontPassengerdoor'
+WHERE `preliminary_information_id` = $update_inspection_id";
+
+mysqli_query($conn, $update_exterior_body);
+
+$exterior_body_id = mysqli_insert_id($conn);
+
+function updateExteriorInDB($img_name, $conn, $exterior_body_id)
+{
+    $stmt = $conn->prepare("UPDATE `exterior_images` SET `image` = ? WHERE `id` = ?");
+
+    // Loop through uploaded images and execute the prepared statement for each image
+    foreach ($_FILES[$img_name]['tmp_name'] as $key => $tmp_name) {
+        // Check if the uploaded file has no errors and has a non-empty temporary name
+        if ($_FILES[$img_name]['error'][$key] == UPLOAD_ERR_OK && !empty($tmp_name)) {
+            // Get uploaded image data
+            $image_name = $_FILES[$img_name]['name'][$key];
+            $image_data = file_get_contents($_FILES[$img_name]['tmp_name'][$key]);
+
+            // Bind the values to the prepared statement
+            $stmt->bind_param("si", $image_data, $exterior_body_id);
+
+            // Execute the prepared statement
+            $stmt->execute();
+        }
+    }
+
+    // Close the prepared statement
+    $stmt->close();
+}
+
+$inputs = array(
+    'frontDriverfender_images',
+    'frontPassengerdoor_images',
+    'frontWindshield_images',
+    'rearPassengerfender_images',
+    'rearWinshield_images',
+    'rearDriverfender_images',
+    'rearDriverdoor_images',
+    'roof_images',
+    'panels_images',
+    'driverApillar_images',
+    'driverCpillar_images',
+    'driverBpillar_images',
+    'driverDpillar_images',
+    'passengerApillar_images',
+    'passengerCpillar_images',
+    'passengerBpillar_images',
+    'bonnet_images',
+    'frontPassengerfender_images',
+    'rearPassengerdoor_images',
+    'passengerDpillar_images',
+    'frontDriverdoor_images',
+    'trunkLock_images'
+);
+
+// Loop through the image inputs and call the storeExteriorToDB() function for each input
+foreach ($inputs as $input) {
+    if (isset($_FILES[$input])) {
+        updateExteriorInDB($input, $conn, $exterior_body_id);
+    }
+}
+
+
+
+// Exterior Body end
+
+
+// Tyres start 
+
+$alloyRims = $_POST['alloyRims'];
+$rearDrivertyreCondition = $_POST['rearDrivertyreCondition'];
+$rearDrivertyreSize = $_POST['rearDrivertyreSize'];
+$rearDriverTyrebrand = $_POST['rearDriverTyrebrand'];
+$rearPassengertyreCondition = $_POST['rearPassengertyreCondition'];
+$rearPassengerTyresize = $_POST['rearPassengerTyresize'];
+$rearPassengertyreBrand = $_POST['rearPassengertyreBrand'];
+$frontDrivertyreCondition = $_POST['frontDrivertyreCondition'];
+$frontDrivertyreSize = $_POST['frontDrivertyreSize'];
+$frontDrivertyreBrand = $_POST['frontDrivertyreBrand'];
+$frontPassengertyreCondition = $_POST['frontPassengertyreCondition'];
+$frontPassengertyreSize = $_POST['frontPassengertyreSize'];
+$frontPassengertyreBrand = $_POST['frontPassengertyreBrand'];
+
+$update_tyre = "UPDATE `tyres` SET 
+                    `frontPassengertyreBrand` = '$frontPassengertyreBrand',
+                    `frontPassengertyreSize` = '$frontPassengertyreSize',
+                    `frontPassengertyreCondition` = '$frontPassengertyreCondition',
+                    `frontDrivertyreBrand` = '$frontDrivertyreBrand',
+                    `frontDrivertyreSize` = '$frontDrivertyreSize',
+                    `frontDrivertyreCondition` = '$frontDrivertyreCondition',
+                    `rearPassengertyreBrand` = '$rearPassengertyreBrand',
+                    `rearPassengerTyresize` = '$rearPassengerTyresize',
+                    `rearPassengertyreCondition` = '$rearPassengertyreCondition',
+                    `rearDriverTyrebrand` = '$rearDriverTyrebrand',
+                    `rearDrivertyreSize` = '$rearDrivertyreSize',
+                    `rearDrivertyreCondition` = '$rearDrivertyreCondition',
+                    `alloyRims` = '$alloyRims'
+                WHERE `preliminary_information_id` = '$update_inspection_id'";
+
+mysqli_query($conn, $update_tyre);
+
+
+$tyre_id = mysqli_insert_id($conn);
+
+if (isset($_FILES['tyre_images'])) {
+    $tyres_id = mysqli_insert_id($conn);
+    $img_name = $_FILES['tyre_images']['name'];
+
+    // Loop through uploaded images and execute the update query for each image
+    foreach ($_FILES['tyre_images']['tmp_name'] as $key => $tmp_name) {
+        // Check if the uploaded file has no errors and has a non-empty temporary name
+        if ($_FILES['tyre_images']['error'][$key] == UPLOAD_ERR_OK && !empty($tmp_name)) {
+            // Get uploaded image data
+            $image_name = $_FILES['tyre_images']['name'][$key];
+            $image_data = file_get_contents($_FILES['tyre_images']['tmp_name'][$key]);
+
+            // Get the tyre image ID from the uploaded file index
+            $tyre_image_id = $tyre_id + $key;
+
+            // Update the existing record in the tyre_images table
+            $update_tyre_image = "UPDATE `tyre_images` SET `image` = ? WHERE `id` = ?";
+
+            // Prepare and execute the update statement
+            $stmt = $conn->prepare($update_tyre_image);
+            $stmt->bind_param("si", $image_data, $tyre_image_id);
+            $stmt->execute();
+
+            // Close the prepared statement
+            $stmt->close();
+        }
+    }
+}
+
+
+
+// Tyres start 
+
+
+// Accessories start
+
+$punctureRepairkit = $_POST['punctureRepairkit'];
+$jack = $_POST['jack'];
+$toolKit = $_POST['toolKit'];
+$spareWheel = $_POST['spareWheel'];
+
+$update_accessories = "UPDATE `accessories` SET `spareWheel` = '$spareWheel', `toolKit` = '$toolKit', `jack` = '$jack', `punctureRepairkit` = '$punctureRepairkit' WHERE `preliminary_information_id` = $update_inspection_id";
+mysqli_query($conn, $update_accessories);
+
+$accessories_id = mysqli_insert_id($conn);
+if (isset($_FILES['accessories_images'])) {
+    $accessories_id = mysqli_insert_id($conn);
+    $img_name = $_FILES['accessories_images']['name'];
+
+    // Loop through uploaded images and execute the update query for each image
+    foreach ($_FILES['accessories_images']['tmp_name'] as $key => $tmp_name) {
+        // Check if the uploaded file has no errors and has a non-empty temporary name
+        if ($_FILES['accessories_images']['error'][$key] == UPLOAD_ERR_OK && !empty($tmp_name)) {
+            // Get uploaded image data
+            $image_name = $_FILES['accessories_images']['name'][$key];
+            $image_data = file_get_contents($_FILES['accessories_images']['tmp_name'][$key]);
+
+            // Get the tyre image ID from the uploaded file index
+            $accessories_id = $tyre_id + $key;
+
+            // Update the existing record in the accessories_images table
+            $update_tyre_image = "UPDATE `accessories_images` SET `image` = ? WHERE `id` = ?";
+
+            // Prepare and execute the update statement
+            $stmt = $conn->prepare($update_tyre_image);
+            $stmt->bind_param("si", $image_data, $accessories_id);
+            $stmt->execute();
+
+            // Close the prepared statement
+            $stmt->close();
+        }
+    }
+}
+
+// Accessories end
+
+
+// Test Drive start
+
+$testDrivedoneBy = $_POST['testDrivedoneBy'];
+$speedmeterInformation = $_POST['speedmeterInformation'];
+$steeringWheelalignment = $_POST['steeringWheelalignment'];
+$steeringFunction = $_POST['steeringFunction'];
+$rearSuspensionNoise = $_POST['rearSuspensionNoise'];
+$frontSuspensionNoise = $_POST['frontSuspensionNoise'];
+$brakePedaloperation = $_POST['brakePedaloperation'];
+$absActuation = $_POST['absActuation'];
+$driveShaftnoise = $_POST['driveShaftnoise'];
+$differentialNoise = $_POST['differentialNoise'];
+$gearShifting = $_POST['gearShifting'];
+$enginePick = $_POST['enginePick'];
+$admin_message = mysqli_real_escape_string($conn, $_POST['admin_message']);
+
+$update_test_drive = "UPDATE `test_drive` SET `enginePick` = '$enginePick', `gearShifting` = '$gearShifting', `differentialNoise` = '$differentialNoise', `driveShaftnoise` = '$driveShaftnoise', `absActuation` = '$absActuation', `brakePedaloperation` = '$brakePedaloperation', `frontSuspensionNoise` = '$frontSuspensionNoise', `rearSuspensionNoise` = '$rearSuspensionNoise', `steeringFunction` = '$steeringFunction', `steeringWheelalignment` = '$steeringWheelalignment', `speedmeterInformation` = '$speedmeterInformation', `testDrivedoneBy` = '$testDrivedoneBy', `adminMessage` = '$admin_message' WHERE `preliminary_information_id` = $update_inspection_id";
+mysqli_query($conn, $update_test_drive);
+
+
+$test_drive_id = mysqli_insert_id($conn);
+
+// Function to update car images in the database
+function updateCarImages($img_name, $conn, $test_drive_id)
+{
+    // Prepare the update statement
+    $update_car_images = "UPDATE `car_images` SET `image` = ? WHERE `test_drive_id` = ?";
+    $stmt = $conn->prepare($update_car_images);
+
+    // Loop through uploaded images and execute the prepared statement for each image
+    foreach ($_FILES[$img_name]['tmp_name'] as $key => $tmp_name) {
+        // Check if the uploaded file has no errors and has a non-empty temporary name
+        if ($_FILES[$img_name]['error'][$key] == UPLOAD_ERR_OK && !empty($tmp_name)) {
+            // Get uploaded image data
+            $image_name = $_FILES[$img_name]['name'][$key];
+            $image_data = file_get_contents($_FILES[$img_name]['tmp_name'][$key]);
+
+            // Bind the values to the prepared statement
+            $stmt->bind_param("si", $image_data, $test_drive_id);
+
+            // Execute the prepared statement
+            $stmt->execute();
+        }
+    }
+
+    // Close the prepared statement
+    $stmt->close();
+}
+
+if (isset($_FILES['car_front_images'])) {
+    updateCarImages('car_front_images', $conn, $test_drive_id);
+}
+
+
+
+// // Car Front Headlight Image //
+if (isset($_FILES['front_headlights_images'])) {
+    updateCarImages('front_headlights_images', $conn, $test_drive_id);
+}
+
+// // back light Image //
+if (isset($_FILES['back_lights_images'])) {
+    updateCarImages('back_lights_images', $conn, $test_drive_id);
+}
+
+
+// Engine Room Image
+if (isset($_FILES['engine_room_images'])) {
+    updateCarImages('engine_room_images', $conn, $test_drive_id);
+}
+
+// Stud Tower Right Image
+if (isset($_FILES['stud_tower_right_images'])) {
+    updateCarImages('stud_tower_right_images', $conn, $test_drive_id);
+}
+
+// Stud Tower Left Image
+if (isset($_FILES['stud_tower_left_images'])) {
+    updateCarImages('stud_tower_left_images', $conn, $test_drive_id);
+}
+
+// Front Right Image
+if (isset($_FILES['front_right_images'])) {
+    updateCarImages('front_right_images', $conn, $test_drive_id);
+}
+
+// Front Left Image
+if (isset($_FILES['front_left_images'])) {
+    updateCarImages('front_left_images', $conn, $test_drive_id);
+}
+
+// Right Image
+if (isset($_FILES['right_images'])) {
+    updateCarImages('right_images', $conn, $test_drive_id);
+}
+
+// Left Image
+if (isset($_FILES['left_images'])) {
+    updateCarImages('left_images', $conn, $test_drive_id);
+}
+
+// Back Right Image
+if (isset($_FILES['back_right_images'])) {
+    updateCarImages('back_right_images', $conn, $test_drive_id);
+}
+
+// Back Image
+if (isset($_FILES['back_images'])) {
+    updateCarImages('back_images', $conn, $test_drive_id);
+}
+
+// Back Left Image
+if (isset($_FILES['back_left_images'])) {
+    updateCarImages('back_left_images', $conn, $test_drive_id);
+}
+
+// Interior Back Image
+if (isset($_FILES['interior_back_images'])) {
+    updateCarImages('interior_back_images', $conn, $test_drive_id);
+}
+
+// UnderCarriage Back Image
+if (isset($_FILES['back_undercarriage_images'])) {
+    updateCarImages('back_undercarriage_images', $conn, $test_drive_id);
+}
+
+// UnderCarriage Front Image
+if (isset($_FILES['front_undercarriage_images'])) {
+    updateCarImages('front_undercarriage_images', $conn, $test_drive_id);
+}
+
+
+// Test Drive end
+
+// Return success response
+$response = array('success' => true, 'message' => 'Inspection Updated successfully.');
+
+echo json_encode($response);
+
+?>
