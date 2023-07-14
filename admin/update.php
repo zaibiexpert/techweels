@@ -154,11 +154,14 @@ if (isset($_FILES['mechanical_images'])) {
             // Get uploaded image data
             $image_name = $_FILES['mechanical_images']['name'][$key];
             $image_data = file_get_contents($_FILES['mechanical_images']['tmp_name'][$key]);
-
             // Perform the update query
-            $stmt = $conn->prepare("UPDATE `mechanical_images` SET `image` = ? WHERE `id` = ? AND `mechanical_function_id` = ?");
-            $stmt->bind_param("sii", $image_data, $key + 1, $mechanical_function_id);
+            $imageId = $key + 1; // Assign the value to a separate variable
+            $stmt = $conn->prepare("UPDATE `mechanical_images` SET `image` = ? WHERE `id` = ?");
+            $stmt->bind_param("si", $image_data, $imageId);
             $stmt->execute();
+
+            // ...
+
         }
     }
 }
@@ -297,6 +300,7 @@ $update_interior = "UPDATE `interior` SET
 WHERE `preliminary_information_id` = '$update_inspection_id'";
 
 mysqli_query($conn, $update_interior);
+$interior_id = mysqli_insert_id($conn);
 
 if (isset($_FILES['interior_images'])) {
     $interiorImages = $_FILES['interior_images']['name'];
@@ -310,9 +314,7 @@ if (isset($_FILES['interior_images'])) {
             // Get uploaded image data
             $image_name = $_FILES['interior_images']['name'][$key];
             $image_data = file_get_contents($_FILES['interior_images']['tmp_name'][$key]);
-
             // Get the interior_id for the current image
-            $interior_id = $_POST['interior_id'][$key];
 
             // Bind the values to the prepared statement
             $stmt->bind_param("si", $image_data, $interior_id);
@@ -322,7 +324,6 @@ if (isset($_FILES['interior_images'])) {
         }
     }
 }
-
 
 
 // Interior end
@@ -695,7 +696,6 @@ if (isset($_FILES['accessories_images'])) {
 
 // Test Drive start
 
-$testDrivedoneBy = $_POST['testDrivedoneBy'];
 $speedmeterInformation = $_POST['speedmeterInformation'];
 $steeringWheelalignment = $_POST['steeringWheelalignment'];
 $steeringFunction = $_POST['steeringFunction'];
@@ -709,7 +709,7 @@ $gearShifting = $_POST['gearShifting'];
 $enginePick = $_POST['enginePick'];
 $admin_message = mysqli_real_escape_string($conn, $_POST['admin_message']);
 
-$update_test_drive = "UPDATE `test_drive` SET `enginePick` = '$enginePick', `gearShifting` = '$gearShifting', `differentialNoise` = '$differentialNoise', `driveShaftnoise` = '$driveShaftnoise', `absActuation` = '$absActuation', `brakePedaloperation` = '$brakePedaloperation', `frontSuspensionNoise` = '$frontSuspensionNoise', `rearSuspensionNoise` = '$rearSuspensionNoise', `steeringFunction` = '$steeringFunction', `steeringWheelalignment` = '$steeringWheelalignment', `speedmeterInformation` = '$speedmeterInformation', `testDrivedoneBy` = '$testDrivedoneBy', `adminMessage` = '$admin_message' WHERE `preliminary_information_id` = $update_inspection_id";
+$update_test_drive = "UPDATE `test_drive` SET `enginePick` = '$enginePick', `gearShifting` = '$gearShifting', `differentialNoise` = '$differentialNoise', `driveShaftnoise` = '$driveShaftnoise', `absActuation` = '$absActuation', `brakePedaloperation` = '$brakePedaloperation', `frontSuspensionNoise` = '$frontSuspensionNoise', `rearSuspensionNoise` = '$rearSuspensionNoise', `steeringFunction` = '$steeringFunction', `steeringWheelalignment` = '$steeringWheelalignment', `speedmeterInformation` = '$speedmeterInformation', `testDrivedoneBy` = '', `adminMessage` = '$admin_message' WHERE `preliminary_information_id` = $update_inspection_id";
 mysqli_query($conn, $update_test_drive);
 
 

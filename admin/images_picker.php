@@ -149,7 +149,7 @@
 </script>
 <script type="text/javascript">
     $(function() {
-        $("#rearDriverdoor_images_picker").spartanMultiImagePicker({
+        $("#rearRightdoor_images_picker").spartanMultiImagePicker({
             fieldName: 'rearDriverdoor_images[]',
             fieldId: 'rearDriverdoor_images',
             maxCount: 10,
@@ -167,7 +167,7 @@
 </script>
 <script type="text/javascript">
     $(function() {
-        $("#pabbels_images_picker").spartanMultiImagePicker({
+        $("#panels_images_picker").spartanMultiImagePicker({
             fieldName: 'pabbels_images[]',
             fieldId: 'pabbels_images',
             maxCount: 10,

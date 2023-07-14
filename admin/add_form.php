@@ -447,8 +447,8 @@
         <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
             <label for="floorMats" class="mb-4 pb-1">Floor Mats</label> <br />
             <select class="form-control" id="floor_Mats" name="floorMats">
-                <option value="Working">Working</option>
-                <option value="Not Working">Not Working</option>
+                <option value="Good">Good</option>
+                <option value="Not Good">Not Good</option>
             </select>
         </div>
         <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
@@ -1029,12 +1029,24 @@
             <label class="mb-4 pb-1">Bonnet</label> <br />
             <select class="form-control" id="bonnet" name="bonnet">
                 <option value="T">T</option>
+                <option value="F">F</option>
                 <option value="P">P</option>
                 <option value="A1">A1</option>
                 <option value="A2">A2</option>
                 <option value="E1">E1</option>
                 <option value="E2">E2</option>
-                <option value="N/A">N/A</option>
+                <option value="LS">LS</option>
+                <option value="W">W</option>
+                <option value="G1">G1</option>
+                <option value="G2">G2</option>
+                <option value="G3">G3</option>
+                <option value="G4">G4</option>
+                <option value="B">B</option>
+                <option value="H">H</option>
+                <option value="PP">PP</option>
+                <option value="C">C</option>
+                <option value="XL">XL</option>
+                <option value="PL">PL</option>
             </select>
             <label class="fs-14 mb-4 mt-3">Bonnet Images</label>
             <div class="card-body">
@@ -1054,12 +1066,24 @@
             <label class="mb-4 pb-1">Front Right Fender</label> <br />
             <select class="form-control" id="front_right_fender" name="frontDriverfender">
                 <option value="T">T</option>
+                <option value="F">F</option>
                 <option value="P">P</option>
                 <option value="A1">A1</option>
                 <option value="A2">A2</option>
                 <option value="E1">E1</option>
                 <option value="E2">E2</option>
-                <option value="N/A">N/A</option>
+                <option value="LS">LS</option>
+                <option value="W">W</option>
+                <option value="G1">G1</option>
+                <option value="G2">G2</option>
+                <option value="G3">G3</option>
+                <option value="G4">G4</option>
+                <option value="B">B</option>
+                <option value="H">H</option>
+                <option value="PP">PP</option>
+                <option value="C">C</option>
+                <option value="XL">XL</option>
+                <option value="PL">PL</option>
             </select>
             <label class="fs-14 mb-0 mt-3">Front Right Fender Images</label>
             <div class="card-body">
@@ -1072,12 +1096,24 @@
             <label>Front Right Door</label> <br />
             <select class="form-control" id="front_right_door" name="frontDriverdoor">
                 <option value="T">T</option>
+                <option value="F">F</option>
                 <option value="P">P</option>
                 <option value="A1">A1</option>
                 <option value="A2">A2</option>
                 <option value="E1">E1</option>
                 <option value="E2">E2</option>
-                <option value="N/A">N/A</option>
+                <option value="LS">LS</option>
+                <option value="W">W</option>
+                <option value="G1">G1</option>
+                <option value="G2">G2</option>
+                <option value="G3">G3</option>
+                <option value="G4">G4</option>
+                <option value="B">B</option>
+                <option value="H">H</option>
+                <option value="PP">PP</option>
+                <option value="C">C</option>
+                <option value="XL">XL</option>
+                <option value="PL">PL</option>
             </select>
             <label class="fs-14 mb-0 mt-3">Front Right Door images</label>
             <div class="card-body">
@@ -1096,16 +1132,28 @@
             <label class="mb-4 pb-1">Rear Right Door</label> <br />
             <select class="form-control" id="rear_right_door" name="rearDriverdoor">
                 <option value="T">T</option>
+                <option value="F">F</option>
                 <option value="P">P</option>
                 <option value="A1">A1</option>
                 <option value="A2">A2</option>
                 <option value="E1">E1</option>
                 <option value="E2">E2</option>
-                <option value="N/A">N/A</option>
+                <option value="LS">LS</option>
+                <option value="W">W</option>
+                <option value="G1">G1</option>
+                <option value="G2">G2</option>
+                <option value="G3">G3</option>
+                <option value="G4">G4</option>
+                <option value="B">B</option>
+                <option value="H">H</option>
+                <option value="PP">PP</option>
+                <option value="C">C</option>
+                <option value="XL">XL</option>
+                <option value="PL">PL</option>
             </select>
             <label class="fs-14 mb-4 mt-3">Rear Right Door images</label>
             <div class="card-body">
-                <div id="rearDriverdoor_images_picker" class="row"></div>
+                <div id="rearRightdoor_images_picker" class="row"></div>
                 <div id="preview-container"></div>
             </div>
         </div>
@@ -1121,12 +1169,24 @@
             <label class="mb-4 pb-1">Trunk</label> <br />
             <select class="form-control" id="trunk" name="trunk">
                 <option value="T">T</option>
+                <option value="F">F</option>
                 <option value="P">P</option>
                 <option value="A1">A1</option>
                 <option value="A2">A2</option>
                 <option value="E1">E1</option>
                 <option value="E2">E2</option>
-                <option value="N/A">N/A</option>
+                <option value="LS">LS</option>
+                <option value="W">W</option>
+                <option value="G1">G1</option>
+                <option value="G2">G2</option>
+                <option value="G3">G3</option>
+                <option value="G4">G4</option>
+                <option value="B">B</option>
+                <option value="H">H</option>
+                <option value="PP">PP</option>
+                <option value="C">C</option>
+                <option value="XL">XL</option>
+                <option value="PL">PL</option>
             </select>
             <label class="fs-14 mb-4 mt-3">Trunk images</label>
             <div class="card-body">
@@ -1175,12 +1235,24 @@
             <label class="mb-4 pb-1">Front Passenger Fender</label> <br />
             <select class="form-control" id="front_Passenger_fender" name="frontPassengerfender">
                 <option value="T">T</option>
+                <option value="F">F</option>
                 <option value="P">P</option>
                 <option value="A1">A1</option>
                 <option value="A2">A2</option>
                 <option value="E1">E1</option>
                 <option value="E2">E2</option>
-                <option value="N/A">N/A</option>
+                <option value="LS">LS</option>
+                <option value="W">W</option>
+                <option value="G1">G1</option>
+                <option value="G2">G2</option>
+                <option value="G3">G3</option>
+                <option value="G4">G4</option>
+                <option value="B">B</option>
+                <option value="H">H</option>
+                <option value="PP">PP</option>
+                <option value="C">C</option>
+                <option value="XL">XL</option>
+                <option value="PL">PL</option>
             </select>
             <label class="fs-14 mb-0 mt-3">Front Passenger Fender Images</label>
             <div class="card-body">
@@ -1193,12 +1265,24 @@
             <label class="mb-4 pb-1">Front Passenger Door</label> <br />
             <select class="form-control" id="front_Passenger_door" name="frontPassengerdoor">
                 <option value="T">T</option>
+                <option value="F">F</option>
                 <option value="P">P</option>
                 <option value="A1">A1</option>
                 <option value="A2">A2</option>
                 <option value="E1">E1</option>
                 <option value="E2">E2</option>
-                <option value="N/A">N/A</option>
+                <option value="LS">LS</option>
+                <option value="W">W</option>
+                <option value="G1">G1</option>
+                <option value="G2">G2</option>
+                <option value="G3">G3</option>
+                <option value="G4">G4</option>
+                <option value="B">B</option>
+                <option value="H">H</option>
+                <option value="PP">PP</option>
+                <option value="C">C</option>
+                <option value="XL">XL</option>
+                <option value="PL">PL</option>
             </select>
             <label class="fs-14 mb-0 mt-3">Front Passenger Door Images</label>
             <div class="card-body">
@@ -1211,12 +1295,24 @@
             <label class="mb-4 pb-1">Rear Passenger Door</label> <br />
             <select class="form-control" id="rear_Passenger_door" name="rearPassengerdoor">
                 <option value="T">T</option>
+                <option value="F">F</option>
                 <option value="P">P</option>
                 <option value="A1">A1</option>
                 <option value="A2">A2</option>
                 <option value="E1">E1</option>
                 <option value="E2">E2</option>
-                <option value="N/A">N/A</option>
+                <option value="LS">LS</option>
+                <option value="W">W</option>
+                <option value="G1">G1</option>
+                <option value="G2">G2</option>
+                <option value="G3">G3</option>
+                <option value="G4">G4</option>
+                <option value="B">B</option>
+                <option value="H">H</option>
+                <option value="PP">PP</option>
+                <option value="C">C</option>
+                <option value="XL">XL</option>
+                <option value="PL">PL</option>
             </select>
             <label class="fs-14 mb-0 mt-3">Rear Passenger Door Images</label>
             <div class="card-body">
@@ -1228,12 +1324,24 @@
             <label class="mb-4 pb-1">Rear Passenger Fender</label> <br />
             <select class="form-control" id="rear_Passenger_fender" name="rearPassengerfender">
                 <option value="T">T</option>
+                <option value="F">F</option>
                 <option value="P">P</option>
                 <option value="A1">A1</option>
                 <option value="A2">A2</option>
                 <option value="E1">E1</option>
                 <option value="E2">E2</option>
-                <option value="N/A">N/A</option>
+                <option value="LS">LS</option>
+                <option value="W">W</option>
+                <option value="G1">G1</option>
+                <option value="G2">G2</option>
+                <option value="G3">G3</option>
+                <option value="G4">G4</option>
+                <option value="B">B</option>
+                <option value="H">H</option>
+                <option value="PP">PP</option>
+                <option value="C">C</option>
+                <option value="XL">XL</option>
+                <option value="PL">PL</option>
             </select>
             <label class="fs-14 mb-0 mt-3">Rear Passenger Fender images</label>
             <div class="card-body">
@@ -1263,12 +1371,24 @@
             <label class="mb-4 pb-1">Rear Driver Fender</label> <br />
             <select class="form-control" id="rear_Driver_fender" name="rearDriverfender">
                 <option value="T">T</option>
+                <option value="F">F</option>
                 <option value="P">P</option>
                 <option value="A1">A1</option>
                 <option value="A2">A2</option>
                 <option value="E1">E1</option>
                 <option value="E2">E2</option>
-                <option value="N/A">N/A</option>
+                <option value="LS">LS</option>
+                <option value="W">W</option>
+                <option value="G1">G1</option>
+                <option value="G2">G2</option>
+                <option value="G3">G3</option>
+                <option value="G4">G4</option>
+                <option value="B">B</option>
+                <option value="H">H</option>
+                <option value="PP">PP</option>
+                <option value="C">C</option>
+                <option value="XL">XL</option>
+                <option value="PL">PL</option>
             </select>
             <label class="fs-14 mb-0 mt-3">Rear Driver Fender images</label>
             <div class="card-body">
@@ -1285,12 +1405,24 @@
             <label>Roof</label> <br />
             <select class="form-control" id="roof" name="roof">
                 <option value="T">T</option>
+                <option value="F">F</option>
                 <option value="P">P</option>
                 <option value="A1">A1</option>
                 <option value="A2">A2</option>
                 <option value="E1">E1</option>
                 <option value="E2">E2</option>
-                <option value="N/A">N/A</option>
+                <option value="LS">LS</option>
+                <option value="W">W</option>
+                <option value="G1">G1</option>
+                <option value="G2">G2</option>
+                <option value="G3">G3</option>
+                <option value="G4">G4</option>
+                <option value="B">B</option>
+                <option value="H">H</option>
+                <option value="PP">PP</option>
+                <option value="C">C</option>
+                <option value="XL">XL</option>
+                <option value="PL">PL</option>
             </select>
             <label class="fs-14 mb-4 mt-3">Roof images</label>
             <div class="card-body">
@@ -1303,12 +1435,24 @@
             <label>Panels</label> <br />
             <select class="form-control" id="panels" name="panels">
                 <option value="T">T</option>
+                <option value="F">F</option>
                 <option value="P">P</option>
                 <option value="A1">A1</option>
                 <option value="A2">A2</option>
                 <option value="E1">E1</option>
                 <option value="E2">E2</option>
-                <option value="N/A">N/A</option>
+                <option value="LS">LS</option>
+                <option value="W">W</option>
+                <option value="G1">G1</option>
+                <option value="G2">G2</option>
+                <option value="G3">G3</option>
+                <option value="G4">G4</option>
+                <option value="B">B</option>
+                <option value="H">H</option>
+                <option value="PP">PP</option>
+                <option value="C">C</option>
+                <option value="XL">XL</option>
+                <option value="PL">PL</option>
             </select>
             <label class="fs-14 mb-4 mt-3">Panels images</label>
             <div class="card-body">
@@ -1321,12 +1465,24 @@
             <label>Driver A Pillar</label> <br />
             <select class="form-control" id="driver_A_pillar" name="driverApillar">
                 <option value="T">T</option>
+                <option value="F">F</option>
                 <option value="P">P</option>
                 <option value="A1">A1</option>
                 <option value="A2">A2</option>
                 <option value="E1">E1</option>
                 <option value="E2">E2</option>
-                <option value="N/A">N/A</option>
+                <option value="LS">LS</option>
+                <option value="W">W</option>
+                <option value="G1">G1</option>
+                <option value="G2">G2</option>
+                <option value="G3">G3</option>
+                <option value="G4">G4</option>
+                <option value="B">B</option>
+                <option value="H">H</option>
+                <option value="PP">PP</option>
+                <option value="C">C</option>
+                <option value="XL">XL</option>
+                <option value="PL">PL</option>
             </select>
             <label class="fs-14 mb-4 mt-3">Driver A Pillar images</label>
             <div class="card-body">
@@ -1339,12 +1495,24 @@
             <label>Driver B Pillar</label> <br />
             <select class="form-control" id="driver_B_pillar" name="driverBpillar">
                 <option value="T">T</option>
+                <option value="F">F</option>
                 <option value="P">P</option>
                 <option value="A1">A1</option>
                 <option value="A2">A2</option>
                 <option value="E1">E1</option>
                 <option value="E2">E2</option>
-                <option value="N/A">N/A</option>
+                <option value="LS">LS</option>
+                <option value="W">W</option>
+                <option value="G1">G1</option>
+                <option value="G2">G2</option>
+                <option value="G3">G3</option>
+                <option value="G4">G4</option>
+                <option value="B">B</option>
+                <option value="H">H</option>
+                <option value="PP">PP</option>
+                <option value="C">C</option>
+                <option value="XL">XL</option>
+                <option value="PL">PL</option>
             </select>
             <label class="fs-14 mb-4 mt-3">Driver B Pillar images</label>
             <div class="card-body">
@@ -1357,12 +1525,24 @@
             <label>Driver C Pillar</label> <br />
             <select class="form-control" id="driver_C_pillar" name="driverCpillar">
                 <option value="T">T</option>
+                <option value="F">F</option>
                 <option value="P">P</option>
                 <option value="A1">A1</option>
                 <option value="A2">A2</option>
                 <option value="E1">E1</option>
                 <option value="E2">E2</option>
-                <option value="N/A">N/A</option>
+                <option value="LS">LS</option>
+                <option value="W">W</option>
+                <option value="G1">G1</option>
+                <option value="G2">G2</option>
+                <option value="G3">G3</option>
+                <option value="G4">G4</option>
+                <option value="B">B</option>
+                <option value="H">H</option>
+                <option value="PP">PP</option>
+                <option value="C">C</option>
+                <option value="XL">XL</option>
+                <option value="PL">PL</option>
             </select>
             <label class="fs-14 mb-4 mt-3">Driver C Pillar images</label>
             <div class="card-body">
@@ -1375,12 +1555,24 @@
             <label>Driver D Pillar</label> <br />
             <select class="form-control" id="driver_D_pillar" name="driverDpillar">
                 <option value="T">T</option>
+                <option value="F">F</option>
                 <option value="P">P</option>
                 <option value="A1">A1</option>
                 <option value="A2">A2</option>
                 <option value="E1">E1</option>
                 <option value="E2">E2</option>
-                <option value="N/A">N/A</option>
+                <option value="LS">LS</option>
+                <option value="W">W</option>
+                <option value="G1">G1</option>
+                <option value="G2">G2</option>
+                <option value="G3">G3</option>
+                <option value="G4">G4</option>
+                <option value="B">B</option>
+                <option value="H">H</option>
+                <option value="PP">PP</option>
+                <option value="C">C</option>
+                <option value="XL">XL</option>
+                <option value="PL">PL</option>
             </select>
             <label class="fs-14 mb-4 mt-3">Driver D Pillar images</label>
             <div class="card-body">
@@ -1393,12 +1585,24 @@
             <label>Passenger A Pillar</label> <br />
             <select class="form-control" id="passenger_A_pillar" name="passengerApillar">
                 <option value="T">T</option>
+                <option value="F">F</option>
                 <option value="P">P</option>
                 <option value="A1">A1</option>
                 <option value="A2">A2</option>
                 <option value="E1">E1</option>
                 <option value="E2">E2</option>
-                <option value="N/A">N/A</option>
+                <option value="LS">LS</option>
+                <option value="W">W</option>
+                <option value="G1">G1</option>
+                <option value="G2">G2</option>
+                <option value="G3">G3</option>
+                <option value="G4">G4</option>
+                <option value="B">B</option>
+                <option value="H">H</option>
+                <option value="PP">PP</option>
+                <option value="C">C</option>
+                <option value="XL">XL</option>
+                <option value="PL">PL</option>
             </select>
             <label class="fs-14 mb-0 mt-3">Passenger A Pillar images</label>
             <div class="card-body">
@@ -1411,12 +1615,24 @@
             <label>Passenger B Pillar</label> <br />
             <select class="form-control" id="passenger_B_pillar" name="passengerBpillar">
                 <option value="T">T</option>
+                <option value="F">F</option>
                 <option value="P">P</option>
                 <option value="A1">A1</option>
                 <option value="A2">A2</option>
                 <option value="E1">E1</option>
                 <option value="E2">E2</option>
-                <option value="N/A">N/A</option>
+                <option value="LS">LS</option>
+                <option value="W">W</option>
+                <option value="G1">G1</option>
+                <option value="G2">G2</option>
+                <option value="G3">G3</option>
+                <option value="G4">G4</option>
+                <option value="B">B</option>
+                <option value="H">H</option>
+                <option value="PP">PP</option>
+                <option value="C">C</option>
+                <option value="XL">XL</option>
+                <option value="PL">PL</option>
             </select>
             <label class="fs-14 mb-0 mt-3">Passenger B Pillar images</label>
             <div class="card-body">
@@ -1429,12 +1645,24 @@
             <label>Passenger C Pillar</label> <br />
             <select class="form-control" id="passenger_C_pillar" name="passengerCpillar">
                 <option value="T">T</option>
+                <option value="F">F</option>
                 <option value="P">P</option>
                 <option value="A1">A1</option>
                 <option value="A2">A2</option>
                 <option value="E1">E1</option>
                 <option value="E2">E2</option>
-                <option value="N/A">N/A</option>
+                <option value="LS">LS</option>
+                <option value="W">W</option>
+                <option value="G1">G1</option>
+                <option value="G2">G2</option>
+                <option value="G3">G3</option>
+                <option value="G4">G4</option>
+                <option value="B">B</option>
+                <option value="H">H</option>
+                <option value="PP">PP</option>
+                <option value="C">C</option>
+                <option value="XL">XL</option>
+                <option value="PL">PL</option>
             </select>
             <label class="fs-14 mb-0 mt-3">Passenger C Pillar images</label>
             <div class="card-body">
@@ -1447,12 +1675,24 @@
             <label>Passenger D Pillar</label> <br />
             <select class="form-control" id="passenger_D_pillar" name="passengerDpillar">
                 <option value="T">T</option>
+                <option value="F">F</option>
                 <option value="P">P</option>
                 <option value="A1">A1</option>
                 <option value="A2">A2</option>
                 <option value="E1">E1</option>
                 <option value="E2">E2</option>
-                <option value="N/A">N/A</option>
+                <option value="LS">LS</option>
+                <option value="W">W</option>
+                <option value="G1">G1</option>
+                <option value="G2">G2</option>
+                <option value="G3">G3</option>
+                <option value="G4">G4</option>
+                <option value="B">B</option>
+                <option value="H">H</option>
+                <option value="PP">PP</option>
+                <option value="C">C</option>
+                <option value="XL">XL</option>
+                <option value="PL">PL</option>
             </select>
             <label class="fs-14 mb-0 mt-3">Passenger D Pillar images</label>
             <div class="card-body">
@@ -1460,10 +1700,6 @@
                 <div id="preview-container"></div>
             </div>
         </div>
-
-
-
-
         <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
             <label for="front_Passenger_Door_Seal" class="mb-4 pb-1">Front Passenger Door Seal</label> <br />
             <select class="form-control" id="front_Passenger_Door_Seal" name="frontPassengerDoorSeal">
@@ -1869,119 +2105,168 @@
             <label class="fs-14">Front Bumper</label>
             <select class="form-control" multiple id="getFrontBumper">
                 <option value="T">T</option>
+                <option value="F">F</option>
                 <option value="P">P</option>
-                <option value="W">Q</option>
-                <option value="W1">W1</option>
                 <option value="A1">A1</option>
                 <option value="A2">A2</option>
                 <option value="E1">E1</option>
                 <option value="E2">E2</option>
+                <option value="LS">LS</option>
+                <option value="W">W</option>
+                <option value="G1">G1</option>
+                <option value="G2">G2</option>
+                <option value="G3">G3</option>
+                <option value="G4">G4</option>
                 <option value="B">B</option>
-                <option value="G">G</option>
+                <option value="H">H</option>
+                <option value="PP">PP</option>
                 <option value="C">C</option>
-                <option value="R">R</option>
+                <option value="XL">XL</option>
+                <option value="PL">PL</option>
             </select>
         </div>
         <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
             <label class="fs-14">Bonnet</label>
             <select class="form-control" multiple id="getBonnet">
                 <option value="T">T</option>
+                <option value="F">F</option>
                 <option value="P">P</option>
-                <option value="W">Q</option>
-                <option value="W1">W1</option>
                 <option value="A1">A1</option>
                 <option value="A2">A2</option>
                 <option value="E1">E1</option>
                 <option value="E2">E2</option>
+                <option value="LS">LS</option>
+                <option value="W">W</option>
+                <option value="G1">G1</option>
+                <option value="G2">G2</option>
+                <option value="G3">G3</option>
+                <option value="G4">G4</option>
                 <option value="B">B</option>
-                <option value="G">G</option>
+                <option value="H">H</option>
+                <option value="PP">PP</option>
                 <option value="C">C</option>
-                <option value="R">R</option>
+                <option value="XL">XL</option>
+                <option value="PL">PL</option>
             </select>
         </div>
         <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
             <label class="fs-14">Right Fender</label>
             <select class="form-control" multiple id="getRightFender">
                 <option value="T">T</option>
+                <option value="F">F</option>
                 <option value="P">P</option>
-                <option value="W">Q</option>
-                <option value="W1">W1</option>
                 <option value="A1">A1</option>
                 <option value="A2">A2</option>
                 <option value="E1">E1</option>
                 <option value="E2">E2</option>
+                <option value="LS">LS</option>
+                <option value="W">W</option>
+                <option value="G1">G1</option>
+                <option value="G2">G2</option>
+                <option value="G3">G3</option>
+                <option value="G4">G4</option>
                 <option value="B">B</option>
-                <option value="G">G</option>
+                <option value="H">H</option>
+                <option value="PP">PP</option>
                 <option value="C">C</option>
-                <option value="R">R</option>
+                <option value="XL">XL</option>
+                <option value="PL">PL</option>
             </select>
         </div>
         <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
             <label class="fs-14">Front Right Door</label>
             <select class="form-control" multiple id="getFrontrightDoor">
                 <option value="T">T</option>
+                <option value="F">F</option>
                 <option value="P">P</option>
-                <option value="W">Q</option>
-                <option value="W1">W1</option>
                 <option value="A1">A1</option>
                 <option value="A2">A2</option>
                 <option value="E1">E1</option>
                 <option value="E2">E2</option>
+                <option value="LS">LS</option>
+                <option value="W">W</option>
+                <option value="G1">G1</option>
+                <option value="G2">G2</option>
+                <option value="G3">G3</option>
+                <option value="G4">G4</option>
                 <option value="B">B</option>
-                <option value="G">G</option>
+                <option value="H">H</option>
+                <option value="PP">PP</option>
                 <option value="C">C</option>
-                <option value="R">R</option>
+                <option value="XL">XL</option>
+                <option value="PL">PL</option>
             </select>
         </div>
         <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
             <label class="fs-14">Back Right Door</label>
             <select class="form-control" multiple id="getBackrightDoor">
                 <option value="T">T</option>
+                <option value="F">F</option>
                 <option value="P">P</option>
-                <option value="W">Q</option>
-                <option value="W1">W1</option>
                 <option value="A1">A1</option>
                 <option value="A2">A2</option>
                 <option value="E1">E1</option>
                 <option value="E2">E2</option>
+                <option value="LS">LS</option>
+                <option value="W">W</option>
+                <option value="G1">G1</option>
+                <option value="G2">G2</option>
+                <option value="G3">G3</option>
+                <option value="G4">G4</option>
                 <option value="B">B</option>
-                <option value="G">G</option>
+                <option value="H">H</option>
+                <option value="PP">PP</option>
                 <option value="C">C</option>
-                <option value="R">R</option>
+                <option value="XL">XL</option>
+                <option value="PL">PL</option>
             </select>
         </div>
         <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
             <label class="fs-14">Right Quater panel </label>
             <select class="form-control" multiple id="getRightQuaterpanel">
                 <option value="T">T</option>
+                <option value="F">F</option>
                 <option value="P">P</option>
-                <option value="W">Q</option>
-                <option value="W1">W1</option>
                 <option value="A1">A1</option>
                 <option value="A2">A2</option>
                 <option value="E1">E1</option>
                 <option value="E2">E2</option>
+                <option value="LS">LS</option>
+                <option value="W">W</option>
+                <option value="G1">G1</option>
+                <option value="G2">G2</option>
+                <option value="G3">G3</option>
+                <option value="G4">G4</option>
                 <option value="B">B</option>
-                <option value="G">G</option>
+                <option value="H">H</option>
+                <option value="PP">PP</option>
                 <option value="C">C</option>
-                <option value="R">R</option>
+                <option value="XL">XL</option>
+                <option value="PL">PL</option>
             </select>
         </div>
         <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
             <label class="fs-14">Right A piller</label>
             <select class="form-control" multiple id="getRightApiller">
                 <option value="T">T</option>
+                <option value="F">F</option>
                 <option value="P">P</option>
-                <option value="W">Q</option>
-                <option value="W1">W1</option>
                 <option value="A1">A1</option>
                 <option value="A2">A2</option>
                 <option value="E1">E1</option>
                 <option value="E2">E2</option>
+                <option value="LS">LS</option>
+                <option value="W">W</option>
+                <option value="G1">G1</option>
+                <option value="G2">G2</option>
+                <option value="G3">G3</option>
+                <option value="G4">G4</option>
                 <option value="B">B</option>
-                <option value="G">G</option>
+                <option value="H">H</option>
+                <option value="PP">PP</option>
                 <option value="C">C</option>
-                <option value="R">R</option>
+                <option value="XL">XL</option>
+                <option value="PL">PL</option>
             </select>
         </div>
     </div>
@@ -1991,102 +2276,144 @@
             <label class="fs-14">Right B piller</label>
             <select class="form-control" multiple id="getRightBpiller">
                 <option value="T">T</option>
+                <option value="F">F</option>
                 <option value="P">P</option>
-                <option value="W">Q</option>
-                <option value="W1">W1</option>
                 <option value="A1">A1</option>
                 <option value="A2">A2</option>
                 <option value="E1">E1</option>
                 <option value="E2">E2</option>
+                <option value="LS">LS</option>
+                <option value="W">W</option>
+                <option value="G1">G1</option>
+                <option value="G2">G2</option>
+                <option value="G3">G3</option>
+                <option value="G4">G4</option>
                 <option value="B">B</option>
-                <option value="G">G</option>
+                <option value="H">H</option>
+                <option value="PP">PP</option>
                 <option value="C">C</option>
-                <option value="R">R</option>
+                <option value="XL">XL</option>
+                <option value="PL">PL</option>
             </select>
         </div>
         <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
             <label class="fs-14">Right C piller</label>
             <select class="form-control" multiple id="getRightCpiller">
                 <option value="T">T</option>
+                <option value="F">F</option>
                 <option value="P">P</option>
-                <option value="W">Q</option>
-                <option value="W1">W1</option>
                 <option value="A1">A1</option>
                 <option value="A2">A2</option>
                 <option value="E1">E1</option>
                 <option value="E2">E2</option>
+                <option value="LS">LS</option>
+                <option value="W">W</option>
+                <option value="G1">G1</option>
+                <option value="G2">G2</option>
+                <option value="G3">G3</option>
+                <option value="G4">G4</option>
                 <option value="B">B</option>
-                <option value="G">G</option>
+                <option value="H">H</option>
+                <option value="PP">PP</option>
                 <option value="C">C</option>
-                <option value="R">R</option>
+                <option value="XL">XL</option>
+                <option value="PL">PL</option>
             </select>
         </div>
         <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
             <label class="fs-14">Roof</label>
             <select class="form-control" multiple id="getRoof">
                 <option value="T">T</option>
+                <option value="F">F</option>
                 <option value="P">P</option>
-                <option value="W">Q</option>
-                <option value="W1">W1</option>
                 <option value="A1">A1</option>
                 <option value="A2">A2</option>
                 <option value="E1">E1</option>
                 <option value="E2">E2</option>
+                <option value="LS">LS</option>
+                <option value="W">W</option>
+                <option value="G1">G1</option>
+                <option value="G2">G2</option>
+                <option value="G3">G3</option>
+                <option value="G4">G4</option>
                 <option value="B">B</option>
-                <option value="G">G</option>
+                <option value="H">H</option>
+                <option value="PP">PP</option>
                 <option value="C">C</option>
-                <option value="R">R</option>
+                <option value="XL">XL</option>
+                <option value="PL">PL</option>
             </select>
         </div>
         <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
             <label class="fs-14">Trunk</label>
             <select class="form-control" multiple id="getTrunk">
                 <option value="T">T</option>
+                <option value="F">F</option>
                 <option value="P">P</option>
-                <option value="W">Q</option>
-                <option value="W1">W1</option>
                 <option value="A1">A1</option>
                 <option value="A2">A2</option>
                 <option value="E1">E1</option>
                 <option value="E2">E2</option>
+                <option value="LS">LS</option>
+                <option value="W">W</option>
+                <option value="G1">G1</option>
+                <option value="G2">G2</option>
+                <option value="G3">G3</option>
+                <option value="G4">G4</option>
                 <option value="B">B</option>
-                <option value="G">G</option>
+                <option value="H">H</option>
+                <option value="PP">PP</option>
                 <option value="C">C</option>
-                <option value="R">R</option>
+                <option value="XL">XL</option>
+                <option value="PL">PL</option>
             </select>
         </div>
         <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
             <label class="fs-14">Back Bumper </label>
             <select class="form-control" multiple id="getBackbumper">
                 <option value="T">T</option>
+                <option value="F">F</option>
                 <option value="P">P</option>
-                <option value="W">Q</option>
-                <option value="W1">W1</option>
                 <option value="A1">A1</option>
                 <option value="A2">A2</option>
                 <option value="E1">E1</option>
                 <option value="E2">E2</option>
+                <option value="LS">LS</option>
+                <option value="W">W</option>
+                <option value="G1">G1</option>
+                <option value="G2">G2</option>
+                <option value="G3">G3</option>
+                <option value="G4">G4</option>
                 <option value="B">B</option>
-                <option value="G">G</option>
+                <option value="H">H</option>
+                <option value="PP">PP</option>
                 <option value="C">C</option>
-                <option value="R">R</option>
+                <option value="XL">XL</option>
+                <option value="PL">PL</option>
             </select>
         </div>
         <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
             <label class="fs-14">Left Quater panel</label>
             <select class="form-control" multiple id="getLeftQuaterpanel">
                 <option value="T">T</option>
+                <option value="F">F</option>
                 <option value="P">P</option>
-                <option value="W">Q</option>
-                <option value="W1">W1</option>
                 <option value="A1">A1</option>
                 <option value="A2">A2</option>
                 <option value="E1">E1</option>
                 <option value="E2">E2</option>
+                <option value="LS">LS</option>
+                <option value="W">W</option>
+                <option value="G1">G1</option>
+                <option value="G2">G2</option>
+                <option value="G3">G3</option>
+                <option value="G4">G4</option>
                 <option value="B">B</option>
-                <option value="G">G</option>
+                <option value="H">H</option>
+                <option value="PP">PP</option>
                 <option value="C">C</option>
-                <option value="R">R</option>
+                <option value="XL">XL</option>
+                <option value="PL">PL</option>
             </select>
         </div>
     </div>
@@ -2097,114 +2424,156 @@
             <label class="fs-14">Back Left Door</label>
             <select class="form-control" multiple id="getBackLeftDoor">
                 <option value="T">T</option>
+                <option value="F">F</option>
                 <option value="P">P</option>
-                <option value="W">Q</option>
-                <option value="W1">W1</option>
                 <option value="A1">A1</option>
                 <option value="A2">A2</option>
                 <option value="E1">E1</option>
                 <option value="E2">E2</option>
+                <option value="LS">LS</option>
+                <option value="W">W</option>
+                <option value="G1">G1</option>
+                <option value="G2">G2</option>
+                <option value="G3">G3</option>
+                <option value="G4">G4</option>
                 <option value="B">B</option>
-                <option value="G">G</option>
+                <option value="H">H</option>
+                <option value="PP">PP</option>
                 <option value="C">C</option>
-                <option value="R">R</option>
+                <option value="XL">XL</option>
+                <option value="PL">PL</option>
             </select>
         </div>
         <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
             <label class="fs-14">Front Left Door </label>
             <select class="form-control" multiple id="getFrontLeftDoor">
                 <option value="T">T</option>
+                <option value="F">F</option>
                 <option value="P">P</option>
-                <option value="W">Q</option>
-                <option value="W1">W1</option>
                 <option value="A1">A1</option>
                 <option value="A2">A2</option>
                 <option value="E1">E1</option>
                 <option value="E2">E2</option>
+                <option value="LS">LS</option>
+                <option value="W">W</option>
+                <option value="G1">G1</option>
+                <option value="G2">G2</option>
+                <option value="G3">G3</option>
+                <option value="G4">G4</option>
                 <option value="B">B</option>
-                <option value="G">G</option>
+                <option value="H">H</option>
+                <option value="PP">PP</option>
                 <option value="C">C</option>
-                <option value="R">R</option>
+                <option value="XL">XL</option>
+                <option value="PL">PL</option>
             </select>
         </div>
         <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
             <label class="fs-14">Front Left Fender</label>
             <select class="form-control" multiple id="getFrontLeftFender">
                 <option value="T">T</option>
+                <option value="F">F</option>
                 <option value="P">P</option>
-                <option value="W">Q</option>
-                <option value="W1">W1</option>
                 <option value="A1">A1</option>
                 <option value="A2">A2</option>
                 <option value="E1">E1</option>
                 <option value="E2">E2</option>
+                <option value="LS">LS</option>
+                <option value="W">W</option>
+                <option value="G1">G1</option>
+                <option value="G2">G2</option>
+                <option value="G3">G3</option>
+                <option value="G4">G4</option>
                 <option value="B">B</option>
-                <option value="G">G</option>
+                <option value="H">H</option>
+                <option value="PP">PP</option>
                 <option value="C">C</option>
-                <option value="R">R</option>
+                <option value="XL">XL</option>
+                <option value="PL">PL</option>
             </select>
         </div>
         <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
             <label class="fs-14">Left A piller</label>
             <select class="form-control" multiple id="getLeftApiller">
                 <option value="T">T</option>
+                <option value="F">F</option>
                 <option value="P">P</option>
-                <option value="W">Q</option>
-                <option value="W1">W1</option>
                 <option value="A1">A1</option>
                 <option value="A2">A2</option>
                 <option value="E1">E1</option>
                 <option value="E2">E2</option>
+                <option value="LS">LS</option>
+                <option value="W">W</option>
+                <option value="G1">G1</option>
+                <option value="G2">G2</option>
+                <option value="G3">G3</option>
+                <option value="G4">G4</option>
                 <option value="B">B</option>
-                <option value="G">G</option>
+                <option value="H">H</option>
+                <option value="PP">PP</option>
                 <option value="C">C</option>
-                <option value="R">R</option>
+                <option value="XL">XL</option>
+                <option value="PL">PL</option>
             </select>
         </div>
         <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
             <label class="fs-14">Left B piller </label>
             <select class="form-control" multiple id="getLeftBpiller">
                 <option value="T">T</option>
+                <option value="F">F</option>
                 <option value="P">P</option>
-                <option value="W">Q</option>
-                <option value="W1">W1</option>
                 <option value="A1">A1</option>
                 <option value="A2">A2</option>
                 <option value="E1">E1</option>
                 <option value="E2">E2</option>
+                <option value="LS">LS</option>
+                <option value="W">W</option>
+                <option value="G1">G1</option>
+                <option value="G2">G2</option>
+                <option value="G3">G3</option>
+                <option value="G4">G4</option>
                 <option value="B">B</option>
-                <option value="G">G</option>
+                <option value="H">H</option>
+                <option value="PP">PP</option>
                 <option value="C">C</option>
-                <option value="R">R</option>
+                <option value="XL">XL</option>
+                <option value="PL">PL</option>
             </select>
         </div>
         <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
             <label class="fs-14">Left C piller</label>
             <select class="form-control" multiple id="getLeftCpiller">
                 <option value="T">T</option>
+                <option value="F">F</option>
                 <option value="P">P</option>
-                <option value="W">Q</option>
-                <option value="W1">W1</option>
                 <option value="A1">A1</option>
                 <option value="A2">A2</option>
                 <option value="E1">E1</option>
                 <option value="E2">E2</option>
+                <option value="LS">LS</option>
+                <option value="W">W</option>
+                <option value="G1">G1</option>
+                <option value="G2">G2</option>
+                <option value="G3">G3</option>
+                <option value="G4">G4</option>
                 <option value="B">B</option>
-                <option value="G">G</option>
+                <option value="H">H</option>
+                <option value="PP">PP</option>
                 <option value="C">C</option>
-                <option value="R">R</option>
+                <option value="XL">XL</option>
+                <option value="PL">PL</option>
             </select>
         </div>
     </div>
 
 
     <div class="mb-4 row">
-        <div class="col-lg-6 col-md-6">
+        <div class="col-lg-6 col-md-6 col-6">
             <div class="text-left">
                 <input type="submit" value="Save" name="" class="btn btn-success pl-2 pr-2" />
             </div>
         </div>
-        <div class="col-lg-6 col-md-6">
+        <div class="col-lg-6 col-md-6 col-6">
             <div class="text-right">
                 <input type="button" class="btn btn-primary" value="Download" id="download_btn" />
             </div>

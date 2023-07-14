@@ -213,8 +213,8 @@
             'engine_number',
             'Accidental Checklist',
             'engine_Room',
-            'front_under_body',
-            'radiator_core_support',
+            'front_Under_body',
+            'radiator_Core_Support',
             'left_Front_Rail',
             'left_Strut_Tower',
             'right_Front_Rail',
@@ -341,7 +341,7 @@
             'pabbels',
             'roof',
             'rear_Passenger_side_Door_Seal',
-            'front_Passenger_Door_Seal',            
+            'front_Passenger_Door_Seal',
             'rear_Driver_fender',
             'rear_screen',
             'rear_Passenger_fender',
@@ -385,6 +385,8 @@
             'admin_msg'
         ];
 
+
+
         // Define the file picker IDs and their respective names array
         var filePickers = [{
                 id: 'car_front_images_picker',
@@ -415,88 +417,96 @@
                 name: 'Suspension Images'
             },
             {
-                id: 'trunkLock_images_picker',
-                name: 'Trunk Lock Images'
+                id: 'bonnet_images_picker',
+                name: 'Bonnet Images'
             },
             {
                 id: 'frontDriverfender_images_picker',
                 name: 'Front Right Fender Images'
             },
             {
-                id: 'frontPassengerdoor_images_picker',
-                name: 'Front Passenger Door Images'
+                id: 'frontDriverdoor_images_picker',
+                name: 'Front Right Door Images'
+            },
+            {
+                id: 'rearRightdoor_images_picker',
+                name: 'Rear Right Images'
+            },
+            {
+                id: 'trunkLock_images_picker',
+                name: 'Trunk Lock Images'
             },
             {
                 id: 'frontWindshield_images_picker',
-                name: 'Front Windshield Images'
-            },
-            {
-                id: 'rearPassengerfender_images_picker',
-                name: 'Rear Passenger Fender Images'
-            },
-            {
-                id: 'rearWinshield_images_picker',
-                name: 'Rear Windshield Images'
-            },
-            {
-                id: 'rearDriverfender_images_picker',
-                name: 'Rear Driver Fender Images'
-            },
-            {
-                id: 'rearDriverdoor_images_picker',
-                name: 'Rear Right Door Images'
-            },
-            {
-                id: 'roof_images_picker',
-                name: 'Roof Images'
-            },
-            {
-                id: 'pabbels_images_picker',
-                name: 'Pabbels Images'
-            },
-            {
-                id: 'driverApillar_images_picker',
-                name: 'Driver A-pillar Images'
-            },
-            {
-                id: 'driverCpillar_images_picker',
-                name: 'Driver C-pillar Images'
-            },
-            {
-                id: 'driverBpillar_images_picker',
-                name: 'Driver B-pillar Images'
-            },
-            {
-                id: 'passengerApillar_images_picker',
-                name: 'Passenger A-pillar Images'
-            },
-            {
-                id: 'passengerCpillar_images_picker',
-                name: 'Passenger C-pillar Images'
-            },
-            {
-                id: 'passengerBpillar_images_picker',
-                name: 'Passenger B-pillar Images'
-            },
-            {
-                id: 'bonnet_images_picker',
-                name: 'Bonnet Images'
+                name: 'Front Wind Screen Images'
             },
             {
                 id: 'frontPassengerfender_images_picker',
                 name: 'Front Passenger Fender Images'
             },
             {
+                id: 'frontPassengerdoor_images_picker',
+                name: 'Front Passenger Door Images'
+            },
+            {
                 id: 'rearPassengerdoor_images_picker',
                 name: 'Rear Passenger Door Images'
             },
             {
-                id: 'passengerDpillar_images_picker',
-                name: 'Passenger D-pillar Images'
+                id: 'rearPassengerfender_images_picker',
+                name: 'Rear Passenger Fender Images'
             },
             {
-                id: 'frontDriverdoor_images_picker',
-                name: 'Front Right Door Images'
+                id: 'trunk_images_picker',
+                name: 'Trunk Images'
+            },
+            {
+                id: 'rearWindshield_images_picker',
+                name: 'Rear Wind Screen Images'
+            },
+            {
+                id: 'rearDriverfender_images_picker',
+                name: 'Rear Driver Fender Images'
+            },
+            {
+                id: 'roof_images_picker',
+                name: 'Roof Images'
+            },
+            {
+                id: 'panels_images_picker',
+                name: 'Panels Images'
+            },
+            {
+                id: 'driverApillar_images_picker',
+                name: 'Driver A-pillar Images'
+            },
+            {
+                id: 'driverBpillar_images_picker',
+                name: 'Driver B-pillar Images'
+            },
+            {
+                id: 'driverCpillar_images_picker',
+                name: 'Driver C-pillar Images'
+            },
+            {
+                id: 'driverDpillar_images_picker',
+                name: 'Driver D-pillar Images'
+            },
+            {
+                id: 'passengerApillar_images_picker',
+                name: 'Passenger A-pillar Images'
+            },
+            {
+                id: 'passengerBpillar_images_picker',
+                name: 'Passenger B-pillar Images'
+            },
+            {
+                id: 'passengerCpillar_images_picker',
+                name: 'Passenger C-pillar Images'
+            },
+            {
+                id: 'passengerDpillar_images_picker',
+                name: 'Passenger D-pillar Images'
             },
             {
                 id: 'tyre_images_picker',
@@ -507,7 +517,7 @@
                 name: 'Accessories Images'
             },
             {
-                id: 'front_headlights_images_picker',
+                id: 'front_headlight_images_picker',
                 name: 'Front Headlights Images'
             },
             {
@@ -582,15 +592,20 @@
         var promises = [];
         var imageColumns = [];
 
-
-        var requiredFilePickers = ['accidental_images_picker', 'mechanical_img_picker', 'ac_heater_images_picker', 'interior_images_picker', 'electronic_images_picker', 'suspension_images_picker'];
+        // Requird fields work start
 
         var showErrorAlert = function(filePickerId) {
             alert('Please select an image for ' + filePickerId + '.');
+
+            // Scroll to the required field
+            var element = $('#' + filePickerId);
+            $('html, body').animate({
+                scrollTop: element.offset().top
+            }, 500);
         };
 
-        for (var i = 0; i < requiredFilePickers.length; i++) {
-            var filePickerId = requiredFilePickers[i];
+        for (var i = 0; i < filePickers.length; i++) {
+            var filePickerId = filePickers[i].id;
             var fileInputs = $('#' + filePickerId).find('input[type="file"]');
             var isAnyFileSelected = false;
 
@@ -606,6 +621,9 @@
                 return; // stop further execution if a file picker is empty
             }
         }
+
+        // Requird fields work end
+
 
         // Iterate over the file picker IDs and names array
         filePickers.forEach(function(filePicker) {
@@ -643,12 +661,1704 @@
         Promise.all(promises)
             .then(function() {
                 // Define the color variables
-                var YesColor = '#ffebeb'; // Color when option is "Yes"
-                var noColor = '#ecfeed'; // Color when option is not "Yes"
+                var RedColor = '#ffebeb'; // Color when option is "Yes" red
+                var GreenColor = '#ecfeed'; // Color when option is not "Yes" green
+
+                var fieldColorMap = {
+                    'engine_Room': [{
+                            id: 'engine_Room',
+                            value: 'Accidented',
+                            color: RedColor
+                        },
+                        {
+                            id: 'engine_Room',
+                            value: 'Non Accidented',
+                            color: GreenColor
+                        }
+                    ],
+                    'front_Under_body': [{
+                            id: 'front_Under_body',
+                            value: 'Accidented',
+                            color: RedColor
+                        },
+                        {
+                            id: 'front_Under_body',
+                            value: 'Non Accidented',
+                            color: GreenColor
+                        }
+                    ],
+                    'radiator_Core_Support': [{
+                            id: 'radiator_Core_Support',
+                            value: 'Accidented',
+                            color: RedColor
+                        },
+                        {
+                            id: 'radiator_Core_Support',
+                            value: 'Non Accidented',
+                            color: GreenColor
+                        }
+                    ],
+                    'left_Front_Rail': [{
+                            id: 'left_Front_Rail',
+                            value: 'Accidented',
+                            color: RedColor
+                        },
+                        {
+                            id: 'left_Front_Rail',
+                            value: 'Non Accidented',
+                            color: GreenColor
+                        }
+                    ],
+                    'left_Strut_Tower': [{
+                            id: 'left_Strut_Tower',
+                            value: 'Accidented',
+                            color: RedColor
+                        },
+                        {
+                            id: 'left_Strut_Tower',
+                            value: 'Non Accidented',
+                            color: GreenColor
+                        }
+                    ],
+                    'right_Front_Rail': [{
+                            id: 'right_Front_Rail',
+                            value: 'Accidented',
+                            color: RedColor
+                        },
+                        {
+                            id: 'right_Front_Rail',
+                            value: 'Non Accidented',
+                            color: GreenColor
+                        }
+                    ],
+
+                    'right_Strut_Tower': [{
+                            id: 'right_Strut_Tower',
+                            value: 'Accidented',
+                            color: RedColor
+                        },
+                        {
+                            id: 'right_Strut_Tower',
+                            value: 'Non Accidented',
+                            color: GreenColor
+                        }
+                    ],
+                    'right_A_pillar': [{
+                            id: 'right_A_pillar',
+                            value: 'Accidented',
+                            color: RedColor
+                        },
+                        {
+                            id: 'right_A_pillar',
+                            value: 'Non Accidented',
+                            color: GreenColor
+                        }
+                    ],
+                    'right_B_pillar': [{
+                            id: 'right_B_pillar',
+                            value: 'Accidented',
+                            color: RedColor
+                        },
+                        {
+                            id: 'right_B_pillar',
+                            value: 'Non Accidented',
+                            color: GreenColor
+                        }
+                    ],
+                    'right_C_pillar': [{
+                            id: 'right_C_pillar',
+                            value: 'Accidented',
+                            color: RedColor
+                        },
+                        {
+                            id: 'right_C_pillar',
+                            value: 'Non Accidented',
+                            color: GreenColor
+                        }
+                    ],
+                    'right_D_pillar': [{
+                            id: 'right_D_pillar',
+                            value: 'Accidented',
+                            color: RedColor
+                        },
+                        {
+                            id: 'right_D_pillar',
+                            value: 'Non Accidented',
+                            color: GreenColor
+                        }
+                    ],
+                    'rear_Under_body': [{
+                            id: 'rear_Under_body',
+                            value: 'Accidented',
+                            color: RedColor
+                        },
+                        {
+                            id: 'rear_Under_body',
+                            value: 'Non Accidented',
+                            color: GreenColor
+                        }
+                    ],
+
+                    'boot_Floor': [{
+                            id: 'boot_Floor',
+                            value: 'Accidented',
+                            color: RedColor
+                        },
+                        {
+                            id: 'boot_Floor',
+                            value: 'Non Accidented',
+                            color: GreenColor
+                        }
+                    ],
+                    'left_B_pillar': [{
+                            id: 'left_B_pillar',
+                            value: 'Accidented',
+                            color: RedColor
+                        },
+                        {
+                            id: 'left_B_pillar',
+                            value: 'Non Accidented',
+                            color: GreenColor
+                        }
+                    ],
+                    'left_C_pillar': [{
+                            id: 'left_C_pillar',
+                            value: 'Accidented',
+                            color: RedColor
+                        },
+                        {
+                            id: 'left_C_pillar',
+                            value: 'Non Accidented',
+                            color: GreenColor
+                        }
+                    ],
+
+                    'left_D_pillar': [{
+                            id: 'left_D_pillar',
+                            value: 'Accidented',
+                            color: RedColor
+                        },
+                        {
+                            id: 'left_D_pillar',
+                            value: 'Non Accidented',
+                            color: GreenColor
+                        }
+                    ],
+                    'left_A_pillar': [{
+                            id: 'left_A_pillar',
+                            value: 'Accidented',
+                            color: RedColor
+                        },
+                        {
+                            id: 'left_A_pillar',
+                            value: 'Non Accidented',
+                            color: GreenColor
+                        }
+                    ],
+                    'engine_oil_leakage': [{
+                            id: 'engine_oil_leakage',
+                            value: 'Yes',
+                            color: RedColor
+                        },
+                        {
+                            id: 'engine_oil_leakage',
+                            value: 'No',
+                            color: GreenColor
+                        }
+                    ],
+                    'transmission_Oil_Leakage': [{
+                            id: 'transmission_Oil_Leakage',
+                            value: 'Accidented',
+                            color: RedColor
+                        },
+                        {
+                            id: 'transmission_Oil_Leakage',
+                            value: 'Non Accidented',
+                            color: GreenColor
+                        }
+                    ],
+                    'brake_Oil_Leakage': [{
+                            id: 'brake_Oil_Leakage',
+                            value: 'Yes',
+                            color: RedColor
+                        },
+                        {
+                            id: 'brake_Oil_Leakage',
+                            value: 'No',
+                            color: GreenColor
+                        }
+                    ],
+                    'radiator': [{
+                            id: 'radiator',
+                            value: 'Not Good',
+                            color: RedColor
+                        },
+                        {
+                            id: 'radiator',
+                            value: 'Normal',
+                            color: GreenColor
+                        }
+                    ],
+                    'suction_Fan': [{
+                            id: 'suction_Fan',
+                            value: 'Not Good',
+                            color: RedColor
+                        },
+                        {
+                            id: 'suction_Fan',
+                            value: 'Normal',
+                            color: GreenColor
+                        }
+                    ],
+                    'exhaust_Sound': [{
+                            id: 'exhaust_Sound',
+                            value: 'Not Good',
+                            color: RedColor
+                        },
+                        {
+                            id: 'exhaust_Sound',
+                            value: 'Normal',
+                            color: GreenColor
+                        }
+                    ],
+                    'engine_Blow': [{
+                            id: 'engine_Blow',
+                            value: 'Yes',
+                            color: RedColor
+                        },
+                        {
+                            id: 'engine_Blow',
+                            value: 'No',
+                            color: GreenColor
+                        }
+                    ],
+                    'engine_Noisy': [{
+                            id: 'engine_Noisy',
+                            value: 'Yes',
+                            color: RedColor
+                        },
+                        {
+                            id: 'engine_Noisy',
+                            value: 'No',
+                            color: GreenColor
+                        }
+                    ],
+                    'engine_Vibration': [{
+                            id: 'engine_Vibration',
+                            value: 'Yes',
+                            color: RedColor
+                        },
+                        {
+                            id: 'engine_Vibration',
+                            value: 'No',
+                            color: GreenColor
+                        }
+                    ],
+                    'engine_Smoke': [{
+                            id: 'engine_Smoke',
+                            value: 'Yes',
+                            color: RedColor
+                        },
+                        {
+                            id: 'engine_Smoke',
+                            value: 'No',
+                            color: GreenColor
+                        }
+                    ],
+                    'engine_Smoke_Color': [{
+                            id: 'engine_Smoke_Color',
+                            value: 'Yes',
+                            color: RedColor
+                        },
+                        {
+                            id: 'engine_Smoke_Color',
+                            value: 'No',
+                            color: GreenColor
+                        }
+                    ],
+                    'coolant_Leakage': [{
+                            id: 'coolant_Leakage',
+                            value: 'Yes',
+                            color: RedColor
+                        },
+                        {
+                            id: 'coolant_Leakage',
+                            value: 'No',
+                            color: GreenColor
+                        }
+                    ],
+                    'gear_Transmission': [{
+                            id: 'gear_Transmission',
+                            value: 'Not Good',
+                            color: RedColor
+                        },
+                        {
+                            id: 'gear_Transmission',
+                            value: 'Smooth',
+                            color: GreenColor
+                        }
+                    ],
+                    'ac_Installed': [{
+                            id: 'ac_Installed',
+                            value: 'No',
+                            color: RedColor
+                        },
+                        {
+                            id: 'ac_Installed',
+                            value: 'Yes',
+                            color: GreenColor
+                        }
+                    ],
+                    'ac_Fan': [{
+                            id: 'ac_Fan',
+                            value: 'Not Working',
+                            color: RedColor
+                        },
+                        {
+                            id: 'ac_Fan',
+                            value: 'Working',
+                            color: GreenColor
+                        }
+                    ],
+                    'blower_Throw': [{
+                            id: 'blower_Throw',
+                            value: 'Not Working',
+                            color: RedColor
+                        },
+                        {
+                            id: 'blower_Throw',
+                            value: 'Normal',
+                            color: GreenColor
+                        }
+                    ],
+                    'ac_Cooling': [{
+                            id: 'ac_Cooling',
+                            value: 'Not Working',
+                            color: RedColor
+                        },
+                        {
+                            id: 'ac_Cooling',
+                            value: 'Normal',
+                            color: GreenColor
+                        }
+                    ],
+                    'heater': [{
+                            id: 'heater',
+                            value: 'Not Working',
+                            color: RedColor
+                        },
+                        {
+                            id: 'heater',
+                            value: 'Working',
+                            color: GreenColor
+                        }
+                    ],
+                    'floorMats': [{
+                            id: 'floorMats',
+                            value: 'Not Good',
+                            color: RedColor
+                        },
+                        {
+                            id: 'floorMats',
+                            value: 'Good',
+                            color: GreenColor
+                        }
+                    ],
+                    'keyButtons': [{
+                            id: 'keyButtons',
+                            value: 'Not Working',
+                            color: RedColor
+                        },
+                        {
+                            id: 'keyButtons',
+                            value: 'Working',
+                            color: GreenColor
+                        }
+                    ],
+                    'central_Locking': [{
+                            id: 'central_Locking',
+                            value: 'Not Working',
+                            color: RedColor
+                        },
+                        {
+                            id: 'central_Locking',
+                            value: 'Working',
+                            color: GreenColor
+                        }
+                    ],
+                    'windows_Type': [{
+                            id: 'windows_Type',
+                            value: 'Manual',
+                            color: RedColor
+                        },
+                        {
+                            id: 'windows_Type',
+                            value: 'Automatic',
+                            color: GreenColor
+                        }
+                    ],
+                    'window_Safety_lock_Button': [{
+                            id: 'window_Safety_lock_Button',
+                            value: 'Not Working',
+                            color: RedColor
+                        },
+                        {
+                            id: 'window_Safety_lock_Button',
+                            value: 'Working',
+                            color: GreenColor
+                        }
+                    ],
+                    'Driver_side_window': [{
+                            id: 'Driver_side_window',
+                            value: 'Not Working',
+                            color: RedColor
+                        },
+                        {
+                            id: 'Driver_side_window',
+                            value: 'Working',
+                            color: GreenColor
+                        }
+                    ],
+                    'front_right_door_Window': [{
+                            id: 'front_right_door_Window',
+                            value: 'Not Working',
+                            color: RedColor
+                        },
+                        {
+                            id: 'front_right_door_Window',
+                            value: 'Working',
+                            color: GreenColor
+                        }
+                    ],
+                    'rear_right_door_Window': [{
+                            id: 'rear_right_door_Window',
+                            value: 'Not Working',
+                            color: RedColor
+                        },
+                        {
+                            id: 'rear_right_door_Window',
+                            value: 'Working',
+                            color: GreenColor
+                        }
+                    ],
+                    'Front_Right_seat_belt': [{
+                            id: 'Front_Right_seat_belt',
+                            value: 'Not Working',
+                            color: RedColor
+                        },
+                        {
+                            id: 'Front_Right_seat_belt',
+                            value: 'Working',
+                            color: GreenColor
+                        }
+                    ],
+                    'rear_right_seat_belt': [{
+                            id: 'rear_right_seat_belt',
+                            value: 'Not Working',
+                            color: RedColor
+                        },
+                        {
+                            id: 'rear_right_seat_belt',
+                            value: 'Working',
+                            color: GreenColor
+                        }
+                    ],
+                    'seats_Condition': [{
+                            id: 'seats_Condition',
+                            value: 'Bad',
+                            color: RedColor
+                        },
+                        {
+                            id: 'seats_Condition',
+                            value: 'Clean',
+                            color: GreenColor
+                        }
+                    ],
+                    'seats_Type': [{
+                            id: 'seats_Type',
+                            value: 'Other',
+                            color: RedColor
+                        },
+                        {
+                            id: 'seats_Type',
+                            value: 'Fabric',
+                            color: GreenColor
+                        }
+                    ],
+                    'clutch_Pedal': [{
+                            id: 'clutch_Pedal',
+                            value: 'Not Working',
+                            color: RedColor
+                        },
+                        {
+                            id: 'clutch_Pedal',
+                            value: 'Normal',
+                            color: GreenColor
+                        }
+                    ],
+                    'steering_Wheel_wear_Tear': [{
+                            id: 'steering_Wheel_wear_Tear',
+                            value: 'Damaged',
+                            color: RedColor
+                        },
+                        {
+                            id: 'steering_Wheel_wear_Tear',
+                            value: 'good',
+                            color: GreenColor
+                        },
+                        {
+                            id: 'steering_Wheel_wear_Tear',
+                            value: 'faded',
+                            color: RedColor
+                        },
+                        {
+                            id: 'steering_Wheel_wear_Tear',
+                            value: 'replaced',
+                            color: RedColor
+                        }
+                    ],
+                    'steering_Wheel_button': [{
+                            id: 'steering_Wheel_button',
+                            value: 'Not Working',
+                            color: RedColor
+                        },
+                        {
+                            id: 'steering_Wheel_button',
+                            value: 'Working',
+                            color: GreenColor
+                        }
+                    ],
+                    'light_Lever_switch': [{
+                            id: 'light_Lever_switch',
+                            value: 'Not Working',
+                            color: RedColor
+                        },
+                        {
+                            id: 'light_Lever_switch',
+                            value: 'Working',
+                            color: GreenColor
+                        }
+                    ],
+                    'dashboard': [{
+                            id: 'dashboard',
+                            value: 'Damaged',
+                            color: RedColor
+                        },
+                        {
+                            id: 'dashboard',
+                            value: 'good',
+                            color: GreenColor
+                        },
+                        {
+                            id: 'dashboard',
+                            value: 'faded',
+                            color: RedColor
+                        },
+                        {
+                            id: 'dashboard',
+                            value: 'replaced',
+                            color: RedColor
+                        }
+                    ],
+                    'dash_Control_buttons': [{
+                            id: 'dash_Control_buttons',
+                            value: 'Not Working',
+                            color: RedColor
+                        },
+                        {
+                            id: 'dash_Control_buttons',
+                            value: 'Working',
+                            color: GreenColor
+                        }
+                    ],
+                    'interior_Lights': [{
+                            id: 'interior_Lights',
+                            value: 'Not Working',
+                            color: RedColor
+                        },
+                        {
+                            id: 'interior_Lights',
+                            value: 'Working',
+                            color: GreenColor
+                        }
+                    ],
+                    'de_Fogger': [{
+                            id: 'de_Fogger',
+                            value: 'Not Working',
+                            color: RedColor
+                        },
+                        {
+                            id: 'de_Fogger',
+                            value: 'Working',
+                            color: GreenColor
+                        }
+                    ],
+                    'hazard_Lights': [{
+                            id: 'hazard_Lights',
+                            value: 'Not Working',
+                            color: RedColor
+                        },
+                        {
+                            id: 'hazard_Lights',
+                            value: 'Working',
+                            color: GreenColor
+                        }
+                    ],
+                    'multimedia': [{
+                            id: 'multimedia',
+                            value: 'Not Working',
+                            color: RedColor
+                        },
+                        {
+                            id: 'multimedia',
+                            value: 'Working',
+                            color: GreenColor
+                        }
+                    ],
+                    'rear_Camera': [{
+                            id: 'rear_Camera',
+                            value: 'Not Working',
+                            color: RedColor
+                        },
+                        {
+                            id: 'rear_Camera',
+                            value: 'Working',
+                            color: GreenColor
+                        }
+                    ],
+                    'front_View_camera': [{
+                            id: 'front_View_camera',
+                            value: 'Not Good',
+                            color: RedColor
+                        },
+                        {
+                            id: 'front_View_camera',
+                            value: 'Normal',
+                            color: GreenColor
+                        }
+                    ],
+                    'trunk_Release_lever': [{
+                            id: 'trunk_Release_lever',
+                            value: 'Not Working',
+                            color: RedColor
+                        },
+                        {
+                            id: 'trunk_Release_lever',
+                            value: 'Working',
+                            color: GreenColor
+                        }
+                    ],
+                    'fuel_cap_Release_Lever': [{
+                            id: 'fuel_cap_Release_Lever',
+                            value: 'Not Working',
+                            color: RedColor
+                        },
+                        {
+                            id: 'fuel_cap_Release_Lever',
+                            value: 'Working',
+                            color: GreenColor
+                        }
+                    ],
+                    'bonnet_Release_lever': [{
+                            id: 'bonnet_Release_lever',
+                            value: 'Not Working',
+                            color: RedColor
+                        },
+                        {
+                            id: 'bonnet_Release_lever',
+                            value: 'Working',
+                            color: GreenColor
+                        }
+                    ],
+                    'side_View_mirror_Adjustment': [{
+                            id: 'side_View_mirror_Adjustment',
+                            value: 'Not Working',
+                            color: RedColor
+                        },
+                        {
+                            id: 'side_View_mirror_Adjustment',
+                            value: 'Working',
+                            color: GreenColor
+                        }
+                    ],
+                    'left_Side_view_Mirror': [{
+                            id: 'left_Side_view_Mirror',
+                            value: 'Not Working',
+                            color: RedColor
+                        },
+                        {
+                            id: 'left_Side_view_Mirror',
+                            value: 'Normal',
+                            color: GreenColor
+                        }
+                    ],
+                    'right_Side_view_Mirror': [{
+                            id: 'right_Side_view_Mirror',
+                            value: 'Not Working',
+                            color: RedColor
+                        },
+                        {
+                            id: 'right_Side_view_Mirror',
+                            value: 'Normal',
+                            color: GreenColor
+                        }
+                    ],
+                    'retracting_Side_view_Mirrors': [{
+                            id: 'retracting_Side_view_Mirrors',
+                            value: 'Not Working',
+                            color: RedColor
+                        },
+                        {
+                            id: 'retracting_Side_view_Mirrors',
+                            value: 'Normal',
+                            color: GreenColor
+                        }
+                    ],
+                    'ac_Grills': [{
+                            id: 'ac_Grills',
+                            value: 'Not Working',
+                            color: RedColor
+                        },
+                        {
+                            id: 'ac_Grills',
+                            value: 'Normal',
+                            color: GreenColor
+                        }
+                    ],
+                    'accelerator_Pedal': [{
+                            id: 'accelerator_Pedal',
+                            value: 'Not Working',
+                            color: RedColor
+                        },
+                        {
+                            id: 'accelerator_Pedal',
+                            value: 'Normal',
+                            color: GreenColor
+                        }
+                    ],
+                    'break_Pedal': [{
+                            id: 'break_Pedal',
+                            value: 'Not Working',
+                            color: RedColor
+                        },
+                        {
+                            id: 'break_Pedal',
+                            value: 'Normal',
+                            color: GreenColor
+                        }
+                    ],
+                    'driver_Seat_belt': [{
+                            id: 'driver_Seat_belt',
+                            value: 'Not Working',
+                            color: RedColor
+                        },
+                        {
+                            id: 'driver_Seat_belt',
+                            value: 'Normal',
+                            color: GreenColor
+                        }
+                    ],
+                    'passenger_Seat_belt': [{
+                            id: 'passenger_Seat_belt',
+                            value: 'Not Working',
+                            color: RedColor
+                        },
+                        {
+                            id: 'passenger_Seat_belt',
+                            value: 'Normal',
+                            color: GreenColor
+                        }
+                    ],
+                    'front_Passenger_window': [{
+                            id: 'front_Passenger_window',
+                            value: 'Not Working',
+                            color: RedColor
+                        },
+                        {
+                            id: 'front_Passenger_window',
+                            value: 'Normal',
+                            color: GreenColor
+                        }
+                    ],
+                    'trunk_Seal': [{
+                            id: 'trunk_Seal',
+                            value: 'Not Original',
+                            color: RedColor
+                        },
+                        {
+                            id: 'trunk_Seal',
+                            value: 'Original',
+                            color: GreenColor
+                        }
+                    ],
+                    'battery': [{
+                            id: 'battery',
+                            value: 'Weak',
+                            color: RedColor
+                        },
+                        {
+                            id: 'battery',
+                            value: 'Strong',
+                            color: GreenColor
+                        }
+                    ],
+                    'horn': [{
+                            id: 'horn',
+                            value: 'Not Working',
+                            color: RedColor
+                        },
+                        {
+                            id: 'horn',
+                            value: 'Working',
+                            color: GreenColor
+                        }
+                    ],
+                    'right_Head_light_Operation': [{
+                            id: 'right_Head_light_Operation',
+                            value: 'Not Working',
+                            color: RedColor
+                        },
+                        {
+                            id: 'right_Head_light_Operation',
+                            value: 'Working',
+                            color: GreenColor
+                        }
+                    ],
+                    'right_Head_light_Condition': [{
+                            id: 'right_Head_light_Condition',
+                            value: 'Faded & Scratched',
+                            color: RedColor
+                        },
+                        {
+                            id: 'right_Head_light_Condition',
+                            value: 'Normal',
+                            color: GreenColor
+                        }
+                    ],
+                    'right_Head_light': [{
+                            id: 'right_Head_light',
+                            value: 'Not Original',
+                            color: RedColor
+                        },
+                        {
+                            id: 'right_Head_light',
+                            value: 'Original',
+                            color: GreenColor
+                        }
+                    ],
+                    'left_Head_light_Operation': [{
+                            id: 'left_Head_light_Operation',
+                            value: 'Not Working',
+                            color: RedColor
+                        },
+                        {
+                            id: 'left_Head_light_Operation',
+                            value: 'Working',
+                            color: GreenColor
+                        }
+                    ],
+                    'left_Head_light_Condition': [{
+                            id: 'left_Head_light_Condition',
+                            value: 'Faded & Scratched',
+                            color: RedColor
+                        },
+                        {
+                            id: 'left_Head_light_Condition',
+                            value: 'Normal',
+                            color: GreenColor
+                        }
+                    ],
+                    'left_Head_light': [{
+                            id: 'left_Head_light',
+                            value: 'Not Original',
+                            color: RedColor
+                        },
+                        {
+                            id: 'left_Head_light',
+                            value: 'Original',
+                            color: GreenColor
+                        }
+                    ],
+                    'fog_lights_Operation': [{
+                            id: 'fog_lights_Operation',
+                            value: 'Faded & Scratched',
+                            color: RedColor
+                        },
+                        {
+                            id: 'fog_lights_Operation',
+                            value: 'Normal',
+                            color: GreenColor
+                        }
+                    ],
+                    'left_Tail_lights_Operation': [{
+                            id: 'left_Tail_lights_Operation',
+                            value: 'Not Working',
+                            color: RedColor
+                        },
+                        {
+                            id: 'left_Tail_lights_Operation',
+                            value: 'Normal',
+                            color: GreenColor
+                        }
+                    ],
+                    'left_Tail_lights_Condition': [{
+                            id: 'left_Tail_lights_Condition',
+                            value: 'Faded & Scratched',
+                            color: RedColor
+                        },
+                        {
+                            id: 'left_Tail_lights_Condition',
+                            value: 'Normal',
+                            color: GreenColor
+                        }
+                    ],
+                    'left_Tail_lights': [{
+                            id: 'left_Tail_lights',
+                            value: 'Not Original',
+                            color: RedColor
+                        },
+                        {
+                            id: 'left_Tail_lights',
+                            value: 'Original',
+                            color: GreenColor
+                        }
+                    ],
+                    'right_Tail_lights_Operation': [{
+                            id: 'right_Tail_lights_Operation',
+                            value: 'Not Working',
+                            color: RedColor
+                        },
+                        {
+                            id: 'right_Tail_lights_Operation',
+                            value: 'Working',
+                            color: GreenColor
+                        }
+                    ],
+                    'right_Tail_lights_Condition': [{
+                            id: 'right_Tail_lights_Condition',
+                            value: 'Faded & Scratched',
+                            color: RedColor
+                        },
+                        {
+                            id: 'right_Tail_lights_Condition',
+                            value: 'Normal',
+                            color: GreenColor
+                        }
+                    ],
+                    'right_Tail_lights': [{
+                            id: 'right_Tail_lights',
+                            value: 'Not Original',
+                            color: RedColor
+                        },
+                        {
+                            id: 'right_Tail_lights',
+                            value: 'Original',
+                            color: GreenColor
+                        }
+                    ],
+                    'wind_shield_Wipers': [{
+                            id: 'wind_shield_Wipers',
+                            value: 'Not Working',
+                            color: RedColor
+                        },
+                        {
+                            id: 'wind_shield_Wipers',
+                            value: 'Normal',
+                            color: GreenColor
+                        }
+                    ],
+                    'air_bags': [{
+                            id: 'air_bags',
+                            value: 'Not Present',
+                            color: RedColor
+                        },
+                        {
+                            id: 'air_bags',
+                            value: 'Present',
+                            color: GreenColor
+                        }
+                    ],
+                    'check_Lights': [{
+                            id: 'check_Lights',
+                            value: 'Off',
+                            color: RedColor
+                        },
+                        {
+                            id: 'check_Lights',
+                            value: 'On',
+                            color: GreenColor
+                        }
+                    ],
+                    'steering_Assembly_play': [{
+                            id: 'steering_Assembly_play',
+                            value: 'no',
+                            color: RedColor
+                        },
+                        {
+                            id: 'steering_Assembly_play',
+                            value: 'Yes',
+                            color: GreenColor
+                        }
+                    ],
+                    'axle_Boots': [{
+                            id: 'axle_Boots',
+                            value: 'Damaged',
+                            color: RedColor
+                        },
+                        {
+                            id: 'axle_Boots',
+                            value: 'Normal',
+                            color: GreenColor
+                        }
+                    ],
+                    'right_Ball_joint': [{
+                            id: 'right_Ball_joint',
+                            value: 'Service Require',
+                            color: RedColor
+                        },
+                        {
+                            id: 'right_Ball_joint',
+                            value: 'Normal',
+                            color: GreenColor
+                        }
+                    ],
+                    'left_Ball_joint': [{
+                            id: 'left_Ball_joint',
+                            value: 'Service Require',
+                            color: RedColor
+                        },
+                        {
+                            id: 'left_Ball_joint',
+                            value: 'Normal',
+                            color: GreenColor
+                        }
+                    ],
+                    'tie_Rod_end': [{
+                            id: 'tie_Rod_end',
+                            value: 'Service Require',
+                            color: RedColor
+                        },
+                        {
+                            id: 'tie_Rod_end',
+                            value: 'Normal',
+                            color: GreenColor
+                        }
+                    ],
+                    'right_Boot': [{
+                            id: 'right_Boot',
+                            value: 'Service Require',
+                            color: RedColor
+                        },
+                        {
+                            id: 'right_Boot',
+                            value: 'Normal',
+                            color: GreenColor
+                        }
+                    ],
+                    'left_Boot': [{
+                            id: 'left_Boot',
+                            value: 'Service Require',
+                            color: RedColor
+                        },
+                        {
+                            id: 'left_Boot',
+                            value: 'Normal',
+                            color: GreenColor
+                        }
+                    ],
+                    'right_Bush': [{
+                            id: 'right_Bush',
+                            value: 'Service Require',
+                            color: RedColor
+                        },
+                        {
+                            id: 'right_Bush',
+                            value: 'Normal',
+                            color: GreenColor
+                        }
+                    ],
+                    'left_Bush': [{
+                            id: 'left_Bush',
+                            value: 'Service Require',
+                            color: RedColor
+                        },
+                        {
+                            id: 'left_Bush',
+                            value: 'Normal',
+                            color: GreenColor
+                        }
+                    ],
+                    'rear_Right_shock_Absorder': [{
+                            id: 'rear_Right_shock_Absorder',
+                            value: 'Service Require',
+                            color: RedColor
+                        },
+                        {
+                            id: 'rear_Right_shock_Absorder',
+                            value: 'Normal',
+                            color: GreenColor
+                        }
+                    ],
+                    'rear_Left_shock_Absorder': [{
+                            id: 'rear_Left_shock_Absorder',
+                            value: 'Service Require',
+                            color: RedColor
+                        },
+                        {
+                            id: 'rear_Left_shock_Absorder',
+                            value: 'Normal',
+                            color: GreenColor
+                        }
+                    ],
+                    'front_Right_shock_Absorder': [{
+                            id: 'front_Right_shock_Absorder',
+                            value: 'Service Require',
+                            color: RedColor
+                        },
+                        {
+                            id: 'front_Right_shock_Absorder',
+                            value: 'Normal',
+                            color: GreenColor
+                        }
+                    ],
+                    'front_Left_Shock_Absorder': [{
+                            id: 'front_Left_Shock_Absorder',
+                            value: 'Service Require',
+                            color: RedColor
+                        },
+                        {
+                            id: 'front_Left_Shock_Absorder',
+                            value: 'Normal',
+                            color: GreenColor
+                        }
+                    ],
+                    'bonnet_Seal': [{
+                            id: 'bonnet_Seal',
+                            value: 'Not Original',
+                            color: RedColor
+                        },
+                        {
+                            id: 'bonnet_Seal',
+                            value: 'Original',
+                            color: GreenColor
+                        }
+                    ],
+                    'bonnet': [{
+                            id: 'bonnet',
+                            value: 'P',
+                            color: RedColor
+                        },
+                        {
+                            id: 'bonnet',
+                            value: 'T',
+                            color: GreenColor
+                        }
+                    ],
+                    'front_right_fender': [{
+                            id: 'front_right_fender',
+                            value: 'P',
+                            color: RedColor
+                        },
+                        {
+                            id: 'front_right_fender',
+                            value: 'T',
+                            color: GreenColor
+                        }
+                    ],
+                    'front_right_door': [{
+                            id: 'front_right_door',
+                            value: 'P',
+                            color: RedColor
+                        },
+                        {
+                            id: 'front_right_door',
+                            value: 'T',
+                            color: GreenColor
+                        }
+                    ],
+                    'front_Driver_door_Seal': [{
+                            id: 'front_Driver_door_Seal',
+                            value: 'Not Original',
+                            color: RedColor
+                        },
+                        {
+                            id: 'front_Driver_door_Seal',
+                            value: 'Original',
+                            color: GreenColor
+                        }
+                    ],
+                    'rear_right_door': [{
+                            id: 'rear_right_door',
+                            value: 'P',
+                            color: RedColor
+                        },
+                        {
+                            id: 'rear_right_door',
+                            value: 'T',
+                            color: GreenColor
+                        }
+                    ],
+                    'rear_right_Door_Seal': [{
+                            id: 'rear_right_Door_Seal',
+                            value: 'Not Original',
+                            color: RedColor
+                        },
+                        {
+                            id: 'rear_right_Door_Seal',
+                            value: 'Original',
+                            color: GreenColor
+                        }
+                    ],
+                    'front_Passenger_Door_Seal': [{
+                            id: 'front_Passenger_Door_Seal',
+                            value: 'Not Original',
+                            color: RedColor
+                        },
+                        {
+                            id: 'front_Passenger_Door_Seal',
+                            value: 'Original',
+                            color: GreenColor
+                        }
+                    ],
+                    'rear_Passenger_side_Door_Seal': [{
+                            id: 'rear_Passenger_side_Door_Seal',
+                            value: 'Not Original',
+                            color: RedColor
+                        },
+                        {
+                            id: 'rear_Passenger_side_Door_Seal',
+                            value: 'Original',
+                            color: GreenColor
+                        }
+                    ],
+                    'trunk_Lock': [{
+                            id: 'trunk_Lock',
+                            value: 'Not Working',
+                            color: RedColor
+                        },
+                        {
+                            id: 'trunk_Lock',
+                            value: 'Normal',
+                            color: GreenColor
+                        }
+                    ],
+                    'front_Wind_shield': [{
+                            id: 'front_Wind_shield',
+                            value: 'R',
+                            color: RedColor
+                        },
+                        {
+                            id: 'front_Wind_shield',
+                            value: 'T',
+                            color: GreenColor
+                        }
+                    ],
+                    'front_Passenger_fender': [{
+                            id: 'front_Passenger_fender',
+                            value: 'P',
+                            color: RedColor
+                        },
+                        {
+                            id: 'front_Passenger_fender',
+                            value: 'T',
+                            color: GreenColor
+                        }
+                    ],
+                    'front_Passenger_door': [{
+                            id: 'front_Passenger_door',
+                            value: 'P',
+                            color: RedColor
+                        },
+                        {
+                            id: 'front_Passenger_door',
+                            value: 'T',
+                            color: GreenColor
+                        }
+                    ],
+                    'rear_Passenger_door': [{
+                            id: 'rear_Passenger_door',
+                            value: 'P',
+                            color: RedColor
+                        },
+                        {
+                            id: 'rear_Passenger_door',
+                            value: 'T',
+                            color: GreenColor
+                        }
+                    ],
+                    'rear_Passenger_fender': [{
+                            id: 'rear_Passenger_fender',
+                            value: 'P',
+                            color: RedColor
+                        },
+                        {
+                            id: 'rear_Passenger_fender',
+                            value: 'T',
+                            color: GreenColor
+                        }
+                    ],
+                    'trunk': [{
+                            id: 'trunk',
+                            value: 'P',
+                            color: RedColor
+                        },
+                        {
+                            id: 'trunk',
+                            value: 'T',
+                            color: GreenColor
+                        }
+                    ],
+                    'rear_screen': [{
+                            id: 'rear_screen',
+                            value: 'P',
+                            color: RedColor
+                        },
+                        {
+                            id: 'rear_screen',
+                            value: 'T',
+                            color: GreenColor
+                        }
+                    ],
+                    'rear_Driver_fender': [{
+                            id: 'rear_Driver_fender',
+                            value: 'P',
+                            color: RedColor
+                        },
+                        {
+                            id: 'rear_Driver_fender',
+                            value: 'T',
+                            color: GreenColor
+                        }
+                    ],
+                    'roof': [{
+                            id: 'roof',
+                            value: 'P',
+                            color: RedColor
+                        },
+                        {
+                            id: 'roof',
+                            value: 'T',
+                            color: GreenColor
+                        }
+                    ],
+                    'panels': [{
+                            id: 'panels',
+                            value: 'P',
+                            color: RedColor
+                        },
+                        {
+                            id: 'panels',
+                            value: 'T',
+                            color: GreenColor
+                        }
+                    ],
+                    'driver_A_pillar': [{
+                            id: 'driver_A_pillar',
+                            value: 'P',
+                            color: RedColor
+                        },
+                        {
+                            id: 'driver_A_pillar',
+                            value: 'T',
+                            color: GreenColor
+                        }
+                    ],
+                    'driver_B_pillar': [{
+                            id: 'driver_B_pillar',
+                            value: 'P',
+                            color: RedColor
+                        },
+                        {
+                            id: 'driver_B_pillar',
+                            value: 'T',
+                            color: GreenColor
+                        }
+                    ],
+                    'driver_C_pillar': [{
+                            id: 'driver_C_pillar',
+                            value: 'P',
+                            color: RedColor
+                        },
+                        {
+                            id: 'driver_C_pillar',
+                            value: 'C',
+                            color: GreenColor
+                        }
+                    ],
+                    'driver_D_pillar': [{
+                            id: 'driver_D_pillar',
+                            value: 'P',
+                            color: RedColor
+                        },
+                        {
+                            id: 'driver_D_pillar',
+                            value: 'T',
+                            color: GreenColor
+                        }
+                    ],
+                    'passenger_A_pillar': [{
+                            id: 'passenger_A_pillar',
+                            value: 'P',
+                            color: RedColor
+                        },
+                        {
+                            id: 'passenger_A_pillar',
+                            value: 'T',
+                            color: GreenColor
+                        }
+                    ],
+                    'passenger_B_pillar': [{
+                            id: 'passenger_B_pillar',
+                            value: 'P',
+                            color: RedColor
+                        },
+                        {
+                            id: 'passenger_B_pillar',
+                            value: 'T',
+                            color: GreenColor
+                        }
+                    ],
+                    'passenger_C_pillar': [{
+                            id: 'passenger_C_pillar',
+                            value: 'P',
+                            color: RedColor
+                        },
+                        {
+                            id: 'passenger_C_pillar',
+                            value: 'T',
+                            color: GreenColor
+                        }
+                    ],
+                    'passenger_D_pillar': [{
+                            id: 'passenger_D_pillar',
+                            value: 'P',
+                            color: RedColor
+                        },
+                        {
+                            id: 'passenger_D_pillar',
+                            value: 'T',
+                            color: GreenColor
+                        }
+                    ],
+                    'front_Driver_tyre_Condition': [{
+                            id: 'front_Driver_tyre_Condition',
+                            value: 'not Good',
+                            color: RedColor
+                        },
+                        {
+                            id: 'front_Driver_tyre_Condition',
+                            value: 'Good',
+                            color: GreenColor
+                        },
+                        {
+                            id: 'front_Driver_tyre_Condition',
+                            value: 'Normal',
+                            color: GreenColor
+                        }
+                    ],
+                    'rear_Passenger_tyre_Condition': [{
+                            id: 'rear_Passenger_tyre_Condition',
+                            value: 'not Good',
+                            color: RedColor
+                        },
+                        {
+                            id: 'rear_Passenger_tyre_Condition',
+                            value: 'Good',
+                            color: GreenColor
+                        }
+                    ],
+                    'front_Passenger_tyre_Condition': [{
+                            id: 'front_Passenger_tyre_Condition',
+                            value: 'Not Working',
+                            color: RedColor
+                        },
+                        {
+                            id: 'front_Passenger_tyre_Condition',
+                            value: 'Normal',
+                            color: GreenColor
+                        }
+                    ],
+                    'alloy_Rims': [{
+                            id: 'alloy_Rims',
+                            value: 'no',
+                            color: RedColor
+                        },
+                        {
+                            id: 'alloy_Rims',
+                            value: 'Yes',
+                            color: GreenColor
+                        }
+                    ],
+                    'spare_Wheel': [{
+                            id: 'spare_Wheel',
+                            value: 'Not Present',
+                            color: RedColor
+                        },
+                        {
+                            id: 'spare_Wheel',
+                            value: 'Present',
+                            color: GreenColor
+                        }
+                    ],
+                    'tool_Kit': [{
+                            id: 'tool_Kit',
+                            value: 'Not Present',
+                            color: RedColor
+                        },
+                        {
+                            id: 'tool_Kit',
+                            value: 'Present',
+                            color: GreenColor
+                        }
+                    ],
+                    'jack': [{
+                            id: 'jack',
+                            value: 'Not Present',
+                            color: RedColor
+                        },
+                        {
+                            id: 'jack',
+                            value: 'Present',
+                            color: GreenColor
+                        }
+                    ],
+                    'puncture_Repair_kit': [{
+                            id: 'puncture_Repair_kit',
+                            value: 'Not Present',
+                            color: RedColor
+                        },
+                        {
+                            id: 'puncture_Repair_kit',
+                            value: 'Present',
+                            color: GreenColor
+                        }
+                    ],
+                    'speedometer': [{
+                            id: 'speedometer',
+                            value: 'not Working',
+                            color: RedColor
+                        },
+                        {
+                            id: 'speedometer',
+                            value: 'Working',
+                            color: GreenColor
+                        }
+                    ],
+                    'front_Suspension_Noise': [{
+                            id: 'front_Suspension_Noise',
+                            value: 'Yes',
+                            color: RedColor
+                        },
+                        {
+                            id: 'front_Suspension_Noise',
+                            value: 'No',
+                            color: GreenColor
+                        }
+                    ],
+                    'rear_Suspension_Noise': [{
+                            id: 'rear_Suspension_Noise',
+                            value: 'Yes',
+                            color: RedColor
+                        },
+                        {
+                            id: 'rear_Suspension_Noise',
+                            value: 'No',
+                            color: GreenColor
+                        }
+                    ],
+                    'engine_Pick': [{
+                            id: 'engine_Pick',
+                            value: 'Service Required',
+                            color: RedColor
+                        },
+                        {
+                            id: 'engine_Pick',
+                            value: 'Normal',
+                            color: GreenColor
+                        }
+                    ],
+                    'gear_Shifting': [{
+                            id: 'gear_Shifting',
+                            value: 'Service Required',
+                            color: RedColor
+                        },
+                        {
+                            id: 'gear_Shifting',
+                            value: 'Smooth',
+                            color: GreenColor
+                        }
+                    ],
+                    'differential_Noise': [{
+                            id: 'differential_Noise',
+                            value: 'Yes',
+                            color: RedColor
+                        },
+                        {
+                            id: 'differential_Noise',
+                            value: 'No',
+                            color: GreenColor
+                        }
+                    ],
+                    'drive_Shaft_noise': [{
+                            id: 'drive_Shaft_noise',
+                            value: 'Yes',
+                            color: RedColor
+                        },
+                        {
+                            id: 'drive_Shaft_noise',
+                            value: 'No',
+                            color: GreenColor
+                        }
+                    ],
+                    'abs_Actuation': [{
+                            id: 'abs_Actuation',
+                            value: 'Service Required',
+                            color: RedColor
+                        },
+                        {
+                            id: 'abs_Actuation',
+                            value: 'Timely Response',
+                            color: GreenColor
+                        }
+                    ],
+                    'brake_Pedal_operation': [{
+                            id: 'brake_Pedal_operation',
+                            value: 'Service Required',
+                            color: RedColor
+                        },
+                        {
+                            id: 'brake_Pedal_operation',
+                            value: 'Timely Response',
+                            color: GreenColor
+                        }
+                    ],
+                    'steering_Function': [{
+                            id: 'steering_Function',
+                            value: 'No',
+                            color: RedColor
+                        },
+                        {
+                            id: 'steering_Function',
+                            value: 'Yes',
+                            color: GreenColor
+                        }
+                    ],
+                    'steering_Wheel_alignment': [{
+                            id: 'steering_Wheel_alignment',
+                            value: 'not Center',
+                            color: RedColor
+                        },
+                        {
+                            id: 'steering_Wheel_alignment',
+                            value: 'Center',
+                            color: GreenColor
+                        }
+                    ],
+                };
 
                 // Create the content array with fields and image columns
                 var content = fieldNames.map(function(fieldName) {
-                    var backgroundColor = (formData[fieldName] === 'Yes') ? YesColor : noColor;
+                    var backgroundColor = GreenColor; // Default color for fields not in the fieldColorMap
                     var fontSize = 12; // Default font size
                     var color = '#000000'; // Default color
                     var decoration = '';
@@ -675,6 +2385,20 @@
                         return fieldName.replace(/([A-Z])/g, ' $1');
                     };
 
+                    if (fieldColorMap.hasOwnProperty(fieldName)) {
+                        var fieldMappings = fieldColorMap[fieldName];
+
+                        fieldMappings.forEach(function(mapping) {
+                            var fieldID = mapping.id;
+                            var fieldValue = formData[fieldID];
+                            var fieldColor = mapping.color;
+
+                            if (fieldValue === mapping.value) {
+                                backgroundColor = fieldColor; // Assign the specified color for the field
+                            }
+                        });
+                    }
+
                     return {
                         columns: [{
                                 text: addSpaceBeforeCapital(fieldName.replace(/_/g, ' ')).toUpperCase() + ': ',
@@ -694,7 +2418,6 @@
                         ],
                         margin: [0, 10, 0, 0]
                     };
-
                 });
 
 
@@ -974,13 +2697,13 @@
 
 
 
-                const chassisNumberIndex = 17;
                 const engineNumberIndex = 18;
-                const engineNoiseIndex = 49;
-                const acInstalledIndex = 55;
-                const wearandtearIndex = 97;
-                const batteryIndex = 116;
-                const assemblyPlayIndex = 130;
+                const engineRoomIndex = 36;
+                const engineNoiseIndex = 52;
+                const acInstalledIndex = 59;
+                const wearandtearIndex = 98;
+                const batteryIndex = 118;
+                const assemblyPlayIndex = 133;
 
 
                 // Insert image columns after the chassis_number field column object
@@ -1023,7 +2746,7 @@
                     imageContent.columns[1].table.body = tableBody;
 
                     // Insert the first image title and image after the engine_noise field column object
-                    if (chassisNumberIndex >= 0 && imageColumns.length > 1) {
+                    if (engineNumberIndex >= 0 && imageColumns.length > 1) {
                         var firstImageTitleContent = {
                             columns: [{
                                     text: imageColumns[0].title,
@@ -1037,10 +2760,10 @@
                             ],
                             margin: [0, 10, 0, 0]
                         };
-                        content.splice(chassisNumberIndex + 1, 0, firstImageTitleContent);
+                        content.splice(engineNumberIndex + 1, 0, firstImageTitleContent);
                     }
 
-                    if (engineNumberIndex >= 0 && imageColumns.length > 1) {
+                    if (engineRoomIndex >= 0 && imageColumns.length > 1) {
                         var secondImageTitleContent = {
                             columns: [{
                                     text: imageColumns[1].title,
@@ -1054,7 +2777,7 @@
                             ],
                             margin: [0, 10, 0, 0]
                         };
-                        content.splice(engineNumberIndex + 1, 0, secondImageTitleContent);
+                        content.splice(engineRoomIndex + 2, 0, secondImageTitleContent);
                     }
 
                     // Insert the second image title and image after the engine_noise field column object
@@ -1168,90 +2891,110 @@
                 }
 
 
-                loadImageAsDataURL('assets/images/' + filen)
-                    .then(function(staticImageData3) {
-                        var staticImageColumn3 = {
-                            image: staticImageData3,
-                            width: 800,
-                            alignment: 'center',
-                            margin: [0, 20, 0, 20]
-                        };
+                var x = 0;
 
-                        // Insert the first static image column after the 'engine_number' field
-                        var engineNumberIndex = fieldNames.indexOf('engine_number');
-                        if (engineNumberIndex >= 0) {
-                            content.splice(engineNumberIndex + 1, 0, staticImageColumn3);
-                        }
-                    })
-                    .catch(function(error) {
-                        console.log('Error loading Table image:', error);
-                    });
+                if (x == 0) {
+                    loadImageAsDataURL('assets/images/' + filen)
+                        .then(function(staticImageData3) {
+                            var staticImageColumn3 = {
+                                image: staticImageData3,
+                                width: 800,
+                                alignment: 'center',
+                                margin: [0, 20, 0, 20]
+                            };
+
+                            // Insert the first static image column after the 'engine_number' field
+                            var engineNumberIndex1 = fieldNames.indexOf('engine_number');
+                            if (engineNumberIndex1 >= 0) {
+                                content.splice(engineNumberIndex1 + 2, 0, staticImageColumn3);
+                            }
+                        })
+                        .catch(function(error) {
+                            console.log('Error loading Table image:', error);
+                        });
+
+                    x = 1;
+                }
+
+                if (x == 1) {
+                    // Load static image as data URL
+                    loadImageAsDataURL('assets/images/car_inspections.png')
+                        .then(function(staticImageData) {
+                            var staticImageColumn = {
+                                image: staticImageData,
+                                width: 400,
+                                alignment: 'center',
+                                margin: [0, 20, 0, 20]
+                            };
+
+                            // Insert the first static image column after the 'engine_number' field
+                            var engineNumberIndex2 = fieldNames.indexOf('engine_number');
+                            if (engineNumberIndex2 >= 0) {
+                                content.splice(engineNumberIndex2 + 2, 0, staticImageColumn);
+                            }
+                        })
+                        .catch(function(error) {
+                            console.log('Error loading graph image:', error);
+                        });
+
+                    x = 2;
+
+                }
 
 
-                // Load static image as data URL
-                loadImageAsDataURL('assets/images/car_inspections.png')
-                    .then(function(staticImageData) {
-                        var staticImageColumn = {
-                            image: staticImageData,
-                            width: 400,
-                            alignment: 'center',
-                            margin: [0, 20, 0, 20]
-                        };
+                if (x == 2) {
+                    // Load the first image
+                    loadImageAsDataURL('assets/images/table_name.png')
+                        .then(function(staticImageData1) {
+                            var staticImageColumn1 = {
+                                image: staticImageData1,
+                                width: 150, // Reduced width to 150
+                                alignment: 'center',
+                                margin: [40, 40, 40, 0] // Added left margin of 40 pixels
+                            };
 
-                        // Insert the first static image column after the 'engine_number' field
-                        var engineNumberIndex = fieldNames.indexOf('engine_number');
-                        if (engineNumberIndex >= 0) {
-                            content.splice(engineNumberIndex + 2, 0, staticImageColumn);
-                        }
-                    })
-                    .catch(function(error) {
-                        console.log('Error loading graph image:', error);
-                    });
+                            // Load the second image
+                            loadImageAsDataURL(table_path)
+                                .then(function(staticImageData2) {
+                                    var staticImageColumn2 = {
+                                        image: staticImageData2,
+                                        width: 150, // Reduced width to 150
+                                        alignment: 'center',
+                                        margin: [0, 40, 0, 40] // Added gap of 80 pixels (40 + 40) between the images
+                                    };
+
+                                    // Create a row with two columns for the images
+                                    var imageRow = {
+                                        columns: [
+                                            staticImageColumn1,
+                                            staticImageColumn2
+                                        ],
+                                        alignment: 'center' // Align the row center within the PDF
+                                    };
+
+                                    // Insert the image row after the 'engine_number' field
+                                    var engineNumberIndex3 = fieldNames.indexOf('engine_number');
+                                    if (engineNumberIndex3 >= 0) {
+                                        content.splice(engineNumberIndex3 + 4, 0, imageRow);
+                                    }
+                                })
+                                .catch(function(error) {
+                                    console.log('Error loading second image:', error);
+                                });
+                        })
+                        .catch(function(error) {
+                            console.log('Error loading first image:', error);
+                        });
+                }
 
 
 
-                // Load the first image
-                loadImageAsDataURL('assets/images/table_name.png')
-                    .then(function(staticImageData1) {
-                        var staticImageColumn1 = {
-                            image: staticImageData1,
-                            width: 150, // Reduced width to 150
-                            alignment: 'center',
-                            margin: [40, 40, 40, 0] // Added left margin of 40 pixels
-                        };
 
-                        // Load the second image
-                        loadImageAsDataURL(table_path)
-                            .then(function(staticImageData2) {
-                                var staticImageColumn2 = {
-                                    image: staticImageData2,
-                                    width: 150, // Reduced width to 150
-                                    alignment: 'center',
-                                    margin: [0, 40, 0, 40] // Added gap of 80 pixels (40 + 40) between the images
-                                };
 
-                                // Create a row with two columns for the images
-                                var imageRow = {
-                                    columns: [
-                                        staticImageColumn1,
-                                        staticImageColumn2
-                                    ],
-                                    alignment: 'center' // Align the row center within the PDF
-                                };
 
-                                // Insert the image row after the 'engine_number' field
-                                var engineNumberIndex = fieldNames.indexOf('engine_number');
-                                if (engineNumberIndex >= 0) {
-                                    content.splice(engineNumberIndex + 3, 0, imageRow);
-                                }
-                            })
-                            .catch(function(error) {
-                                console.log('Error loading second image:', error);
-                            });
-                    })
-                    .catch(function(error) {
-                        console.log('Error loading first image:', error);
-                    });
+
+
+
 
 
 
@@ -1259,7 +3002,7 @@
                 loadImageAsDataURL('assets/images/header_image.jpeg')
                     .then(function(headerImageDataURL) {
                         // Load footer image as data URL
-                        loadImageAsDataURL('assets/images/footer_image.png')
+                        loadImageAsDataURL('assets/images/footer_img.png')
                             .then(function(footerImageDataURL) {
                                 // Create the PDF document definition with header and footer images
                                 var docDefinition = {
@@ -1513,7 +3256,7 @@
                 tableBody.appendChild(row);
             }
 
-            // Select the div to capture
+            // Select graph the div to capture
             var divToCapture = document.getElementById('divToCapture');
 
             // Create a function to save the image to the server
@@ -1553,12 +3296,6 @@
                         console.error('Error in AJAX call:', error);
                     });
             });
-
-
-
-
-
-
             //table code end
 
 

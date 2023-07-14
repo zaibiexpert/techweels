@@ -147,7 +147,7 @@
          <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
              <label>Front Underbody</label> <br />
              <select id="front_Under_body" class="form-control" name="frontUnderbody">
-                 <option value="Non Accidented" <?php echo ($previous_frontUnderbody === 'No Accidented') ? 'selected' : ''; ?>>
+                 <option value="Non Accidented" <?php echo ($previous_frontUnderbody === 'Non Accidented') ? 'selected' : ''; ?>>
                      No Accidented</option>
                  <option value="Accidented" <?php echo ($previous_frontUnderbody === 'Accidented') ? 'selected' : ''; ?>>
                      Accidented</option>
@@ -158,7 +158,7 @@
          <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
              <label>Radiator Core Support</label> <br />
              <select id="radiator_Core_Support" class="form-control" name="radiatorCoreSupport">
-                 <option value="Non Accidented" <?php echo ($previous_radiatorCoreSupport === 'No Accidented') ? 'selected' : ''; ?>>
+                 <option value="Non Accidented" <?php echo ($previous_radiatorCoreSupport === 'Non Accidented') ? 'selected' : ''; ?>>
                      No Accidented</option>
                  <option value="Accidented" <?php echo ($previous_radiatorCoreSupport === 'Accidented') ? 'selected' : ''; ?>>
                      Accidented</option>
@@ -167,7 +167,7 @@
          <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
              <label>Left Front Rail</label> <br />
              <select id="left_Front_Rail" class="form-control" name="leftFrontRail">
-                 <option value="Non Accidented" <?php echo ($previous_leftFrontRail === 'No Accidented') ? 'selected' : ''; ?>>
+                 <option value="Non Accidented" <?php echo ($previous_leftFrontRail === 'Non Accidented') ? 'selected' : ''; ?>>
                      No Accidented</option>
                  <option value="Accidented" <?php echo ($previous_leftFrontRail === 'Accidented') ? 'selected' : ''; ?>>
                      Accidented</option>
@@ -176,7 +176,7 @@
          <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
              <label>Left Strut Tower</label> <br />
              <select id="left_Strut_Tower" class="form-control" name="leftStrutTower">
-                 <option value="Non Accidented" <?php echo ($previous_leftStrutTower === 'No Accidented') ? 'selected' : ''; ?>>
+                 <option value="Non Accidented" <?php echo ($previous_leftStrutTower === 'Non Accidented') ? 'selected' : ''; ?>>
                      No Accidented</option>
                  <option value="Accidented" <?php echo ($previous_leftStrutTower === 'Accidented') ? 'selected' : ''; ?>>
                      Accidented</option>
@@ -186,7 +186,7 @@
          <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
              <label>Right Front Rail</label> <br />
              <select id="right_Front_Rail" class="form-control" name="rightFrontRail">
-                 <option value="Non Accidented" <?php echo ($previous_rightFrontRail === 'No Accidented') ? 'selected' : ''; ?>>
+                 <option value="Non Accidented" <?php echo ($previous_rightFrontRail === 'Non Accidented') ? 'selected' : ''; ?>>
                      No Accidented</option>
                  <option value="Accidented" <?php echo ($previous_rightFrontRail === 'Accidented') ? 'selected' : ''; ?>>
                      Accidented</option>
@@ -195,7 +195,7 @@
          <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
              <label>Right Strut Tower</label> <br />
              <select id="right_Strut_Tower" class="form-control" name="rightStrutTower">
-                 <option value="Non Accidented" <?php echo ($previous_rightStrutTower === 'No Accidented') ? 'selected' : ''; ?>>
+                 <option value="Non Accidented" <?php echo ($previous_rightStrutTower === 'Non Accidented') ? 'selected' : ''; ?>>
                      No Accidented</option>
                  <option value="Accidented" <?php echo ($previous_rightStrutTower === 'Accidented') ? 'selected' : ''; ?>>
                      Accidented</option>
@@ -208,7 +208,7 @@
          <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
              <label>Right A Pillar</label> <br />
              <select id="right_A_pillar" class="form-control" name="rightApillar">
-                 <option value="Non Accidented" <?php echo ($previous_rightApillar === 'No Accidented') ? 'selected' : ''; ?>>
+                 <option value="Non Accidented" <?php echo ($previous_rightApillar === 'Non Accidented') ? 'selected' : ''; ?>>
                      No Accidented</option>
                  <option value="Accidented" <?php echo ($previous_rightApillar === 'Accidented') ? 'selected' : ''; ?>>
                      Accidented</option>
@@ -218,7 +218,7 @@
          <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
              <label>Right B Pillar</label> <br />
              <select id="right_B_pillar" class="form-control" name="rightBpillar">
-                 <option value="Non Accidented" <?php echo ($previous_rightBpillar === 'No Accidented') ? 'selected' : ''; ?>>
+                 <option value="Non Accidented" <?php echo ($previous_rightBpillar === 'Non Accidented') ? 'selected' : ''; ?>>
                      No Accidented</option>
                  <option value="Accidented" <?php echo ($previous_rightBpillar === 'Accidented') ? 'selected' : ''; ?>>
                      Accidented</option>
@@ -228,7 +228,7 @@
          <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
              <label>Right C Pillar</label> <br />
              <select id="right_C_pillar" class="form-control" name="rightCpillar">
-                 <option value="Non Accidented" <?php echo ($previous_rightCpillar === 'No Accidented') ? 'selected' : ''; ?>>
+                 <option value="Non Accidented" <?php echo ($previous_rightCpillar === 'Non Accidented') ? 'selected' : ''; ?>>
                      No Accidented</option>
                  <option value="Accidented" <?php echo ($previous_rightCpillar === 'Accidented') ? 'selected' : ''; ?>>
                      Accidented</option>
@@ -237,7 +237,7 @@
          <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
              <label>Right D Pillar</label> <br />
              <select id="right_D_pillar" class="form-control" name="rightDpillar">
-                 <option value="Non Accidented" <?php echo ($previous_rightDpillar === 'No Accidented') ? 'selected' : ''; ?>>
+                 <option value="Non Accidented" <?php echo ($previous_rightDpillar === 'Non Accidented') ? 'selected' : ''; ?>>
                      No Accidented</option>
                  <option value="Accidented" <?php echo ($previous_rightDpillar === 'Accidented') ? 'selected' : ''; ?>>
                      Accidented</option>
@@ -247,7 +247,7 @@
          <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
              <label>Rear Underbody</label> <br />
              <select id="rear_Under_body" class="form-control" name="rearUnderbody">
-                 <option value="Non Accidented" <?php echo ($previous_rearUnderbody === 'No Accidented') ? 'selected' : ''; ?>>
+                 <option value="Non Accidented" <?php echo ($previous_rearUnderbody === 'Non Accidented') ? 'selected' : ''; ?>>
                      No Accidented</option>
                  <option value="Accidented" <?php echo ($previous_rearUnderbody === 'Accidented') ? 'selected' : ''; ?>>
                      Accidented</option>
@@ -256,7 +256,7 @@
          <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
              <label>Boot Floor</label> <br />
              <select id="boot_Floor" class="form-control" name="bootFloor">
-                 <option value="Non Accidented" <?php echo ($previous_bootFloor === 'No Accidented') ? 'selected' : ''; ?>>
+                 <option value="Non Accidented" <?php echo ($previous_bootFloor === 'Non Accidented') ? 'selected' : ''; ?>>
                      No Accidented</option>
                  <option value="Accidented" <?php echo ($previous_bootFloor === 'Accidented') ? 'selected' : ''; ?>>
                      Accidented</option>
@@ -266,7 +266,7 @@
          <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
              <label>Left B Pillar</label> <br />
              <select id="left_B_pillar" class="form-control" name="leftBpillar">
-                 <option value="Non Accidented" <?php echo ($previous_leftBpillar === 'No Accidented') ? 'selected' : ''; ?>>
+                 <option value="Non Accidented" <?php echo ($previous_leftBpillar === 'Non Accidented') ? 'selected' : ''; ?>>
                      No Accidented</option>
                  <option value="Accidented" <?php echo ($previous_leftBpillar === 'Accidented') ? 'selected' : ''; ?>>
                      Accidented</option>
@@ -275,7 +275,7 @@
          <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
              <label>Left C Pillar</label> <br />
              <select id="left_C_pillar" class="form-control" name="leftCpillar">
-                 <option value="Non Accidented" <?php echo ($previous_leftCpillar === 'No Accidented') ? 'selected' : ''; ?>>
+                 <option value="Non Accidented" <?php echo ($previous_leftCpillar === 'Non Accidented') ? 'selected' : ''; ?>>
                      No Accidented</option>
                  <option value="Accidented" <?php echo ($previous_leftCpillar === 'Accidented') ? 'selected' : ''; ?>>
                      Accidented</option>
@@ -285,7 +285,7 @@
          <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
              <label>Left D Pillar</label> <br />
              <select id="left_D_pillar" class="form-control" name="leftDpillar">
-                 <option value="Non Accidented" <?php echo ($previous_leftDpillar === 'No Accidented') ? 'selected' : ''; ?>>
+                 <option value="Non Accidented" <?php echo ($previous_leftDpillar === 'Non Accidented') ? 'selected' : ''; ?>>
                      No Accidented</option>
                  <option value="Accidented" <?php echo ($previous_leftDpillar === 'Accidented') ? 'selected' : ''; ?>>
                      Accidented</option>
@@ -296,7 +296,7 @@
          <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
              <label>Left A Pillar</label> <br />
              <select id="left_A_pillar" class="form-control" name="leftApillar">
-                 <option value="Non Accidented" <?php echo ($previous_leftApillar === 'No Accidented') ? 'selected' : ''; ?>>
+                 <option value="Non Accidented" <?php echo ($previous_leftApillar === 'Non Accidented') ? 'selected' : ''; ?>>
                      No Accidented</option>
                  <option value="Accidented" <?php echo ($previous_leftApillar === 'Accidented') ? 'selected' : ''; ?>>
                      Accidented</option>
@@ -544,9 +544,9 @@
              <label for="floorMats" class="mb-4 pb-1">Floor Mats</label> <br />
              <select class="form-control" id="floor_Mats" name="floorMats">
                  <option value="Working" <?php echo ($previous_floorMats === 'Working') ? 'selected' : ''; ?>>
-                     Working</option>
+                     Good</option>
                  <option value="Not Working" <?php echo ($previous_floorMats === 'Not Working') ? 'selected' : ''; ?>>
-                     Not Working</option>
+                     Not Good</option>
              </select>
          </div>
          <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
@@ -1311,13 +1311,25 @@
              <label class="mb-4 pb-1">Bonnet</label> <br />
              <select class="form-control" id="bonnet" name="bonnet">
                  <option value="T" <?php echo ($prev_bonnet === 'T') ? 'selected' : ''; ?>>T</option>
+                 <option value="F" <?php echo ($prev_bonnet === 'F') ? 'selected' : ''; ?>>F</option>
                  <option value="P" <?php echo ($prev_bonnet === 'P') ? 'selected' : ''; ?>>P</option>
                  <option value="A1" <?php echo ($prev_bonnet === 'A1') ? 'selected' : ''; ?>>A1</option>
                  <option value="A2" <?php echo ($prev_bonnet === 'A2') ? 'selected' : ''; ?>>A2</option>
                  <option value="E1" <?php echo ($prev_bonnet === 'E1') ? 'selected' : ''; ?>>E1</option>
                  <option value="E2" <?php echo ($prev_bonnet === 'E2') ? 'selected' : ''; ?>>E2</option>
-                 <option value="N/A" <?php echo ($prev_bonnet === 'N/A') ? 'selected' : ''; ?>>N/A
-                 </option>
+                 <option value="LS" <?php echo ($prev_bonnet === 'LS') ? 'selected' : ''; ?>>LS</option>
+                 <option value="W" <?php echo ($prev_bonnet === 'W') ? 'selected' : ''; ?>>W</option>
+                 <option value="G1" <?php echo ($prev_bonnet === 'G1') ? 'selected' : ''; ?>>G1</option>
+                 <option value="G2" <?php echo ($prev_bonnet === 'G2') ? 'selected' : ''; ?>>G2</option>
+                 <option value="G3" <?php echo ($prev_bonnet === 'G3') ? 'selected' : ''; ?>>G3</option>
+                 <option value="G4" <?php echo ($prev_bonnet === 'G4') ? 'selected' : ''; ?>>G4</option>
+                 <option value="B" <?php echo ($prev_bonnet === 'B') ? 'selected' : ''; ?>>B</option>
+                 <option value="H" <?php echo ($prev_bonnet === 'H') ? 'selected' : ''; ?>>H</option>
+                 <option value="PP" <?php echo ($prev_bonnet === 'PP') ? 'selected' : ''; ?>>PP</option>
+                 <option value="C" <?php echo ($prev_bonnet === 'C') ? 'selected' : ''; ?>>C</option>
+                 <option value="XL" <?php echo ($prev_bonnet === 'XL') ? 'selected' : ''; ?>>XL</option>
+                 <option value="PL" <?php echo ($prev_bonnet === 'PL') ? 'selected' : ''; ?>>PL</option>
+
              </select>
              <label class="fs-14 mb-0 mt-3">Bonnet Images</label>
              <div class="card-body">
@@ -1328,20 +1340,26 @@
          <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
              <label class="mb-4 pb-1">Front Right Fender</label> <br />
              <select class="form-control" id="front_right_fender" name="frontDriverfender">
-                 <option value="T" <?php echo ($prev_frontDriverfender === 'T') ? 'selected' : ''; ?>>T
-                 </option>
-                 <option value="P" <?php echo ($prev_frontDriverfender === 'P') ? 'selected' : ''; ?>>P
-                 </option>
-                 <option value="A1" <?php echo ($prev_frontDriverfender === 'A1') ? 'selected' : ''; ?>>
-                     A1</option>
-                 <option value="A2" <?php echo ($prev_frontDriverfender === 'A2') ? 'selected' : ''; ?>>
-                     A2</option>
-                 <option value="E1" <?php echo ($prev_frontDriverfender === 'E1') ? 'selected' : ''; ?>>
-                     E1</option>
-                 <option value="E2" <?php echo ($prev_frontDriverfender === 'E2') ? 'selected' : ''; ?>>
-                     E2</option>
-                 <option value="N/A" <?php echo ($prev_frontDriverfender === 'N/A') ? 'selected' : ''; ?>>
-                     N/A</option>
+                 <option value="T" <?php echo ($prev_frontDriverfender === 'T') ? 'selected' : ''; ?>>T</option>
+                 <option value="F" <?php echo ($prev_frontDriverfender === 'F') ? 'selected' : ''; ?>>F</option>
+                 <option value="P" <?php echo ($prev_frontDriverfender === 'P') ? 'selected' : ''; ?>>P</option>
+                 <option value="A1" <?php echo ($prev_frontDriverfender === 'A1') ? 'selected' : ''; ?>>A1</option>
+                 <option value="A2" <?php echo ($prev_frontDriverfender === 'A2') ? 'selected' : ''; ?>>A2</option>
+                 <option value="E1" <?php echo ($prev_frontDriverfender === 'E1') ? 'selected' : ''; ?>>E1</option>
+                 <option value="E2" <?php echo ($prev_frontDriverfender === 'E2') ? 'selected' : ''; ?>>E2</option>
+                 <option value="LS" <?php echo ($prev_frontDriverfender === 'LS') ? 'selected' : ''; ?>>LS</option>
+                 <option value="W" <?php echo ($prev_frontDriverfender === 'W') ? 'selected' : ''; ?>>W</option>
+                 <option value="G1" <?php echo ($prev_frontDriverfender === 'G1') ? 'selected' : ''; ?>>G1</option>
+                 <option value="G2" <?php echo ($prev_frontDriverfender === 'G2') ? 'selected' : ''; ?>>G2</option>
+                 <option value="G3" <?php echo ($prev_frontDriverfender === 'G3') ? 'selected' : ''; ?>>G3</option>
+                 <option value="G4" <?php echo ($prev_frontDriverfender === 'G4') ? 'selected' : ''; ?>>G4</option>
+                 <option value="B" <?php echo ($prev_frontDriverfender === 'B') ? 'selected' : ''; ?>>B</option>
+                 <option value="H" <?php echo ($prev_frontDriverfender === 'H') ? 'selected' : ''; ?>>H</option>
+                 <option value="PP" <?php echo ($prev_frontDriverfender === 'PP') ? 'selected' : ''; ?>>PP</option>
+                 <option value="C" <?php echo ($prev_frontDriverfender === 'C') ? 'selected' : ''; ?>>C</option>
+                 <option value="XL" <?php echo ($prev_frontDriverfender === 'XL') ? 'selected' : ''; ?>>XL</option>
+                 <option value="PL" <?php echo ($prev_frontDriverfender === 'PL') ? 'selected' : ''; ?>>PL</option>
+
              </select>
              <label class="fs-14 mb-0 mt-3">Front Driver Fender Images</label>
              <div class="card-body">
@@ -1352,20 +1370,26 @@
          <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
              <label>Front Right Door</label> <br />
              <select class="form-control" id="front_right_door" name="frontDriverdoor">
-                 <option value="T" <?php echo ($prev_frontDriverdoor === 'T') ? 'selected' : ''; ?>>T
-                 </option>
-                 <option value="P" <?php echo ($prev_frontDriverdoor === 'P') ? 'selected' : ''; ?>>P
-                 </option>
-                 <option value="A1" <?php echo ($prev_frontDriverdoor === 'A1') ? 'selected' : ''; ?>>A1
-                 </option>
-                 <option value="A2" <?php echo ($prev_frontDriverdoor === 'A2') ? 'selected' : ''; ?>>A2
-                 </option>
-                 <option value="E1" <?php echo ($prev_frontDriverdoor === 'E1') ? 'selected' : ''; ?>>E1
-                 </option>
-                 <option value="E2" <?php echo ($prev_frontDriverdoor === 'E2') ? 'selected' : ''; ?>>E2
-                 </option>
-                 <option value="N/A" <?php echo ($prev_frontDriverdoor === 'N/A') ? 'selected' : ''; ?>>
-                     N/A</option>
+                 <option value="T" <?php echo ($prev_frontDriverdoor === 'T') ? 'selected' : ''; ?>>T</option>
+                 <option value="F" <?php echo ($prev_frontDriverdoor === 'F') ? 'selected' : ''; ?>>F</option>
+                 <option value="P" <?php echo ($prev_frontDriverdoor === 'P') ? 'selected' : ''; ?>>P</option>
+                 <option value="A1" <?php echo ($prev_frontDriverdoor === 'A1') ? 'selected' : ''; ?>>A1</option>
+                 <option value="A2" <?php echo ($prev_frontDriverdoor === 'A2') ? 'selected' : ''; ?>>A2</option>
+                 <option value="E1" <?php echo ($prev_frontDriverdoor === 'E1') ? 'selected' : ''; ?>>E1</option>
+                 <option value="E2" <?php echo ($prev_frontDriverdoor === 'E2') ? 'selected' : ''; ?>>E2</option>
+                 <option value="LS" <?php echo ($prev_frontDriverdoor === 'LS') ? 'selected' : ''; ?>>LS</option>
+                 <option value="W" <?php echo ($prev_frontDriverdoor === 'W') ? 'selected' : ''; ?>>W</option>
+                 <option value="G1" <?php echo ($prev_frontDriverdoor === 'G1') ? 'selected' : ''; ?>>G1</option>
+                 <option value="G2" <?php echo ($prev_frontDriverdoor === 'G2') ? 'selected' : ''; ?>>G2</option>
+                 <option value="G3" <?php echo ($prev_frontDriverdoor === 'G3') ? 'selected' : ''; ?>>G3</option>
+                 <option value="G4" <?php echo ($prev_frontDriverdoor === 'G4') ? 'selected' : ''; ?>>G4</option>
+                 <option value="B" <?php echo ($prev_frontDriverdoor === 'B') ? 'selected' : ''; ?>>B</option>
+                 <option value="H" <?php echo ($prev_frontDriverdoor === 'H') ? 'selected' : ''; ?>>H</option>
+                 <option value="PP" <?php echo ($prev_frontDriverdoor === 'PP') ? 'selected' : ''; ?>>PP</option>
+                 <option value="C" <?php echo ($prev_frontDriverdoor === 'C') ? 'selected' : ''; ?>>C</option>
+                 <option value="XL" <?php echo ($prev_frontDriverdoor === 'XL') ? 'selected' : ''; ?>>XL</option>
+                 <option value="PL" <?php echo ($prev_frontDriverdoor === 'PL') ? 'selected' : ''; ?>>PL</option>
+
              </select>
              <label class="fs-14 mb-0 mt-3">Front Driver Door images</label>
              <div class="card-body">
@@ -1386,24 +1410,30 @@
          <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
              <label class="mb-4 pb-1">Rear Right Door</label> <br />
              <select class="form-control" id="rear_right_door" name="rearDriverdoor">
-                 <option value="T" <?php echo ($prev_rearDriverdoor === 'T') ? 'selected' : ''; ?>>T
-                 </option>
-                 <option value="P" <?php echo ($prev_rearDriverdoor === 'P') ? 'selected' : ''; ?>>P
-                 </option>
-                 <option value="A1" <?php echo ($prev_rearDriverdoor === 'A1') ? 'selected' : ''; ?>>A1
-                 </option>
-                 <option value="A2" <?php echo ($prev_rearDriverdoor === 'A2') ? 'selected' : ''; ?>>A2
-                 </option>
-                 <option value="E1" <?php echo ($prev_rearDriverdoor === 'E1') ? 'selected' : ''; ?>>E1
-                 </option>
-                 <option value="E2" <?php echo ($prev_rearDriverdoor === 'E2') ? 'selected' : ''; ?>>E2
-                 </option>
-                 <option value="N/A" <?php echo ($prev_rearDriverdoor === 'N/A') ? 'selected' : ''; ?>>
-                     N/A</option>
+                 <option value="T" <?php echo ($prev_rearDriverdoor === 'T') ? 'selected' : ''; ?>>T</option>
+                 <option value="F" <?php echo ($prev_rearDriverdoor === 'F') ? 'selected' : ''; ?>>F</option>
+                 <option value="P" <?php echo ($prev_rearDriverdoor === 'P') ? 'selected' : ''; ?>>P</option>
+                 <option value="A1" <?php echo ($prev_rearDriverdoor === 'A1') ? 'selected' : ''; ?>>A1</option>
+                 <option value="A2" <?php echo ($prev_rearDriverdoor === 'A2') ? 'selected' : ''; ?>>A2</option>
+                 <option value="E1" <?php echo ($prev_rearDriverdoor === 'E1') ? 'selected' : ''; ?>>E1</option>
+                 <option value="E2" <?php echo ($prev_rearDriverdoor === 'E2') ? 'selected' : ''; ?>>E2</option>
+                 <option value="LS" <?php echo ($prev_rearDriverdoor === 'LS') ? 'selected' : ''; ?>>LS</option>
+                 <option value="W" <?php echo ($prev_rearDriverdoor === 'W') ? 'selected' : ''; ?>>W</option>
+                 <option value="G1" <?php echo ($prev_rearDriverdoor === 'G1') ? 'selected' : ''; ?>>G1</option>
+                 <option value="G2" <?php echo ($prev_rearDriverdoor === 'G2') ? 'selected' : ''; ?>>G2</option>
+                 <option value="G3" <?php echo ($prev_rearDriverdoor === 'G3') ? 'selected' : ''; ?>>G3</option>
+                 <option value="G4" <?php echo ($prev_rearDriverdoor === 'G4') ? 'selected' : ''; ?>>G4</option>
+                 <option value="B" <?php echo ($prev_rearDriverdoor === 'B') ? 'selected' : ''; ?>>B</option>
+                 <option value="H" <?php echo ($prev_rearDriverdoor === 'H') ? 'selected' : ''; ?>>H</option>
+                 <option value="PP" <?php echo ($prev_rearDriverdoor === 'PP') ? 'selected' : ''; ?>>PP</option>
+                 <option value="C" <?php echo ($prev_rearDriverdoor === 'C') ? 'selected' : ''; ?>>C</option>
+                 <option value="XL" <?php echo ($prev_rearDriverdoor === 'XL') ? 'selected' : ''; ?>>XL</option>
+                 <option value="PL" <?php echo ($prev_rearDriverdoor === 'PL') ? 'selected' : ''; ?>>PL</option>
+
              </select>
              <label class="fs-14 mb-0 mt-3">Rear Right Door images</label>
              <div class="card-body">
-                 <div id="rearDriverdoor_images_picker" class="row"></div>
+                 <div id="rearRightdoor_images_picker" class="row"></div>
                  <div id="preview-container"></div>
              </div>
          </div>
@@ -1464,9 +1494,10 @@
          <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
              <label class="mb-4 pb-1">Front Wind Screen</label> <br />
              <select class="form-control" id="front_Wind_shield" name="frontWindshield">
-                 <option value="T" <?php echo ($prev_frontWindshield === 'T') ? 'selected' : ''; ?>>
-                     Total Geniun</option>
-                 <option value="B" <?php echo ($prev_frontWindshield === 'B') ? 'selected' : ''; ?>>
+                 <option value="T" <?php echo ($prev_frontWindshield === 'T') ? 'selected' : ''; ?>>T</option>
+                 <option value="T" <?php echo ($prev_frontWindshield === 'T') ? 'selected' : ''; ?>>Total
+                     Geniun</option>
+                 <option value="B" <?php echo ($prev_frontWindshield === 'P') ? 'selected' : ''; ?>>
                      Broken</option>
                  <option value="R" <?php echo ($prev_frontWindshield === 'R') ? 'selected' : ''; ?>>
                      Replaced</option>
@@ -1483,20 +1514,26 @@
          <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
              <label class="mb-4 pb-1">Front Passenger Fender</label> <br />
              <select class="form-control" id="front_Passenger_fender" name="frontPassengerfender">
-                 <option value="T" <?php echo ($prev_frontPassengerfender === 'T') ? 'selected' : ''; ?>>
-                     T</option>
-                 <option value="P" <?php echo ($prev_frontPassengerfender === 'P') ? 'selected' : ''; ?>>
-                     P</option>
-                 <option value="A1" <?php echo ($prev_frontPassengerfender === 'A1') ? 'selected' : ''; ?>>
-                     A1</option>
-                 <option value="A2" <?php echo ($prev_frontPassengerfender === 'A2') ? 'selected' : ''; ?>>
-                     A2</option>
-                 <option value="E1" <?php echo ($prev_frontPassengerfender === 'E1') ? 'selected' : ''; ?>>
-                     E1</option>
-                 <option value="E2" <?php echo ($prev_frontPassengerfender === 'E2') ? 'selected' : ''; ?>>
-                     E2</option>
-                 <option value="N/A" <?php echo ($prev_frontPassengerfender === 'N/A') ? 'selected' : ''; ?>>
-                     N/A</option>
+                 <option value="T" <?php echo ($prev_frontPassengerfender === 'T') ? 'selected' : ''; ?>>T</option>
+                 <option value="F" <?php echo ($prev_frontPassengerfender === 'F') ? 'selected' : ''; ?>>F</option>
+                 <option value="P" <?php echo ($prev_frontPassengerfender === 'P') ? 'selected' : ''; ?>>P</option>
+                 <option value="A1" <?php echo ($prev_frontPassengerfender === 'A1') ? 'selected' : ''; ?>>A1</option>
+                 <option value="A2" <?php echo ($prev_frontPassengerfender === 'A2') ? 'selected' : ''; ?>>A2</option>
+                 <option value="E1" <?php echo ($prev_frontPassengerfender === 'E1') ? 'selected' : ''; ?>>E1</option>
+                 <option value="E2" <?php echo ($prev_frontPassengerfender === 'E2') ? 'selected' : ''; ?>>E2</option>
+                 <option value="LS" <?php echo ($prev_frontPassengerfender === 'LS') ? 'selected' : ''; ?>>LS</option>
+                 <option value="W" <?php echo ($prev_frontPassengerfender === 'W') ? 'selected' : ''; ?>>W</option>
+                 <option value="G1" <?php echo ($prev_frontPassengerfender === 'G1') ? 'selected' : ''; ?>>G1</option>
+                 <option value="G2" <?php echo ($prev_frontPassengerfender === 'G2') ? 'selected' : ''; ?>>G2</option>
+                 <option value="G3" <?php echo ($prev_frontPassengerfender === 'G3') ? 'selected' : ''; ?>>G3</option>
+                 <option value="G4" <?php echo ($prev_frontPassengerfender === 'G4') ? 'selected' : ''; ?>>G4</option>
+                 <option value="B" <?php echo ($prev_frontPassengerfender === 'B') ? 'selected' : ''; ?>>B</option>
+                 <option value="H" <?php echo ($prev_frontPassengerfender === 'H') ? 'selected' : ''; ?>>H</option>
+                 <option value="PP" <?php echo ($prev_frontPassengerfender === 'PP') ? 'selected' : ''; ?>>PP</option>
+                 <option value="C" <?php echo ($prev_frontPassengerfender === 'C') ? 'selected' : ''; ?>>C</option>
+                 <option value="XL" <?php echo ($prev_frontPassengerfender === 'XL') ? 'selected' : ''; ?>>XL</option>
+                 <option value="PL" <?php echo ($prev_frontPassengerfender === 'PL') ? 'selected' : ''; ?>>PL</option>
+
              </select>
              <label class="fs-14 mb-0 mt-3">Front Passenger Fender Images</label>
              <div class="card-body">
@@ -1508,20 +1545,26 @@
          <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
              <label class="mb-4 pb-1">Front Passenger Door</label> <br />
              <select class="form-control" id="front_Passenger_door" name="frontPassengerdoor">
-                 <option value="T" <?php echo ($prev_frontPassengerdoor === 'T') ? 'selected' : ''; ?>>
-                     T</option>
-                 <option value="P" <?php echo ($prev_frontPassengerdoor === 'P') ? 'selected' : ''; ?>>
-                     P</option>
-                 <option value="A1" <?php echo ($prev_frontPassengerdoor === 'A1') ? 'selected' : ''; ?>>
-                     A1</option>
-                 <option value="A2" <?php echo ($prev_frontPassengerdoor === 'A2') ? 'selected' : ''; ?>>
-                     A2</option>
-                 <option value="E1" <?php echo ($prev_frontPassengerdoor === 'E1') ? 'selected' : ''; ?>>
-                     E1</option>
-                 <option value="E2" <?php echo ($prev_frontPassengerdoor === 'E2') ? 'selected' : ''; ?>>
-                     E2</option>
-                 <option value="N/A" <?php echo ($prev_frontPassengerdoor === 'N/A') ? 'selected' : ''; ?>>
-                     N/A</option>
+                 <option value="T" <?php echo ($prev_frontPassengerdoor === 'T') ? 'selected' : ''; ?>>T</option>
+                 <option value="F" <?php echo ($prev_frontPassengerdoor === 'F') ? 'selected' : ''; ?>>F</option>
+                 <option value="P" <?php echo ($prev_frontPassengerdoor === 'P') ? 'selected' : ''; ?>>P</option>
+                 <option value="A1" <?php echo ($prev_frontPassengerdoor === 'A1') ? 'selected' : ''; ?>>A1</option>
+                 <option value="A2" <?php echo ($prev_frontPassengerdoor === 'A2') ? 'selected' : ''; ?>>A2</option>
+                 <option value="E1" <?php echo ($prev_frontPassengerdoor === 'E1') ? 'selected' : ''; ?>>E1</option>
+                 <option value="E2" <?php echo ($prev_frontPassengerdoor === 'E2') ? 'selected' : ''; ?>>E2</option>
+                 <option value="LS" <?php echo ($prev_frontPassengerdoor === 'LS') ? 'selected' : ''; ?>>LS</option>
+                 <option value="W" <?php echo ($prev_frontPassengerdoor === 'W') ? 'selected' : ''; ?>>W</option>
+                 <option value="G1" <?php echo ($prev_frontPassengerdoor === 'G1') ? 'selected' : ''; ?>>G1</option>
+                 <option value="G2" <?php echo ($prev_frontPassengerdoor === 'G2') ? 'selected' : ''; ?>>G2</option>
+                 <option value="G3" <?php echo ($prev_frontPassengerdoor === 'G3') ? 'selected' : ''; ?>>G3</option>
+                 <option value="G4" <?php echo ($prev_frontPassengerdoor === 'G4') ? 'selected' : ''; ?>>G4</option>
+                 <option value="B" <?php echo ($prev_frontPassengerdoor === 'B') ? 'selected' : ''; ?>>B</option>
+                 <option value="H" <?php echo ($prev_frontPassengerdoor === 'H') ? 'selected' : ''; ?>>H</option>
+                 <option value="PP" <?php echo ($prev_frontPassengerdoor === 'PP') ? 'selected' : ''; ?>>PP</option>
+                 <option value="C" <?php echo ($prev_frontPassengerdoor === 'C') ? 'selected' : ''; ?>>C</option>
+                 <option value="XL" <?php echo ($prev_frontPassengerdoor === 'XL') ? 'selected' : ''; ?>>XL</option>
+                 <option value="PL" <?php echo ($prev_frontPassengerdoor === 'PL') ? 'selected' : ''; ?>>PL</option>
+
              </select>
              <label class="fs-14 mb-0 mt-3">Front Passenger Door Images</label>
              <div class="card-body">
@@ -1533,20 +1576,26 @@
          <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
              <label class="mb-4 pb-1">Rear Passenger Door</label> <br />
              <select class="form-control" id="rear_Passenger_door" name="rearPassengerdoor">
-                 <option value="T" <?php echo ($prev_rearPassengerdoor === 'T') ? 'selected' : ''; ?>>T
-                 </option>
-                 <option value="P" <?php echo ($prev_rearPassengerdoor === 'P') ? 'selected' : ''; ?>>P
-                 </option>
-                 <option value="A1" <?php echo ($prev_rearPassengerdoor === 'A1') ? 'selected' : ''; ?>>
-                     A1</option>
-                 <option value="A2" <?php echo ($prev_rearPassengerdoor === 'A2') ? 'selected' : ''; ?>>
-                     A2</option>
-                 <option value="E1" <?php echo ($prev_rearPassengerdoor === 'E1') ? 'selected' : ''; ?>>
-                     E1</option>
-                 <option value="E2" <?php echo ($prev_rearPassengerdoor === 'E2') ? 'selected' : ''; ?>>
-                     E2</option>
-                 <option value="N/A" <?php echo ($prev_rearPassengerdoor === 'N/A') ? 'selected' : ''; ?>>
-                     N/A</option>
+                 <option value="T" <?php echo ($prev_rearPassengerdoor === 'T') ? 'selected' : ''; ?>>T</option>
+                 <option value="F" <?php echo ($prev_rearPassengerdoor === 'F') ? 'selected' : ''; ?>>F</option>
+                 <option value="P" <?php echo ($prev_rearPassengerdoor === 'P') ? 'selected' : ''; ?>>P</option>
+                 <option value="A1" <?php echo ($prev_rearPassengerdoor === 'A1') ? 'selected' : ''; ?>>A1</option>
+                 <option value="A2" <?php echo ($prev_rearPassengerdoor === 'A2') ? 'selected' : ''; ?>>A2</option>
+                 <option value="E1" <?php echo ($prev_rearPassengerdoor === 'E1') ? 'selected' : ''; ?>>E1</option>
+                 <option value="E2" <?php echo ($prev_rearPassengerdoor === 'E2') ? 'selected' : ''; ?>>E2</option>
+                 <option value="LS" <?php echo ($prev_rearPassengerdoor === 'LS') ? 'selected' : ''; ?>>LS</option>
+                 <option value="W" <?php echo ($prev_rearPassengerdoor === 'W') ? 'selected' : ''; ?>>W</option>
+                 <option value="G1" <?php echo ($prev_rearPassengerdoor === 'G1') ? 'selected' : ''; ?>>G1</option>
+                 <option value="G2" <?php echo ($prev_rearPassengerdoor === 'G2') ? 'selected' : ''; ?>>G2</option>
+                 <option value="G3" <?php echo ($prev_rearPassengerdoor === 'G3') ? 'selected' : ''; ?>>G3</option>
+                 <option value="G4" <?php echo ($prev_rearPassengerdoor === 'G4') ? 'selected' : ''; ?>>G4</option>
+                 <option value="B" <?php echo ($prev_rearPassengerdoor === 'B') ? 'selected' : ''; ?>>B</option>
+                 <option value="H" <?php echo ($prev_rearPassengerdoor === 'H') ? 'selected' : ''; ?>>H</option>
+                 <option value="PP" <?php echo ($prev_rearPassengerdoor === 'PP') ? 'selected' : ''; ?>>PP</option>
+                 <option value="C" <?php echo ($prev_rearPassengerdoor === 'C') ? 'selected' : ''; ?>>C</option>
+                 <option value="XL" <?php echo ($prev_rearPassengerdoor === 'XL') ? 'selected' : ''; ?>>XL</option>
+                 <option value="PL" <?php echo ($prev_rearPassengerdoor === 'PL') ? 'selected' : ''; ?>>PL</option>
+
              </select>
              <label class="fs-14 mb-0 mt-3">Rear Passenger Door Images</label>
              <div class="card-body">
@@ -1557,20 +1606,26 @@
          <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
              <label class="mb-4 pb-1">Rear Passenger Fender</label> <br />
              <select class="form-control" id="rear_Passenger_fender" name="rearPassengerfender">
-                 <option value="T" <?php echo ($prev_rearPassengerfender === 'T') ? 'selected' : ''; ?>>
-                     T</option>
-                 <option value="P" <?php echo ($prev_rearPassengerfender === 'P') ? 'selected' : ''; ?>>
-                     P</option>
-                 <option value="A1" <?php echo ($prev_rearPassengerfender === 'A1') ? 'selected' : ''; ?>>
-                     A1</option>
-                 <option value="A2" <?php echo ($prev_rearPassengerfender === 'A2') ? 'selected' : ''; ?>>
-                     A2</option>
-                 <option value="E1" <?php echo ($prev_rearPassengerfender === 'E1') ? 'selected' : ''; ?>>
-                     E1</option>
-                 <option value="E2" <?php echo ($prev_rearPassengerfender === 'E2') ? 'selected' : ''; ?>>
-                     E2</option>
-                 <option value="N/A" <?php echo ($prev_rearPassengerfender === 'N/A') ? 'selected' : ''; ?>>
-                     N/A</option>
+                 <option value="T" <?php echo ($prev_rearPassengerfender === 'T') ? 'selected' : ''; ?>>T</option>
+                 <option value="F" <?php echo ($prev_rearPassengerfender === 'F') ? 'selected' : ''; ?>>F</option>
+                 <option value="P" <?php echo ($prev_rearPassengerfender === 'P') ? 'selected' : ''; ?>>P</option>
+                 <option value="A1" <?php echo ($prev_rearPassengerfender === 'A1') ? 'selected' : ''; ?>>A1</option>
+                 <option value="A2" <?php echo ($prev_rearPassengerfender === 'A2') ? 'selected' : ''; ?>>A2</option>
+                 <option value="E1" <?php echo ($prev_rearPassengerfender === 'E1') ? 'selected' : ''; ?>>E1</option>
+                 <option value="E2" <?php echo ($prev_rearPassengerfender === 'E2') ? 'selected' : ''; ?>>E2</option>
+                 <option value="LS" <?php echo ($prev_rearPassengerfender === 'LS') ? 'selected' : ''; ?>>LS</option>
+                 <option value="W" <?php echo ($prev_rearPassengerfender === 'W') ? 'selected' : ''; ?>>W</option>
+                 <option value="G1" <?php echo ($prev_rearPassengerfender === 'G1') ? 'selected' : ''; ?>>G1</option>
+                 <option value="G2" <?php echo ($prev_rearPassengerfender === 'G2') ? 'selected' : ''; ?>>G2</option>
+                 <option value="G3" <?php echo ($prev_rearPassengerfender === 'G3') ? 'selected' : ''; ?>>G3</option>
+                 <option value="G4" <?php echo ($prev_rearPassengerfender === 'G4') ? 'selected' : ''; ?>>G4</option>
+                 <option value="B" <?php echo ($prev_rearPassengerfender === 'B') ? 'selected' : ''; ?>>B</option>
+                 <option value="H" <?php echo ($prev_rearPassengerfender === 'H') ? 'selected' : ''; ?>>H</option>
+                 <option value="PP" <?php echo ($prev_rearPassengerfender === 'PP') ? 'selected' : ''; ?>>PP</option>
+                 <option value="C" <?php echo ($prev_rearPassengerfender === 'C') ? 'selected' : ''; ?>>C</option>
+                 <option value="XL" <?php echo ($prev_rearPassengerfender === 'XL') ? 'selected' : ''; ?>>XL</option>
+                 <option value="PL" <?php echo ($prev_rearPassengerfender === 'PL') ? 'selected' : ''; ?>>PL</option>
+
              </select>
              <label class="fs-14 mb-0 mt-3">Rear Passenger Fender images</label>
              <div class="card-body">
@@ -1583,13 +1638,25 @@
              <label class="mb-4 pb-1">Trunk</label> <br />
              <select class="form-control" id="trunk" name="trunk">
                  <option value="T" <?php echo ($prev_trunk === 'T') ? 'selected' : ''; ?>>T</option>
+                 <option value="F" <?php echo ($prev_trunk === 'F') ? 'selected' : ''; ?>>F</option>
                  <option value="P" <?php echo ($prev_trunk === 'P') ? 'selected' : ''; ?>>P</option>
                  <option value="A1" <?php echo ($prev_trunk === 'A1') ? 'selected' : ''; ?>>A1</option>
                  <option value="A2" <?php echo ($prev_trunk === 'A2') ? 'selected' : ''; ?>>A2</option>
                  <option value="E1" <?php echo ($prev_trunk === 'E1') ? 'selected' : ''; ?>>E1</option>
                  <option value="E2" <?php echo ($prev_trunk === 'E2') ? 'selected' : ''; ?>>E2</option>
-                 <option value="N/A" <?php echo ($prev_trunk === 'N/A') ? 'selected' : ''; ?>>N/A
-                 </option>
+                 <option value="LS" <?php echo ($prev_trunk === 'LS') ? 'selected' : ''; ?>>LS</option>
+                 <option value="W" <?php echo ($prev_trunk === 'W') ? 'selected' : ''; ?>>W</option>
+                 <option value="G1" <?php echo ($prev_trunk === 'G1') ? 'selected' : ''; ?>>G1</option>
+                 <option value="G2" <?php echo ($prev_trunk === 'G2') ? 'selected' : ''; ?>>G2</option>
+                 <option value="G3" <?php echo ($prev_trunk === 'G3') ? 'selected' : ''; ?>>G3</option>
+                 <option value="G4" <?php echo ($prev_trunk === 'G4') ? 'selected' : ''; ?>>G4</option>
+                 <option value="B" <?php echo ($prev_trunk === 'B') ? 'selected' : ''; ?>>B</option>
+                 <option value="H" <?php echo ($prev_trunk === 'H') ? 'selected' : ''; ?>>H</option>
+                 <option value="PP" <?php echo ($prev_trunk === 'PP') ? 'selected' : ''; ?>>PP</option>
+                 <option value="C" <?php echo ($prev_trunk === 'C') ? 'selected' : ''; ?>>C</option>
+                 <option value="XL" <?php echo ($prev_trunk === 'XL') ? 'selected' : ''; ?>>XL</option>
+                 <option value="PL" <?php echo ($prev_trunk === 'PL') ? 'selected' : ''; ?>>PL</option>
+
              </select>
              <label class="fs-14 mb-0 mt-3">Trunk images</label>
              <div class="card-body">
@@ -1610,7 +1677,7 @@
                  <option value="C" <?php echo ($prev_rearWinshield === 'C') ? 'selected' : ''; ?>>
                      Chipped</option>
              </select>
-             <label class="fs-14 mb-0 mt-3">Rear Wind Screen images</label>
+             <label class="fs-14 mb-0 mt-3">Rear Screen images</label>
              <div class="card-body">
                  <div id="rearWindshield_images_picker" class="row"></div>
                  <div id="preview-container"></div>
@@ -1622,18 +1689,26 @@
              <select class="form-control" id="rear_Driver_fender" name="rearDriverfender">
                  <option value="T" <?php echo ($prev_rearDriverfender === 'T') ? 'selected' : ''; ?>>T
                  </option>
-                 <option value="P" <?php echo ($prev_rearDriverfender === 'P') ? 'selected' : ''; ?>>P
-                 </option>
-                 <option value="A1" <?php echo ($prev_rearDriverfender === 'A1') ? 'selected' : ''; ?>>
-                     A1</option>
-                 <option value="A2" <?php echo ($prev_rearDriverfender === 'A2') ? 'selected' : ''; ?>>
-                     A2</option>
-                 <option value="E1" <?php echo ($prev_rearDriverfender === 'E1') ? 'selected' : ''; ?>>
-                     E1</option>
-                 <option value="E2" <?php echo ($prev_rearDriverfender === 'E2') ? 'selected' : ''; ?>>
-                     E2</option>
-                 <option value="N/A" <?php echo ($prev_rearDriverfender === 'N/A') ? 'selected' : ''; ?>>
-                     N/A</option>
+                 <option value="T" <?php echo ($prev_rearDriverfender === 'T') ? 'selected' : ''; ?>>T</option>
+                 <option value="F" <?php echo ($prev_rearDriverfender === 'F') ? 'selected' : ''; ?>>F</option>
+                 <option value="P" <?php echo ($prev_rearDriverfender === 'P') ? 'selected' : ''; ?>>P</option>
+                 <option value="A1" <?php echo ($prev_rearDriverfender === 'A1') ? 'selected' : ''; ?>>A1</option>
+                 <option value="A2" <?php echo ($prev_rearDriverfender === 'A2') ? 'selected' : ''; ?>>A2</option>
+                 <option value="E1" <?php echo ($prev_rearDriverfender === 'E1') ? 'selected' : ''; ?>>E1</option>
+                 <option value="E2" <?php echo ($prev_rearDriverfender === 'E2') ? 'selected' : ''; ?>>E2</option>
+                 <option value="LS" <?php echo ($prev_rearDriverfender === 'LS') ? 'selected' : ''; ?>>LS</option>
+                 <option value="W" <?php echo ($prev_rearDriverfender === 'W') ? 'selected' : ''; ?>>W</option>
+                 <option value="G1" <?php echo ($prev_rearDriverfender === 'G1') ? 'selected' : ''; ?>>G1</option>
+                 <option value="G2" <?php echo ($prev_rearDriverfender === 'G2') ? 'selected' : ''; ?>>G2</option>
+                 <option value="G3" <?php echo ($prev_rearDriverfender === 'G3') ? 'selected' : ''; ?>>G3</option>
+                 <option value="G4" <?php echo ($prev_rearDriverfender === 'G4') ? 'selected' : ''; ?>>G4</option>
+                 <option value="B" <?php echo ($prev_rearDriverfender === 'B') ? 'selected' : ''; ?>>B</option>
+                 <option value="H" <?php echo ($prev_rearDriverfender === 'H') ? 'selected' : ''; ?>>H</option>
+                 <option value="PP" <?php echo ($prev_rearDriverfender === 'PP') ? 'selected' : ''; ?>>PP</option>
+                 <option value="C" <?php echo ($prev_rearDriverfender === 'C') ? 'selected' : ''; ?>>C</option>
+                 <option value="XL" <?php echo ($prev_rearDriverfender === 'XL') ? 'selected' : ''; ?>>XL</option>
+                 <option value="PL" <?php echo ($prev_rearDriverfender === 'PL') ? 'selected' : ''; ?>>PL</option>
+
              </select>
              <label class="fs-14 mb-0 mt-3">Rear Driver Fender images</label>
              <div class="card-body">
@@ -1649,15 +1724,26 @@
          <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
              <label>Roof</label> <br />
              <select class="form-control" id="roof" name="roof">
-                 <option value="T" <?php echo ($prev_roof === 'T') ? 'selected' : ''; ?>>
-                     T</option>
-                 <option value="P" <?php echo ($prev_roof === 'P') ? 'selected' : ''; ?>>
-                     P</option>
+                 <option value="T" <?php echo ($prev_roof === 'T') ? 'selected' : ''; ?>>T</option>
+                 <option value="F" <?php echo ($prev_roof === 'F') ? 'selected' : ''; ?>>F</option>
+                 <option value="P" <?php echo ($prev_roof === 'P') ? 'selected' : ''; ?>>P</option>
                  <option value="A1" <?php echo ($prev_roof === 'A1') ? 'selected' : ''; ?>>A1</option>
                  <option value="A2" <?php echo ($prev_roof === 'A2') ? 'selected' : ''; ?>>A2</option>
                  <option value="E1" <?php echo ($prev_roof === 'E1') ? 'selected' : ''; ?>>E1</option>
                  <option value="E2" <?php echo ($prev_roof === 'E2') ? 'selected' : ''; ?>>E2</option>
-                 <option value="N/A" <?php echo ($prev_roof === 'N/A') ? 'selected' : ''; ?>>N/A</option>
+                 <option value="LS" <?php echo ($prev_roof === 'LS') ? 'selected' : ''; ?>>LS</option>
+                 <option value="W" <?php echo ($prev_roof === 'W') ? 'selected' : ''; ?>>W</option>
+                 <option value="G1" <?php echo ($prev_roof === 'G1') ? 'selected' : ''; ?>>G1</option>
+                 <option value="G2" <?php echo ($prev_roof === 'G2') ? 'selected' : ''; ?>>G2</option>
+                 <option value="G3" <?php echo ($prev_roof === 'G3') ? 'selected' : ''; ?>>G3</option>
+                 <option value="G4" <?php echo ($prev_roof === 'G4') ? 'selected' : ''; ?>>G4</option>
+                 <option value="B" <?php echo ($prev_roof === 'B') ? 'selected' : ''; ?>>B</option>
+                 <option value="H" <?php echo ($prev_roof === 'H') ? 'selected' : ''; ?>>H</option>
+                 <option value="PP" <?php echo ($prev_roof === 'PP') ? 'selected' : ''; ?>>PP</option>
+                 <option value="C" <?php echo ($prev_roof === 'C') ? 'selected' : ''; ?>>C</option>
+                 <option value="XL" <?php echo ($prev_roof === 'XL') ? 'selected' : ''; ?>>XL</option>
+                 <option value="PL" <?php echo ($prev_roof === 'PL') ? 'selected' : ''; ?>>PL</option>
+
              </select>
              <label class="fs-14 mb-0 mt-3">Roof images</label>
              <div class="card-body">
@@ -1670,13 +1756,25 @@
              <label>Panels</label> <br />
              <select class="form-control" id="panels" name="panels">
                  <option value="T" <?php echo ($prev_panels === 'T') ? 'selected' : ''; ?>>T</option>
+                 <option value="F" <?php echo ($prev_panels === 'F') ? 'selected' : ''; ?>>F</option>
                  <option value="P" <?php echo ($prev_panels === 'P') ? 'selected' : ''; ?>>P</option>
                  <option value="A1" <?php echo ($prev_panels === 'A1') ? 'selected' : ''; ?>>A1</option>
                  <option value="A2" <?php echo ($prev_panels === 'A2') ? 'selected' : ''; ?>>A2</option>
                  <option value="E1" <?php echo ($prev_panels === 'E1') ? 'selected' : ''; ?>>E1</option>
                  <option value="E2" <?php echo ($prev_panels === 'E2') ? 'selected' : ''; ?>>E2</option>
-                 <option value="N/A" <?php echo ($prev_panels === 'N/A') ? 'selected' : ''; ?>>N/A
-                 </option>
+                 <option value="LS" <?php echo ($prev_panels === 'LS') ? 'selected' : ''; ?>>LS</option>
+                 <option value="W" <?php echo ($prev_panels === 'W') ? 'selected' : ''; ?>>W</option>
+                 <option value="G1" <?php echo ($prev_panels === 'G1') ? 'selected' : ''; ?>>G1</option>
+                 <option value="G2" <?php echo ($prev_panels === 'G2') ? 'selected' : ''; ?>>G2</option>
+                 <option value="G3" <?php echo ($prev_panels === 'G3') ? 'selected' : ''; ?>>G3</option>
+                 <option value="G4" <?php echo ($prev_panels === 'G4') ? 'selected' : ''; ?>>G4</option>
+                 <option value="B" <?php echo ($prev_panels === 'B') ? 'selected' : ''; ?>>B</option>
+                 <option value="H" <?php echo ($prev_panels === 'H') ? 'selected' : ''; ?>>H</option>
+                 <option value="PP" <?php echo ($prev_panels === 'PP') ? 'selected' : ''; ?>>PP</option>
+                 <option value="C" <?php echo ($prev_panels === 'C') ? 'selected' : ''; ?>>C</option>
+                 <option value="XL" <?php echo ($prev_panels === 'XL') ? 'selected' : ''; ?>>XL</option>
+                 <option value="PL" <?php echo ($prev_panels === 'PL') ? 'selected' : ''; ?>>PL</option>
+
              </select>
              <label class="fs-14 mb-0 mt-3">Panels images</label>
              <div class="card-body">
@@ -1688,20 +1786,26 @@
          <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
              <label>Driver A Pillar</label> <br />
              <select class="form-control" id="driver_A_pillar" name="driverApillar">
-                 <option value="T" <?php echo ($prev_driverApillar === 'T') ? 'selected' : ''; ?>>T
-                 </option>
-                 <option value="P" <?php echo ($prev_driverApillar === 'P') ? 'selected' : ''; ?>>P
-                 </option>
-                 <option value="A1" <?php echo ($prev_driverApillar === 'A1') ? 'selected' : ''; ?>>A1
-                 </option>
-                 <option value="A2" <?php echo ($prev_driverApillar === 'A2') ? 'selected' : ''; ?>>A2
-                 </option>
-                 <option value="E1" <?php echo ($prev_driverApillar === 'E1') ? 'selected' : ''; ?>>E1
-                 </option>
-                 <option value="E2" <?php echo ($prev_driverApillar === 'E2') ? 'selected' : ''; ?>>E2
-                 </option>
-                 <option value="N/A" <?php echo ($prev_driverApillar === 'N/A') ? 'selected' : ''; ?>>N/A
-                 </option>
+                 <option value="T" <?php echo ($prev_driverApillar === 'T') ? 'selected' : ''; ?>>T</option>
+                 <option value="F" <?php echo ($prev_driverApillar === 'F') ? 'selected' : ''; ?>>F</option>
+                 <option value="P" <?php echo ($prev_driverApillar === 'P') ? 'selected' : ''; ?>>P</option>
+                 <option value="A1" <?php echo ($prev_driverApillar === 'A1') ? 'selected' : ''; ?>>A1</option>
+                 <option value="A2" <?php echo ($prev_driverApillar === 'A2') ? 'selected' : ''; ?>>A2</option>
+                 <option value="E1" <?php echo ($prev_driverApillar === 'E1') ? 'selected' : ''; ?>>E1</option>
+                 <option value="E2" <?php echo ($prev_driverApillar === 'E2') ? 'selected' : ''; ?>>E2</option>
+                 <option value="LS" <?php echo ($prev_driverApillar === 'LS') ? 'selected' : ''; ?>>LS</option>
+                 <option value="W" <?php echo ($prev_driverApillar === 'W') ? 'selected' : ''; ?>>W</option>
+                 <option value="G1" <?php echo ($prev_driverApillar === 'G1') ? 'selected' : ''; ?>>G1</option>
+                 <option value="G2" <?php echo ($prev_driverApillar === 'G2') ? 'selected' : ''; ?>>G2</option>
+                 <option value="G3" <?php echo ($prev_driverApillar === 'G3') ? 'selected' : ''; ?>>G3</option>
+                 <option value="G4" <?php echo ($prev_driverApillar === 'G4') ? 'selected' : ''; ?>>G4</option>
+                 <option value="B" <?php echo ($prev_driverApillar === 'B') ? 'selected' : ''; ?>>B</option>
+                 <option value="H" <?php echo ($prev_driverApillar === 'H') ? 'selected' : ''; ?>>H</option>
+                 <option value="PP" <?php echo ($prev_driverApillar === 'PP') ? 'selected' : ''; ?>>PP</option>
+                 <option value="C" <?php echo ($prev_driverApillar === 'C') ? 'selected' : ''; ?>>C</option>
+                 <option value="XL" <?php echo ($prev_driverApillar === 'XL') ? 'selected' : ''; ?>>XL</option>
+                 <option value="PL" <?php echo ($prev_driverApillar === 'PL') ? 'selected' : ''; ?>>PL</option>
+
              </select>
              <label class="fs-14 mb-0 mt-3">Driver A Pillar images</label>
              <div class="card-body">
@@ -1713,20 +1817,26 @@
          <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
              <label>Driver B Pillar</label> <br />
              <select class="form-control" id="driver_B_pillar" name="driverBpillar">
-                 <option value="T" <?php echo ($prev_driverBpillar === 'T') ? 'selected' : ''; ?>>T
-                 </option>
-                 <option value="P" <?php echo ($prev_driverBpillar === 'P') ? 'selected' : ''; ?>>P
-                 </option>
-                 <option value="A1" <?php echo ($prev_driverBpillar === 'A1') ? 'selected' : ''; ?>>A1
-                 </option>
-                 <option value="A2" <?php echo ($prev_driverBpillar === 'A2') ? 'selected' : ''; ?>>A2
-                 </option>
-                 <option value="E1" <?php echo ($prev_driverBpillar === 'E1') ? 'selected' : ''; ?>>E1
-                 </option>
-                 <option value="E2" <?php echo ($prev_driverBpillar === 'E2') ? 'selected' : ''; ?>>E2
-                 </option>
-                 <option value="N/A" <?php echo ($prev_driverBpillar === 'N/A') ? 'selected' : ''; ?>>N/A
-                 </option>
+                 <option value="T" <?php echo ($prev_driverBpillar === 'T') ? 'selected' : ''; ?>>T</option>
+                 <option value="F" <?php echo ($prev_driverBpillar === 'F') ? 'selected' : ''; ?>>F</option>
+                 <option value="P" <?php echo ($prev_driverBpillar === 'P') ? 'selected' : ''; ?>>P</option>
+                 <option value="A1" <?php echo ($prev_driverBpillar === 'A1') ? 'selected' : ''; ?>>A1</option>
+                 <option value="A2" <?php echo ($prev_driverBpillar === 'A2') ? 'selected' : ''; ?>>A2</option>
+                 <option value="E1" <?php echo ($prev_driverBpillar === 'E1') ? 'selected' : ''; ?>>E1</option>
+                 <option value="E2" <?php echo ($prev_driverBpillar === 'E2') ? 'selected' : ''; ?>>E2</option>
+                 <option value="LS" <?php echo ($prev_driverBpillar === 'LS') ? 'selected' : ''; ?>>LS</option>
+                 <option value="W" <?php echo ($prev_driverBpillar === 'W') ? 'selected' : ''; ?>>W</option>
+                 <option value="G1" <?php echo ($prev_driverBpillar === 'G1') ? 'selected' : ''; ?>>G1</option>
+                 <option value="G2" <?php echo ($prev_driverBpillar === 'G2') ? 'selected' : ''; ?>>G2</option>
+                 <option value="G3" <?php echo ($prev_driverBpillar === 'G3') ? 'selected' : ''; ?>>G3</option>
+                 <option value="G4" <?php echo ($prev_driverBpillar === 'G4') ? 'selected' : ''; ?>>G4</option>
+                 <option value="B" <?php echo ($prev_driverBpillar === 'B') ? 'selected' : ''; ?>>B</option>
+                 <option value="H" <?php echo ($prev_driverBpillar === 'H') ? 'selected' : ''; ?>>H</option>
+                 <option value="PP" <?php echo ($prev_driverBpillar === 'PP') ? 'selected' : ''; ?>>PP</option>
+                 <option value="C" <?php echo ($prev_driverBpillar === 'C') ? 'selected' : ''; ?>>C</option>
+                 <option value="XL" <?php echo ($prev_driverBpillar === 'XL') ? 'selected' : ''; ?>>XL</option>
+                 <option value="PL" <?php echo ($prev_driverBpillar === 'PL') ? 'selected' : ''; ?>>PL</option>
+
              </select>
              <label class="fs-14 mb-0 mt-3">Driver B Pillar images</label>
              <div class="card-body">
@@ -1738,20 +1848,26 @@
          <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
              <label>Driver C Pillar</label> <br />
              <select class="form-control" id="driver_C_pillar" name="driverCpillar">
-                 <option value="T" <?php echo ($prev_driverCpillar === 'T') ? 'selected' : ''; ?>>T
-                 </option>
-                 <option value="P" <?php echo ($prev_driverCpillar === 'P') ? 'selected' : ''; ?>>P
-                 </option>
-                 <option value="A1" <?php echo ($prev_driverCpillar === 'A1') ? 'selected' : ''; ?>>A1
-                 </option>
-                 <option value="A2" <?php echo ($prev_driverCpillar === 'A2') ? 'selected' : ''; ?>>A2
-                 </option>
-                 <option value="E1" <?php echo ($prev_driverCpillar === 'E1') ? 'selected' : ''; ?>>E1
-                 </option>
-                 <option value="E2" <?php echo ($prev_driverCpillar === 'E2') ? 'selected' : ''; ?>>E2
-                 </option>
-                 <option value="N/A" <?php echo ($prev_driverCpillar === 'N/A') ? 'selected' : ''; ?>>N/A
-                 </option>
+                 <option value="T" <?php echo ($prev_driverCpillar === 'T') ? 'selected' : ''; ?>>T</option>
+                 <option value="F" <?php echo ($prev_driverCpillar === 'F') ? 'selected' : ''; ?>>F</option>
+                 <option value="P" <?php echo ($prev_driverCpillar === 'P') ? 'selected' : ''; ?>>P</option>
+                 <option value="A1" <?php echo ($prev_driverCpillar === 'A1') ? 'selected' : ''; ?>>A1</option>
+                 <option value="A2" <?php echo ($prev_driverCpillar === 'A2') ? 'selected' : ''; ?>>A2</option>
+                 <option value="E1" <?php echo ($prev_driverCpillar === 'E1') ? 'selected' : ''; ?>>E1</option>
+                 <option value="E2" <?php echo ($prev_driverCpillar === 'E2') ? 'selected' : ''; ?>>E2</option>
+                 <option value="LS" <?php echo ($prev_driverCpillar === 'LS') ? 'selected' : ''; ?>>LS</option>
+                 <option value="W" <?php echo ($prev_driverCpillar === 'W') ? 'selected' : ''; ?>>W</option>
+                 <option value="G1" <?php echo ($prev_driverCpillar === 'G1') ? 'selected' : ''; ?>>G1</option>
+                 <option value="G2" <?php echo ($prev_driverCpillar === 'G2') ? 'selected' : ''; ?>>G2</option>
+                 <option value="G3" <?php echo ($prev_driverCpillar === 'G3') ? 'selected' : ''; ?>>G3</option>
+                 <option value="G4" <?php echo ($prev_driverCpillar === 'G4') ? 'selected' : ''; ?>>G4</option>
+                 <option value="B" <?php echo ($prev_driverCpillar === 'B') ? 'selected' : ''; ?>>B</option>
+                 <option value="H" <?php echo ($prev_driverCpillar === 'H') ? 'selected' : ''; ?>>H</option>
+                 <option value="PP" <?php echo ($prev_driverCpillar === 'PP') ? 'selected' : ''; ?>>PP</option>
+                 <option value="C" <?php echo ($prev_driverCpillar === 'C') ? 'selected' : ''; ?>>C</option>
+                 <option value="XL" <?php echo ($prev_driverCpillar === 'XL') ? 'selected' : ''; ?>>XL</option>
+                 <option value="PL" <?php echo ($prev_driverCpillar === 'PL') ? 'selected' : ''; ?>>PL</option>
+
              </select>
              <label class="fs-14 mb-0 mt-3">Driver C Pillar images</label>
              <div class="card-body">
@@ -1763,20 +1879,26 @@
          <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
              <label>Driver D Pillar</label> <br />
              <select class="form-control" id="driver_D_pillar" name="driverDpillar">
-                 <option value="T" <?php echo ($prev_driverDpillar === 'T') ? 'selected' : ''; ?>>T
-                 </option>
-                 <option value="P" <?php echo ($prev_driverDpillar === 'P') ? 'selected' : ''; ?>>P
-                 </option>
-                 <option value="A1" <?php echo ($prev_driverDpillar === 'A1') ? 'selected' : ''; ?>>A1
-                 </option>
-                 <option value="A2" <?php echo ($prev_driverDpillar === 'A2') ? 'selected' : ''; ?>>A2
-                 </option>
-                 <option value="E1" <?php echo ($prev_driverDpillar === 'E1') ? 'selected' : ''; ?>>E1
-                 </option>
-                 <option value="E2" <?php echo ($prev_driverDpillar === 'E2') ? 'selected' : ''; ?>>E2
-                 </option>
-                 <option value="N/A" <?php echo ($prev_driverDpillar === 'N/A') ? 'selected' : ''; ?>>N/A
-                 </option>
+                 <option value="T" <?php echo ($prev_driverDpillar === 'T') ? 'selected' : ''; ?>>T</option>
+                 <option value="F" <?php echo ($prev_driverDpillar === 'F') ? 'selected' : ''; ?>>F</option>
+                 <option value="P" <?php echo ($prev_driverDpillar === 'P') ? 'selected' : ''; ?>>P</option>
+                 <option value="A1" <?php echo ($prev_driverDpillar === 'A1') ? 'selected' : ''; ?>>A1</option>
+                 <option value="A2" <?php echo ($prev_driverDpillar === 'A2') ? 'selected' : ''; ?>>A2</option>
+                 <option value="E1" <?php echo ($prev_driverDpillar === 'E1') ? 'selected' : ''; ?>>E1</option>
+                 <option value="E2" <?php echo ($prev_driverDpillar === 'E2') ? 'selected' : ''; ?>>E2</option>
+                 <option value="LS" <?php echo ($prev_driverDpillar === 'LS') ? 'selected' : ''; ?>>LS</option>
+                 <option value="W" <?php echo ($prev_driverDpillar === 'W') ? 'selected' : ''; ?>>W</option>
+                 <option value="G1" <?php echo ($prev_driverDpillar === 'G1') ? 'selected' : ''; ?>>G1</option>
+                 <option value="G2" <?php echo ($prev_driverDpillar === 'G2') ? 'selected' : ''; ?>>G2</option>
+                 <option value="G3" <?php echo ($prev_driverDpillar === 'G3') ? 'selected' : ''; ?>>G3</option>
+                 <option value="G4" <?php echo ($prev_driverDpillar === 'G4') ? 'selected' : ''; ?>>G4</option>
+                 <option value="B" <?php echo ($prev_driverDpillar === 'B') ? 'selected' : ''; ?>>B</option>
+                 <option value="H" <?php echo ($prev_driverDpillar === 'H') ? 'selected' : ''; ?>>H</option>
+                 <option value="PP" <?php echo ($prev_driverDpillar === 'PP') ? 'selected' : ''; ?>>PP</option>
+                 <option value="C" <?php echo ($prev_driverDpillar === 'C') ? 'selected' : ''; ?>>C</option>
+                 <option value="XL" <?php echo ($prev_driverDpillar === 'XL') ? 'selected' : ''; ?>>XL</option>
+                 <option value="PL" <?php echo ($prev_driverDpillar === 'PL') ? 'selected' : ''; ?>>PL</option>
+
              </select>
              <label class="fs-14 mb-0 mt-3">Driver D Pillar images</label>
              <div class="card-body">
@@ -1788,20 +1910,26 @@
          <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
              <label>Passenger A Pillar</label> <br />
              <select class="form-control" id="passenger_A_pillar" name="passengerApillar">
-                 <option value="T" <?php echo ($prev_passengerApillar === 'T') ? 'selected' : ''; ?>>T
-                 </option>
-                 <option value="P" <?php echo ($prev_passengerApillar === 'P') ? 'selected' : ''; ?>>P
-                 </option>
-                 <option value="A1" <?php echo ($prev_passengerApillar === 'A1') ? 'selected' : ''; ?>>
-                     A1</option>
-                 <option value="A2" <?php echo ($prev_passengerApillar === 'A2') ? 'selected' : ''; ?>>
-                     A2</option>
-                 <option value="E1" <?php echo ($prev_passengerApillar === 'E1') ? 'selected' : ''; ?>>
-                     E1</option>
-                 <option value="E2" <?php echo ($prev_passengerApillar === 'E2') ? 'selected' : ''; ?>>
-                     E2</option>
-                 <option value="N/A" <?php echo ($prev_passengerApillar === 'N/A') ? 'selected' : ''; ?>>
-                     N/A</option>
+                 <option value="T" <?php echo ($prev_passengerApillar === 'T') ? 'selected' : ''; ?>>T</option>
+                 <option value="F" <?php echo ($prev_passengerApillar === 'F') ? 'selected' : ''; ?>>F</option>
+                 <option value="P" <?php echo ($prev_passengerApillar === 'P') ? 'selected' : ''; ?>>P</option>
+                 <option value="A1" <?php echo ($prev_passengerApillar === 'A1') ? 'selected' : ''; ?>>A1</option>
+                 <option value="A2" <?php echo ($prev_passengerApillar === 'A2') ? 'selected' : ''; ?>>A2</option>
+                 <option value="E1" <?php echo ($prev_passengerApillar === 'E1') ? 'selected' : ''; ?>>E1</option>
+                 <option value="E2" <?php echo ($prev_passengerApillar === 'E2') ? 'selected' : ''; ?>>E2</option>
+                 <option value="LS" <?php echo ($prev_passengerApillar === 'LS') ? 'selected' : ''; ?>>LS</option>
+                 <option value="W" <?php echo ($prev_passengerApillar === 'W') ? 'selected' : ''; ?>>W</option>
+                 <option value="G1" <?php echo ($prev_passengerApillar === 'G1') ? 'selected' : ''; ?>>G1</option>
+                 <option value="G2" <?php echo ($prev_passengerApillar === 'G2') ? 'selected' : ''; ?>>G2</option>
+                 <option value="G3" <?php echo ($prev_passengerApillar === 'G3') ? 'selected' : ''; ?>>G3</option>
+                 <option value="G4" <?php echo ($prev_passengerApillar === 'G4') ? 'selected' : ''; ?>>G4</option>
+                 <option value="B" <?php echo ($prev_passengerApillar === 'B') ? 'selected' : ''; ?>>B</option>
+                 <option value="H" <?php echo ($prev_passengerApillar === 'H') ? 'selected' : ''; ?>>H</option>
+                 <option value="PP" <?php echo ($prev_passengerApillar === 'PP') ? 'selected' : ''; ?>>PP</option>
+                 <option value="C" <?php echo ($prev_passengerApillar === 'C') ? 'selected' : ''; ?>>C</option>
+                 <option value="XL" <?php echo ($prev_passengerApillar === 'XL') ? 'selected' : ''; ?>>XL</option>
+                 <option value="PL" <?php echo ($prev_passengerApillar === 'PL') ? 'selected' : ''; ?>>PL</option>
+
              </select>
              <label class="fs-14 mb-0 mt-3">Passenger A Pillar images</label>
              <div class="card-body">
@@ -1813,20 +1941,26 @@
          <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
              <label>Passenger B Pillar</label> <br />
              <select class="form-control" id="passenger_B_pillar" name="passengerBpillar">
-                 <option value="T" <?php echo ($prev_passengerBpillar === 'T') ? 'selected' : ''; ?>>T
-                 </option>
-                 <option value="P" <?php echo ($prev_passengerBpillar === 'P') ? 'selected' : ''; ?>>P
-                 </option>
-                 <option value="A1" <?php echo ($prev_passengerBpillar === 'A1') ? 'selected' : ''; ?>>
-                     A1</option>
-                 <option value="A2" <?php echo ($prev_passengerBpillar === 'A2') ? 'selected' : ''; ?>>
-                     A2</option>
-                 <option value="E1" <?php echo ($prev_passengerBpillar === 'E1') ? 'selected' : ''; ?>>
-                     E1</option>
-                 <option value="E2" <?php echo ($prev_passengerBpillar === 'E2') ? 'selected' : ''; ?>>
-                     E2</option>
-                 <option value="N/A" <?php echo ($prev_passengerBpillar === 'N/A') ? 'selected' : ''; ?>>
-                     N/A</option>
+                 <option value="T" <?php echo ($prev_passengerBpillar === 'T') ? 'selected' : ''; ?>>T</option>
+                 <option value="F" <?php echo ($prev_passengerBpillar === 'F') ? 'selected' : ''; ?>>F</option>
+                 <option value="P" <?php echo ($prev_passengerBpillar === 'P') ? 'selected' : ''; ?>>P</option>
+                 <option value="A1" <?php echo ($prev_passengerBpillar === 'A1') ? 'selected' : ''; ?>>A1</option>
+                 <option value="A2" <?php echo ($prev_passengerBpillar === 'A2') ? 'selected' : ''; ?>>A2</option>
+                 <option value="E1" <?php echo ($prev_passengerBpillar === 'E1') ? 'selected' : ''; ?>>E1</option>
+                 <option value="E2" <?php echo ($prev_passengerBpillar === 'E2') ? 'selected' : ''; ?>>E2</option>
+                 <option value="LS" <?php echo ($prev_passengerBpillar === 'LS') ? 'selected' : ''; ?>>LS</option>
+                 <option value="W" <?php echo ($prev_passengerBpillar === 'W') ? 'selected' : ''; ?>>W</option>
+                 <option value="G1" <?php echo ($prev_passengerBpillar === 'G1') ? 'selected' : ''; ?>>G1</option>
+                 <option value="G2" <?php echo ($prev_passengerBpillar === 'G2') ? 'selected' : ''; ?>>G2</option>
+                 <option value="G3" <?php echo ($prev_passengerBpillar === 'G3') ? 'selected' : ''; ?>>G3</option>
+                 <option value="G4" <?php echo ($prev_passengerBpillar === 'G4') ? 'selected' : ''; ?>>G4</option>
+                 <option value="B" <?php echo ($prev_passengerBpillar === 'B') ? 'selected' : ''; ?>>B</option>
+                 <option value="H" <?php echo ($prev_passengerBpillar === 'H') ? 'selected' : ''; ?>>H</option>
+                 <option value="PP" <?php echo ($prev_passengerBpillar === 'PP') ? 'selected' : ''; ?>>PP</option>
+                 <option value="C" <?php echo ($prev_passengerBpillar === 'C') ? 'selected' : ''; ?>>C</option>
+                 <option value="XL" <?php echo ($prev_passengerBpillar === 'XL') ? 'selected' : ''; ?>>XL</option>
+                 <option value="PL" <?php echo ($prev_passengerBpillar === 'PL') ? 'selected' : ''; ?>>PL</option>
+
              </select>
              <label class="fs-14 mb-0 mt-3">Passenger B Pillar images</label>
              <div class="card-body">
@@ -1838,20 +1972,27 @@
          <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
              <label>Passenger C Pillar</label> <br />
              <select class="form-control" id="passenger_C_pillar" name="passengerCpillar">
-                 <option value="T" <?php echo ($prev_passengerCpillar === 'T') ? 'selected' : ''; ?>>T
-                 </option>
-                 <option value="P" <?php echo ($prev_passengerCpillar === 'P') ? 'selected' : ''; ?>>P
-                 </option>
-                 <option value="A1" <?php echo ($prev_passengerCpillar === 'A1') ? 'selected' : ''; ?>>
-                     A1</option>
-                 <option value="A2" <?php echo ($prev_passengerCpillar === 'A2') ? 'selected' : ''; ?>>
-                     A2</option>
-                 <option value="E1" <?php echo ($prev_passengerCpillar === 'E1') ? 'selected' : ''; ?>>
-                     E1</option>
-                 <option value="E2" <?php echo ($prev_passengerCpillar === 'E2') ? 'selected' : ''; ?>>
-                     E2</option>
-                 <option value="N/A" <?php echo ($prev_passengerCpillar === 'N/A') ? 'selected' : ''; ?>>
-                     N/A</option>
+
+                 <option value="T" <?php echo ($prev_passengerCpillar === 'T') ? 'selected' : ''; ?>>T</option>
+                 <option value="F" <?php echo ($prev_passengerCpillar === 'F') ? 'selected' : ''; ?>>F</option>
+                 <option value="P" <?php echo ($prev_passengerCpillar === 'P') ? 'selected' : ''; ?>>P</option>
+                 <option value="A1" <?php echo ($prev_passengerCpillar === 'A1') ? 'selected' : ''; ?>>A1</option>
+                 <option value="A2" <?php echo ($prev_passengerCpillar === 'A2') ? 'selected' : ''; ?>>A2</option>
+                 <option value="E1" <?php echo ($prev_passengerCpillar === 'E1') ? 'selected' : ''; ?>>E1</option>
+                 <option value="E2" <?php echo ($prev_passengerCpillar === 'E2') ? 'selected' : ''; ?>>E2</option>
+                 <option value="LS" <?php echo ($prev_passengerCpillar === 'LS') ? 'selected' : ''; ?>>LS</option>
+                 <option value="W" <?php echo ($prev_passengerCpillar === 'W') ? 'selected' : ''; ?>>W</option>
+                 <option value="G1" <?php echo ($prev_passengerCpillar === 'G1') ? 'selected' : ''; ?>>G1</option>
+                 <option value="G2" <?php echo ($prev_passengerCpillar === 'G2') ? 'selected' : ''; ?>>G2</option>
+                 <option value="G3" <?php echo ($prev_passengerCpillar === 'G3') ? 'selected' : ''; ?>>G3</option>
+                 <option value="G4" <?php echo ($prev_passengerCpillar === 'G4') ? 'selected' : ''; ?>>G4</option>
+                 <option value="B" <?php echo ($prev_passengerCpillar === 'B') ? 'selected' : ''; ?>>B</option>
+                 <option value="H" <?php echo ($prev_passengerCpillar === 'H') ? 'selected' : ''; ?>>H</option>
+                 <option value="PP" <?php echo ($prev_passengerCpillar === 'PP') ? 'selected' : ''; ?>>PP</option>
+                 <option value="C" <?php echo ($prev_passengerCpillar === 'C') ? 'selected' : ''; ?>>C</option>
+                 <option value="XL" <?php echo ($prev_passengerCpillar === 'XL') ? 'selected' : ''; ?>>XL</option>
+                 <option value="PL" <?php echo ($prev_passengerCpillar === 'PL') ? 'selected' : ''; ?>>PL</option>
+
              </select>
              <label class="fs-14 mb-0 mt-3">Passenger C Pillar images</label>
              <div class="card-body">
@@ -1863,20 +2004,27 @@
          <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
              <label>Passenger D Pillar</label> <br />
              <select class="form-control" id="passenger_D_pillar" name="passengerDpillar">
-                 <option value="T" <?php echo ($prev_passengerDpillar === 'T') ? 'selected' : ''; ?>>T
-                 </option>
-                 <option value="P" <?php echo ($prev_passengerDpillar === 'P') ? 'selected' : ''; ?>>P
-                 </option>
-                 <option value="A1" <?php echo ($prev_passengerDpillar === 'A1') ? 'selected' : ''; ?>>
-                     A1</option>
-                 <option value="A2" <?php echo ($prev_passengerDpillar === 'A2') ? 'selected' : ''; ?>>
-                     A2</option>
-                 <option value="E1" <?php echo ($prev_passengerDpillar === 'E1') ? 'selected' : ''; ?>>
-                     E1</option>
-                 <option value="E2" <?php echo ($prev_passengerDpillar === 'E2') ? 'selected' : ''; ?>>
-                     E2</option>
-                 <option value="N/A" <?php echo ($prev_passengerDpillar === 'N/A') ? 'selected' : ''; ?>>
-                     N/A</option>
+
+                 <option value="T" <?php echo ($prev_passengerDpillar === 'T') ? 'selected' : ''; ?>>T</option>
+                 <option value="F" <?php echo ($prev_passengerDpillar === 'F') ? 'selected' : ''; ?>>F</option>
+                 <option value="P" <?php echo ($prev_passengerDpillar === 'P') ? 'selected' : ''; ?>>P</option>
+                 <option value="A1" <?php echo ($prev_passengerDpillar === 'A1') ? 'selected' : ''; ?>>A1</option>
+                 <option value="A2" <?php echo ($prev_passengerDpillar === 'A2') ? 'selected' : ''; ?>>A2</option>
+                 <option value="E1" <?php echo ($prev_passengerDpillar === 'E1') ? 'selected' : ''; ?>>E1</option>
+                 <option value="E2" <?php echo ($prev_passengerDpillar === 'E2') ? 'selected' : ''; ?>>E2</option>
+                 <option value="LS" <?php echo ($prev_passengerDpillar === 'LS') ? 'selected' : ''; ?>>LS</option>
+                 <option value="W" <?php echo ($prev_passengerDpillar === 'W') ? 'selected' : ''; ?>>W</option>
+                 <option value="G1" <?php echo ($prev_passengerDpillar === 'G1') ? 'selected' : ''; ?>>G1</option>
+                 <option value="G2" <?php echo ($prev_passengerDpillar === 'G2') ? 'selected' : ''; ?>>G2</option>
+                 <option value="G3" <?php echo ($prev_passengerDpillar === 'G3') ? 'selected' : ''; ?>>G3</option>
+                 <option value="G4" <?php echo ($prev_passengerDpillar === 'G4') ? 'selected' : ''; ?>>G4</option>
+                 <option value="B" <?php echo ($prev_passengerDpillar === 'B') ? 'selected' : ''; ?>>B</option>
+                 <option value="H" <?php echo ($prev_passengerDpillar === 'H') ? 'selected' : ''; ?>>H</option>
+                 <option value="PP" <?php echo ($prev_passengerDpillar === 'PP') ? 'selected' : ''; ?>>PP</option>
+                 <option value="C" <?php echo ($prev_passengerDpillar === 'C') ? 'selected' : ''; ?>>C</option>
+                 <option value="XL" <?php echo ($prev_passengerDpillar === 'XL') ? 'selected' : ''; ?>>XL</option>
+                 <option value="PL" <?php echo ($prev_passengerDpillar === 'PL') ? 'selected' : ''; ?>>PL</option>
+
              </select>
              <label class="fs-14 mb-0 mt-3">Passenger D Pillar images</label>
              <div class="card-body">
@@ -1906,9 +2054,12 @@
          <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
              <label>Rear Passenger Tyre Condition</label> <br />
              <select name="rearPassengertyreCondition" class="form-control" id="rear_Passenger_tyre_Condition">
-                 <option value="Good">Good</option>
-                 <option value="Normal">Normal</option>
-                 <option value="not Good">Not Good</option>
+                 <option value="Good" <?php echo ($previous_rearPassengertyreCondition === 'Good') ? 'selected' : ''; ?>>
+                     Good</option>
+                 <option value="Normal" <?php echo ($previous_rearPassengertyreCondition === 'Normal') ? 'selected' : ''; ?>>
+                     Normal</option>
+                 <option value="not Good" <?php echo ($previous_rearPassengertyreCondition === 'not Good') ? 'selected' : ''; ?>>
+                     Not Good</option>
              </select>
          </div>
          <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
@@ -2298,119 +2449,168 @@
              <label class="fs-14">Front Bumper</label>
              <select class="form-control" multiple id="getFrontBumper">
                  <option value="T">T</option>
+                 <option value="F">F</option>
                  <option value="P">P</option>
-                 <option value="W">Q</option>
-                 <option value="W1">W1</option>
                  <option value="A1">A1</option>
                  <option value="A2">A2</option>
                  <option value="E1">E1</option>
                  <option value="E2">E2</option>
+                 <option value="LS">LS</option>
+                 <option value="W">W</option>
+                 <option value="G1">G1</option>
+                 <option value="G2">G2</option>
+                 <option value="G3">G3</option>
+                 <option value="G4">G4</option>
                  <option value="B">B</option>
-                 <option value="G">G</option>
+                 <option value="H">H</option>
+                 <option value="PP">PP</option>
                  <option value="C">C</option>
-                 <option value="R">R</option>
+                 <option value="XL">XL</option>
+                 <option value="PL">PL</option>
              </select>
          </div>
          <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
              <label class="fs-14">Bonnet</label>
              <select class="form-control" multiple id="getBonnet">
                  <option value="T">T</option>
+                 <option value="F">F</option>
                  <option value="P">P</option>
-                 <option value="W">Q</option>
-                 <option value="W1">W1</option>
                  <option value="A1">A1</option>
                  <option value="A2">A2</option>
                  <option value="E1">E1</option>
                  <option value="E2">E2</option>
+                 <option value="LS">LS</option>
+                 <option value="W">W</option>
+                 <option value="G1">G1</option>
+                 <option value="G2">G2</option>
+                 <option value="G3">G3</option>
+                 <option value="G4">G4</option>
                  <option value="B">B</option>
-                 <option value="G">G</option>
+                 <option value="H">H</option>
+                 <option value="PP">PP</option>
                  <option value="C">C</option>
-                 <option value="R">R</option>
+                 <option value="XL">XL</option>
+                 <option value="PL">PL</option>
              </select>
          </div>
          <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
              <label class="fs-14">Right Fender</label>
              <select class="form-control" multiple id="getRightFender">
                  <option value="T">T</option>
+                 <option value="F">F</option>
                  <option value="P">P</option>
-                 <option value="W">Q</option>
-                 <option value="W1">W1</option>
                  <option value="A1">A1</option>
                  <option value="A2">A2</option>
                  <option value="E1">E1</option>
                  <option value="E2">E2</option>
+                 <option value="LS">LS</option>
+                 <option value="W">W</option>
+                 <option value="G1">G1</option>
+                 <option value="G2">G2</option>
+                 <option value="G3">G3</option>
+                 <option value="G4">G4</option>
                  <option value="B">B</option>
-                 <option value="G">G</option>
+                 <option value="H">H</option>
+                 <option value="PP">PP</option>
                  <option value="C">C</option>
-                 <option value="R">R</option>
+                 <option value="XL">XL</option>
+                 <option value="PL">PL</option>
              </select>
          </div>
          <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
              <label class="fs-14">Front Right Door</label>
              <select class="form-control" multiple id="getFrontrightDoor">
                  <option value="T">T</option>
+                 <option value="F">F</option>
                  <option value="P">P</option>
-                 <option value="W">Q</option>
-                 <option value="W1">W1</option>
                  <option value="A1">A1</option>
                  <option value="A2">A2</option>
                  <option value="E1">E1</option>
                  <option value="E2">E2</option>
+                 <option value="LS">LS</option>
+                 <option value="W">W</option>
+                 <option value="G1">G1</option>
+                 <option value="G2">G2</option>
+                 <option value="G3">G3</option>
+                 <option value="G4">G4</option>
                  <option value="B">B</option>
-                 <option value="G">G</option>
+                 <option value="H">H</option>
+                 <option value="PP">PP</option>
                  <option value="C">C</option>
-                 <option value="R">R</option>
+                 <option value="XL">XL</option>
+                 <option value="PL">PL</option>
              </select>
          </div>
          <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
              <label class="fs-14">Back Right Door</label>
              <select class="form-control" multiple id="getBackrightDoor">
                  <option value="T">T</option>
+                 <option value="F">F</option>
                  <option value="P">P</option>
-                 <option value="W">Q</option>
-                 <option value="W1">W1</option>
                  <option value="A1">A1</option>
                  <option value="A2">A2</option>
                  <option value="E1">E1</option>
                  <option value="E2">E2</option>
+                 <option value="LS">LS</option>
+                 <option value="W">W</option>
+                 <option value="G1">G1</option>
+                 <option value="G2">G2</option>
+                 <option value="G3">G3</option>
+                 <option value="G4">G4</option>
                  <option value="B">B</option>
-                 <option value="G">G</option>
+                 <option value="H">H</option>
+                 <option value="PP">PP</option>
                  <option value="C">C</option>
-                 <option value="R">R</option>
+                 <option value="XL">XL</option>
+                 <option value="PL">PL</option>
              </select>
          </div>
          <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
              <label class="fs-14">Right Quater panel </label>
              <select class="form-control" multiple id="getRightQuaterpanel">
                  <option value="T">T</option>
+                 <option value="F">F</option>
                  <option value="P">P</option>
-                 <option value="W">Q</option>
-                 <option value="W1">W1</option>
                  <option value="A1">A1</option>
                  <option value="A2">A2</option>
                  <option value="E1">E1</option>
                  <option value="E2">E2</option>
+                 <option value="LS">LS</option>
+                 <option value="W">W</option>
+                 <option value="G1">G1</option>
+                 <option value="G2">G2</option>
+                 <option value="G3">G3</option>
+                 <option value="G4">G4</option>
                  <option value="B">B</option>
-                 <option value="G">G</option>
+                 <option value="H">H</option>
+                 <option value="PP">PP</option>
                  <option value="C">C</option>
-                 <option value="R">R</option>
+                 <option value="XL">XL</option>
+                 <option value="PL">PL</option>
              </select>
          </div>
          <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
              <label class="fs-14">Right A piller</label>
              <select class="form-control" multiple id="getRightApiller">
                  <option value="T">T</option>
+                 <option value="F">F</option>
                  <option value="P">P</option>
-                 <option value="W">Q</option>
-                 <option value="W1">W1</option>
                  <option value="A1">A1</option>
                  <option value="A2">A2</option>
                  <option value="E1">E1</option>
                  <option value="E2">E2</option>
+                 <option value="LS">LS</option>
+                 <option value="W">W</option>
+                 <option value="G1">G1</option>
+                 <option value="G2">G2</option>
+                 <option value="G3">G3</option>
+                 <option value="G4">G4</option>
                  <option value="B">B</option>
-                 <option value="G">G</option>
+                 <option value="H">H</option>
+                 <option value="PP">PP</option>
                  <option value="C">C</option>
-                 <option value="R">R</option>
+                 <option value="XL">XL</option>
+                 <option value="PL">PL</option>
              </select>
          </div>
      </div>
@@ -2420,102 +2620,144 @@
              <label class="fs-14">Right B piller</label>
              <select class="form-control" multiple id="getRightBpiller">
                  <option value="T">T</option>
+                 <option value="F">F</option>
                  <option value="P">P</option>
-                 <option value="W">Q</option>
-                 <option value="W1">W1</option>
                  <option value="A1">A1</option>
                  <option value="A2">A2</option>
                  <option value="E1">E1</option>
                  <option value="E2">E2</option>
+                 <option value="LS">LS</option>
+                 <option value="W">W</option>
+                 <option value="G1">G1</option>
+                 <option value="G2">G2</option>
+                 <option value="G3">G3</option>
+                 <option value="G4">G4</option>
                  <option value="B">B</option>
-                 <option value="G">G</option>
+                 <option value="H">H</option>
+                 <option value="PP">PP</option>
                  <option value="C">C</option>
-                 <option value="R">R</option>
+                 <option value="XL">XL</option>
+                 <option value="PL">PL</option>
              </select>
          </div>
          <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
              <label class="fs-14">Right C piller</label>
              <select class="form-control" multiple id="getRightCpiller">
                  <option value="T">T</option>
+                 <option value="F">F</option>
                  <option value="P">P</option>
-                 <option value="W">Q</option>
-                 <option value="W1">W1</option>
                  <option value="A1">A1</option>
                  <option value="A2">A2</option>
                  <option value="E1">E1</option>
                  <option value="E2">E2</option>
+                 <option value="LS">LS</option>
+                 <option value="W">W</option>
+                 <option value="G1">G1</option>
+                 <option value="G2">G2</option>
+                 <option value="G3">G3</option>
+                 <option value="G4">G4</option>
                  <option value="B">B</option>
-                 <option value="G">G</option>
+                 <option value="H">H</option>
+                 <option value="PP">PP</option>
                  <option value="C">C</option>
-                 <option value="R">R</option>
+                 <option value="XL">XL</option>
+                 <option value="PL">PL</option>
              </select>
          </div>
          <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
              <label class="fs-14">Roof</label>
              <select class="form-control" multiple id="getRoof">
                  <option value="T">T</option>
+                 <option value="F">F</option>
                  <option value="P">P</option>
-                 <option value="W">Q</option>
-                 <option value="W1">W1</option>
                  <option value="A1">A1</option>
                  <option value="A2">A2</option>
                  <option value="E1">E1</option>
                  <option value="E2">E2</option>
+                 <option value="LS">LS</option>
+                 <option value="W">W</option>
+                 <option value="G1">G1</option>
+                 <option value="G2">G2</option>
+                 <option value="G3">G3</option>
+                 <option value="G4">G4</option>
                  <option value="B">B</option>
-                 <option value="G">G</option>
+                 <option value="H">H</option>
+                 <option value="PP">PP</option>
                  <option value="C">C</option>
-                 <option value="R">R</option>
+                 <option value="XL">XL</option>
+                 <option value="PL">PL</option>
              </select>
          </div>
          <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
              <label class="fs-14">Trunk</label>
              <select class="form-control" multiple id="getTrunk">
                  <option value="T">T</option>
+                 <option value="F">F</option>
                  <option value="P">P</option>
-                 <option value="W">Q</option>
-                 <option value="W1">W1</option>
                  <option value="A1">A1</option>
                  <option value="A2">A2</option>
                  <option value="E1">E1</option>
                  <option value="E2">E2</option>
+                 <option value="LS">LS</option>
+                 <option value="W">W</option>
+                 <option value="G1">G1</option>
+                 <option value="G2">G2</option>
+                 <option value="G3">G3</option>
+                 <option value="G4">G4</option>
                  <option value="B">B</option>
-                 <option value="G">G</option>
+                 <option value="H">H</option>
+                 <option value="PP">PP</option>
                  <option value="C">C</option>
-                 <option value="R">R</option>
+                 <option value="XL">XL</option>
+                 <option value="PL">PL</option>
              </select>
          </div>
          <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
              <label class="fs-14">Back Bumper </label>
              <select class="form-control" multiple id="getBackbumper">
                  <option value="T">T</option>
+                 <option value="F">F</option>
                  <option value="P">P</option>
-                 <option value="W">Q</option>
-                 <option value="W1">W1</option>
                  <option value="A1">A1</option>
                  <option value="A2">A2</option>
                  <option value="E1">E1</option>
                  <option value="E2">E2</option>
+                 <option value="LS">LS</option>
+                 <option value="W">W</option>
+                 <option value="G1">G1</option>
+                 <option value="G2">G2</option>
+                 <option value="G3">G3</option>
+                 <option value="G4">G4</option>
                  <option value="B">B</option>
-                 <option value="G">G</option>
+                 <option value="H">H</option>
+                 <option value="PP">PP</option>
                  <option value="C">C</option>
-                 <option value="R">R</option>
+                 <option value="XL">XL</option>
+                 <option value="PL">PL</option>
              </select>
          </div>
          <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
              <label class="fs-14">Left Quater panel</label>
              <select class="form-control" multiple id="getLeftQuaterpanel">
                  <option value="T">T</option>
+                 <option value="F">F</option>
                  <option value="P">P</option>
-                 <option value="W">Q</option>
-                 <option value="W1">W1</option>
                  <option value="A1">A1</option>
                  <option value="A2">A2</option>
                  <option value="E1">E1</option>
                  <option value="E2">E2</option>
+                 <option value="LS">LS</option>
+                 <option value="W">W</option>
+                 <option value="G1">G1</option>
+                 <option value="G2">G2</option>
+                 <option value="G3">G3</option>
+                 <option value="G4">G4</option>
                  <option value="B">B</option>
-                 <option value="G">G</option>
+                 <option value="H">H</option>
+                 <option value="PP">PP</option>
                  <option value="C">C</option>
-                 <option value="R">R</option>
+                 <option value="XL">XL</option>
+                 <option value="PL">PL</option>
              </select>
          </div>
      </div>
@@ -2526,113 +2768,155 @@
              <label class="fs-14">Back Left Door</label>
              <select class="form-control" multiple id="getBackLeftDoor">
                  <option value="T">T</option>
+                 <option value="F">F</option>
                  <option value="P">P</option>
-                 <option value="W">Q</option>
-                 <option value="W1">W1</option>
                  <option value="A1">A1</option>
                  <option value="A2">A2</option>
                  <option value="E1">E1</option>
                  <option value="E2">E2</option>
+                 <option value="LS">LS</option>
+                 <option value="W">W</option>
+                 <option value="G1">G1</option>
+                 <option value="G2">G2</option>
+                 <option value="G3">G3</option>
+                 <option value="G4">G4</option>
                  <option value="B">B</option>
-                 <option value="G">G</option>
+                 <option value="H">H</option>
+                 <option value="PP">PP</option>
                  <option value="C">C</option>
-                 <option value="R">R</option>
+                 <option value="XL">XL</option>
+                 <option value="PL">PL</option>
              </select>
          </div>
          <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
              <label class="fs-14">Front Left Door </label>
              <select class="form-control" multiple id="getFrontLeftDoor">
                  <option value="T">T</option>
+                 <option value="F">F</option>
                  <option value="P">P</option>
-                 <option value="W">Q</option>
-                 <option value="W1">W1</option>
                  <option value="A1">A1</option>
                  <option value="A2">A2</option>
                  <option value="E1">E1</option>
                  <option value="E2">E2</option>
+                 <option value="LS">LS</option>
+                 <option value="W">W</option>
+                 <option value="G1">G1</option>
+                 <option value="G2">G2</option>
+                 <option value="G3">G3</option>
+                 <option value="G4">G4</option>
                  <option value="B">B</option>
-                 <option value="G">G</option>
+                 <option value="H">H</option>
+                 <option value="PP">PP</option>
                  <option value="C">C</option>
-                 <option value="R">R</option>
+                 <option value="XL">XL</option>
+                 <option value="PL">PL</option>
              </select>
          </div>
          <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
              <label class="fs-14">Front Left Fender</label>
              <select class="form-control" multiple id="getFrontLeftFender">
                  <option value="T">T</option>
+                 <option value="F">F</option>
                  <option value="P">P</option>
-                 <option value="W">Q</option>
-                 <option value="W1">W1</option>
                  <option value="A1">A1</option>
                  <option value="A2">A2</option>
                  <option value="E1">E1</option>
                  <option value="E2">E2</option>
+                 <option value="LS">LS</option>
+                 <option value="W">W</option>
+                 <option value="G1">G1</option>
+                 <option value="G2">G2</option>
+                 <option value="G3">G3</option>
+                 <option value="G4">G4</option>
                  <option value="B">B</option>
-                 <option value="G">G</option>
+                 <option value="H">H</option>
+                 <option value="PP">PP</option>
                  <option value="C">C</option>
-                 <option value="R">R</option>
+                 <option value="XL">XL</option>
+                 <option value="PL">PL</option>
              </select>
          </div>
          <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
              <label class="fs-14">Left A piller</label>
              <select class="form-control" multiple id="getLeftApiller">
                  <option value="T">T</option>
+                 <option value="F">F</option>
                  <option value="P">P</option>
-                 <option value="W">Q</option>
-                 <option value="W1">W1</option>
                  <option value="A1">A1</option>
                  <option value="A2">A2</option>
                  <option value="E1">E1</option>
                  <option value="E2">E2</option>
+                 <option value="LS">LS</option>
+                 <option value="W">W</option>
+                 <option value="G1">G1</option>
+                 <option value="G2">G2</option>
+                 <option value="G3">G3</option>
+                 <option value="G4">G4</option>
                  <option value="B">B</option>
-                 <option value="G">G</option>
+                 <option value="H">H</option>
+                 <option value="PP">PP</option>
                  <option value="C">C</option>
-                 <option value="R">R</option>
+                 <option value="XL">XL</option>
+                 <option value="PL">PL</option>
              </select>
          </div>
          <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
              <label class="fs-14">Left B piller </label>
              <select class="form-control" multiple id="getLeftBpiller">
                  <option value="T">T</option>
+                 <option value="F">F</option>
                  <option value="P">P</option>
-                 <option value="W">Q</option>
-                 <option value="W1">W1</option>
                  <option value="A1">A1</option>
                  <option value="A2">A2</option>
                  <option value="E1">E1</option>
                  <option value="E2">E2</option>
+                 <option value="LS">LS</option>
+                 <option value="W">W</option>
+                 <option value="G1">G1</option>
+                 <option value="G2">G2</option>
+                 <option value="G3">G3</option>
+                 <option value="G4">G4</option>
                  <option value="B">B</option>
-                 <option value="G">G</option>
+                 <option value="H">H</option>
+                 <option value="PP">PP</option>
                  <option value="C">C</option>
-                 <option value="R">R</option>
+                 <option value="XL">XL</option>
+                 <option value="PL">PL</option>
              </select>
          </div>
          <div class='col-lg-2 col-md-4 col-sm-4 mb-3'>
              <label class="fs-14">Left C piller</label>
              <select class="form-control" multiple id="getLeftCpiller">
                  <option value="T">T</option>
+                 <option value="F">F</option>
                  <option value="P">P</option>
-                 <option value="W">Q</option>
-                 <option value="W1">W1</option>
                  <option value="A1">A1</option>
                  <option value="A2">A2</option>
                  <option value="E1">E1</option>
                  <option value="E2">E2</option>
+                 <option value="LS">LS</option>
+                 <option value="W">W</option>
+                 <option value="G1">G1</option>
+                 <option value="G2">G2</option>
+                 <option value="G3">G3</option>
+                 <option value="G4">G4</option>
                  <option value="B">B</option>
-                 <option value="G">G</option>
+                 <option value="H">H</option>
+                 <option value="PP">PP</option>
                  <option value="C">C</option>
-                 <option value="R">R</option>
+                 <option value="XL">XL</option>
+                 <option value="PL">PL</option>
              </select>
          </div>
      </div>
 
      <div class="mb-4 row">
-         <div class="col-lg-6 col-md-6">
+         <div class="col-lg-6 col-md-6 col-6">
              <div class="text-left">
                  <input type="submit" value="Update" name="" class="btn btn-success pl-2 pr-2" />
              </div>
          </div>
-         <div class="col-lg-6 col-md-6">
+         <div class="col-lg-6 col-md-6 col-6">
              <div class="text-right">
                  <input type="button" class="btn btn-primary" value="Download" id="download_btn" />
              </div>
